@@ -3,7 +3,7 @@ import Typewriter from "./ui/animated/typewriter";
 
 export default function Hero() {
   return (
-    <div className="bg-black text-white h-[600px] w-full p-20 sm:px-8 py-44 overflow-hidden">
+    <div className="bg-[#181414] text-white h-[600px] w-full p-20 sm:px-8 py-44 overflow-hidden">
       <div className="h-full ">
         <h1 className="text-7xl sm:text-4xl">
           <Typewriter

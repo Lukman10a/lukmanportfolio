@@ -83,7 +83,7 @@ export function NavBar() {
                 alt="brand logo"
                 className="size-12 object-contain"
               /> */}
-              <p className="text-blue-600 font-bold text-2xl">LUKMAN</p>
+              <p className="text-white font-bold text-2xl">LUKMAN</p>
             </Link>
           </div>
 
@@ -97,7 +97,7 @@ export function NavBar() {
                     `text-lg font-medium transition-colors hover:text-primary ${
                       activeItem === item.title
                         ? "text-yellow-900"
-                        : "text-blue-600"
+                        : "text-white"
                     }`,
                     isActive(item?.href as string) && "text-[#E3B503]"
                   )}

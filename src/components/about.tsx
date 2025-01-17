@@ -3,7 +3,7 @@ import Typewriter from "./ui/animated/typewriter";
 
 export default function About() {
   return (
-    <div className="p-20 grid grid-cols-2 sm:grid-cols-1 sm:gap-6 sm:p-8 bg-black text-white">
+    <div className="p-20 grid grid-cols-2 sm:grid-cols-1 sm:gap-6 sm:p-8 bg-[#181414] text-white">
       <p className="text-5xl sm:text-4xl">A beautiful journey</p>
       <div className="space-y-10">
         <p className="text-2xl sm:text-xl">

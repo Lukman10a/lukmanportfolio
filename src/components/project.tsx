@@ -32,7 +32,7 @@ const projects = [
 
 export default function Project() {
   return (
-    <div className="p-20 bg-[#181414] text-white sm:p-8">
+    <div className="p-20 bg-black text-white sm:p-8">
       <h1 className="text-7xl sm:text-4xl text-center pb-10">
         My Latest Projects
       </h1>

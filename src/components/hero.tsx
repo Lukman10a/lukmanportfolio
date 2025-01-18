@@ -1,23 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import Typewriter from "./ui/animated/typewriter";
+import { TextLoop } from "./ui/animated/textLoop";
 
 export default function Hero() {
+  const [text, setText] = useState(false);
   return (
     <div className="bg-black text-white h-[600px] w-full p-20 sm:px-8 py-44 overflow-hidden">
       <div className="h-full ">
-        <h1 className="text-7xl sm:text-4xl">
+        <h1 className="text-7xl sm:text-4xl overflow-hidden">
           <Typewriter
-            text={
-              "I am LUKMAN, a frontend Engineer that creates web applications"
-            }
+            text={"I am LUKMAN, a Frontend Engineer that creates:"}
             delay={40}
+            onTypingComplete={() => setText(true)}
           />
+          {text && ( // Render TextLoop only when typing completes
+            <TextLoop>
+              <span className="text-[#0000FF] font-bold sm:text-[30px]">
+                Web Applications
+              </span>
+              <span className="text-[#0000FF] font-bold sm:text-[30px]">
+                Mobile Applications
+              </span>
+            </TextLoop>
+          )}
         </h1>
       </div>
 
       <div className="grid grid-cols-2 sm:grid-cols-1 pt-10">
-        <p></p>
-        <p className="text-3xl">
+        <p className="text-center place-self-center">Explore &gt; </p>
+        <p className="text-3xl sm:text-xl">
           <Typewriter
             text="React | Next Js | JavaScript | Tailwind | React Native | NodeJS"
             delay={30}

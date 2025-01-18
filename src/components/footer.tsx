@@ -8,7 +8,7 @@ export default function Footer() {
         <h3 className="text-8xl sm:text-7xl">
           Get In Touch <br /> With Us
         </h3>
-        <p className="pt-10 text-4xl text-blue-800 sm:text-xl">
+        <p className="pt-10 text-4xl text-[#0000FF] sm:text-xl">
           abdulrauflukman9@gmail.com
         </p>
       </div>

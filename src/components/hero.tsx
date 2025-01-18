@@ -15,10 +15,8 @@ export default function Hero() {
           />
           {text && ( // Render TextLoop only when typing completes
             <TextLoop>
-              <span className="text-[#0000FF] font-bold sm:text-[30px]">
-                Web Applications
-              </span>
-              <span className="text-[#0000FF] font-bold sm:text-[30px]">
+              <span className="font-bold sm:text-[30px]">Web Applications</span>
+              <span className="font-bold sm:text-[30px]">
                 Mobile Applications
               </span>
             </TextLoop>

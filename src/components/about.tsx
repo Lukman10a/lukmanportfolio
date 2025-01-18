@@ -5,7 +5,7 @@ import { HighlightedText } from "./ui/animated/highlightText";
 export default function About() {
   const [text, setText] = useState(false);
   return (
-    <div className="p-20 grid grid-cols-2 sm:grid-cols-1 sm:gap-6 sm:p-8 h-full bg-[#181414] text-white">
+    <div className="p-20 grid grid-cols-2 sm:grid-cols-1 sm:gap-6 sm:p-8 bg-[#181414] text-white">
       <p className="text-5xl sm:text-[24px]">
         A{" "}
         <HighlightedText
@@ -18,7 +18,7 @@ export default function About() {
         </HighlightedText>{" "}
         journey
       </p>
-      <div className="space-y-10">
+      <div className="space-y-10 h-full w-full" style={{ minHeight: "250px" }}>
         <p className="text-2xl sm:text-lg">
           <Typewriter
             text="Experienced Frontend Developer (4+ years) specializing in React.js, Next.js, TypeScript, and Tailwind CSS."

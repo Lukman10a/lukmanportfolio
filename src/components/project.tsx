@@ -13,18 +13,18 @@ const projects = [
     image: laptop,
   },
   {
-    title: "At-Taasil Islaamic University",
+    title: "Teverse",
     description: "An esteemed university in the Kingdom of Saudi Arabia",
     image: code,
     isRight: true, // For right-side alignment
   },
   {
-    title: "At-Taasil Islaamic University",
+    title: "Cloud",
     description: "An esteemed university in the Kingdom of Saudi Arabia",
     image: network,
   },
   {
-    title: "At-Taasil Islaamic University",
+    title: "Sunnah Hive",
     description: "An esteemed university in the Kingdom of Saudi Arabia",
     image: tables,
     isRight: true, // For right-side alignment

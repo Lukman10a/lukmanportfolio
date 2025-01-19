@@ -9,7 +9,7 @@ export default function Footer() {
         <h3 className="text-[80px] sm:text-7xl">
           Get In Touch <br /> With Us
         </h3>
-        <p className="text-4xl text-[#0000FF] sm:text-xl">
+        <p className="text-4xl hover:text-[#3939cf] cursor-pointer sm:text-xl">
           abdulrauflukman9@gmail.com
         </p>
         <div className="flex justify-between">

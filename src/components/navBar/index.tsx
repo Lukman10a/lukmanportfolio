@@ -70,7 +70,7 @@ export function NavBar() {
 
   return (
     <nav className="relative z-50 font-inter" id="scrollable">
-      <nav className="supports-[backdrop-filter]:bg-main-yellow/60 fixed top-0 w-full p-7 backdrop-blur-md">
+      <nav className="supports-[backdrop-filter]:bg-main-yellow/60 fixed top-0 w-full p-7 sm:p-4 backdrop-blur-md">
         <div className="container flex h-16 items-center justify-between">
           {/* Logo */}
           <div className="flex items-center gap-6">
@@ -115,7 +115,7 @@ export function NavBar() {
                 variant="outline"
                 className="border-white sm:block hidden bg-transparent"
               >
-                <Menu className="h-6 w-6 text-white" />
+                <Menu className="h-5 w-6  text-white" />
                 <span className="sr-only">Toggle menu</span>
               </Button>
             </SheetTrigger>

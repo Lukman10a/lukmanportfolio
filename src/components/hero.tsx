@@ -3,7 +3,7 @@ import Typewriter from "./ui/animated/typewriter";
 import { TextLoop } from "./ui/animated/textLoop";
 import { PartnersSlider } from "./partnerSlider";
 import react from "../../public/assets/svg/react.svg";
-// import nextjs from "../../public/assets/svg/nextjs.svg";
+import nextjs from "../../public/assets/svg/nextjs.svg";
 import nodejs from "../../public/assets/svg/nodejs.svg";
 import expo from "../../public/assets/svg/expo.svg";
 import firebase from "../../public/assets/svg/firebase.svg";
@@ -19,7 +19,7 @@ import typescript from "../../public/assets/svg/typescript.svg";
 export default function Hero() {
   const partners = [
     react,
-    // nextjs,
+    nextjs,
     tailwind,
     javascript,
     typescript,
@@ -66,9 +66,9 @@ export default function Hero() {
           </p>
         </div>
       </div>
-      <div className="mx-auto py-10 overflow-hidden bg-black">
+      <div className="mx-auto py-10 overflow-hidden bg-[#181414] space-y-6">
+        <p className="text-center text-5xl text-white">Tech Stacks</p>
         <PartnersSlider images={partners} grayscale />
-        {/* <PartnersSlider images={partners} reverse /> */}
       </div>
     </>
   );

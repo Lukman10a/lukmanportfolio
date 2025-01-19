@@ -1,4 +1,4 @@
-import About from "@/components/about";
+import AboutMe from "@/components/aboutMe";
 import Hero from "@/components/hero";
 import Project from "@/components/project";
 import { Geist, Geist_Mono } from "next/font/google";
@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <div className={`${geistSans.variable} ${geistMono.variable} `}>
       <Hero />
-      <About />
+      <AboutMe />
       <Project />
     </div>
   );

@@ -66,8 +66,8 @@ export default function Hero() {
           </p>
         </div>
       </div>
-      <div className="mx-auto py-10 overflow-hidden bg-[#181414] space-y-6">
-        <p className="text-center text-5xl text-white">Tech Stacks</p>
+      <div className="mx-auto py-10 overflow-hidden space-y-6">
+        <p className="text-center text-5xl ">Tech Stacks</p>
         <PartnersSlider images={partners} grayscale />
       </div>
     </>

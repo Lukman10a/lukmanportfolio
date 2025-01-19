@@ -55,10 +55,7 @@ export default function Footer() {
             ></textarea>
           </div>
           <div>
-            <button
-              type="submit"
-              className="w-full p-4 text-black bg-[#0000FF] rounded-md hover:bg-blue-600"
-            >
+            <button className="w-full p-4 text-black bg-white rounded-md hover:bg-blue-600">
               Send Message
             </button>
           </div>

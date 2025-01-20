@@ -1,6 +1,6 @@
 import AboutMe from "@/components/aboutMe";
 import Hero from "@/components/hero";
-import Project from "@/components/project";
+import NewProject from "@/components/newProject";
 import { Geist, Geist_Mono } from "next/font/google";
 
 const geistSans = Geist({
@@ -18,7 +18,7 @@ export default function Home() {
     <div className={`${geistSans.variable} ${geistMono.variable} `}>
       <Hero />
       <AboutMe />
-      <Project />
+      <NewProject />
     </div>
   );
 }

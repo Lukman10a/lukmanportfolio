@@ -39,7 +39,7 @@ export default function Hero() {
         <div className="h-full ">
           <h1 className="text-7xl sm:text-4xl overflow-hidden">
             <Typewriter
-              text={"I am LUKMAN, a Frontend Engineer that creates:"}
+              text={"I am LUKMAN, a Frontend Engineer specializing in:"}
               delay={40}
               onTypingComplete={() => setText(true)}
             />

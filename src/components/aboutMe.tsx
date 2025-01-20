@@ -47,7 +47,7 @@ export default function About() {
             {services.map((service, index) => (
               <div
                 key={index}
-                className="rounded-lg p-6 flex flex-col items-center justify-center text-center space-y-4 hover:scale-105 transition-transform duration-300"
+                className="rounded-lg cursor-pointer p-6 flex flex-col items-center justify-center text-center space-y-4 hover:scale-105 transition-transform duration-300"
               >
                 <span className="text-4xl">{service.icon}</span>
                 <p>{service.title}</p>

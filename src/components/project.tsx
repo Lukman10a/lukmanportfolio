@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import laptop from "../../public/assets/images/laptop.jpg";
+import ataasil from "../../public/assets/images/ataasil.png";
 import code from "../../public/assets/images/code.jpg";
 import network from "../../public/assets/images/network.jpg";
 import tables from "../../public/assets/images/tables.jpg";
@@ -10,7 +10,7 @@ const projects = [
   {
     title: "At-Taasil Islaamic University",
     description: "An esteemed university in the Kingdom of Saudi Arabia",
-    image: laptop,
+    image: ataasil,
   },
   {
     title: "Teverse",
@@ -55,7 +55,9 @@ export default function Project() {
           >
             <h2 className="text-4xl font-bold sm:text-xl">{project.title}</h2>
             <p className="sm:text-xs">{project.description}</p>
-            <Image src={project.image} alt={project.title} />
+            <div className="">
+              <Image src={project.image} alt={project.title} />
+            </div>
           </div>
         ))}
       </div>

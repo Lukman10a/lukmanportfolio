@@ -16,11 +16,11 @@ export interface NavItem {
 export const navItems: NavItem[] = [
   {
     title: "About",
-    href: "/course",
+    href: "/about",
   },
   {
     title: "Projects",
-    href: "/about",
+    href: "/projects",
   },
   {
     title: "Blog",

@@ -70,8 +70,8 @@ export default function NewProject() {
         {projects.map((project, index) => (
           <Link href={project.link} key={index}>
             <div
-              className={`py-16 overflow-hidden ${
-                project.isRight ? "ml-40 sm:mt-0" : "mr-40"
+              className={`py-16 sm:py-8 overflow-hidden ${
+                project.isRight ? "ml-40 sm:ml-8 sm:mt-0" : "mr-40 sm:mr-8"
               }`}
               data-aos="fade-up"
               data-aos-anchor-placement="bottom-center"
@@ -79,10 +79,10 @@ export default function NewProject() {
               <Parallax
                 offset={100}
                 direction="horizontal"
-                className="h-96"
+                // className="h-96"
                 reverse={project.isRight}
               >
-                <div className="space-y-5">
+                <div className="space-y-4">
                   <h2 className="text-5xl font-bold sm:text-xl">
                     {project.title}
                   </h2>

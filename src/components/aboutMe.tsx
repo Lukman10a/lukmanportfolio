@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Typewriter from "./ui/animated/typewriter";
 import { HighlightedText } from "./ui/animated/highlightText";
+import { AnimatedGroup } from "./ui/animated/animatedGroups";
 
 export default function About() {
   const [text, setText] = useState(false);
@@ -43,16 +44,26 @@ export default function About() {
 
         {/* Services Section */}
         {text && (
-          <div className="grid grid-cols-3 sm:grid-cols-2 gap-9">
-            {services.map((service, index) => (
-              <div
-                key={index}
-                className="rounded-lg cursor-pointer p-6 flex flex-col items-center justify-center text-center space-y-4 hover:scale-105 transition-transform duration-300"
-              >
-                <span className="text-4xl">{service.icon}</span>
-                <p>{service.title}</p>
-              </div>
-            ))}
+          <div>
+            <AnimatedGroup
+              viewport={{
+                once: false,
+                amount: 0.5,
+                margin: "10px",
+              }}
+              className="grid grid-cols-3 sm:grid-cols-2 gap-16"
+              preset="scale"
+            >
+              {services.map((service, index) => (
+                <div
+                  key={index}
+                  className="rounded-lg cursor-pointer p-6 flex flex-col items-center justify-center text-center space-y-4 hover:scale-105 transition-transform duration-300"
+                >
+                  <span className="text-4xl ">{service.icon}</span>
+                  <p>{service.title}</p>
+                </div>
+              ))}
+            </AnimatedGroup>
           </div>
         )}
       </div>

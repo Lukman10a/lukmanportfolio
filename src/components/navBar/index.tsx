@@ -2,7 +2,7 @@
 
 import * as React from "react";
 
-import Image from "next/image";
+// import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useRouter } from "next/router";
@@ -23,6 +23,7 @@ import {
   Sheet,
   SheetContent,
   SheetDescription,
+  SheetFooter,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
@@ -70,8 +71,8 @@ export function NavBar() {
 
   return (
     <nav className="relative z-50 font-inter" id="scrollable">
-      <nav className="supports-[backdrop-filter]:bg-main-yellow/60 fixed top-0 w-full p-7 sm:p-4 backdrop-blur-md">
-        <div className="container flex h-16 items-center justify-between">
+      <nav className="fixed top-0 w-full p-7 sm:p-4 backdrop-blur-sm">
+        <div className="container flex h-16 sm:h-12 items-center justify-between">
           {/* Logo */}
           <div className="flex items-center gap-6">
             <Link href="/" className="flex items-center space-x-2">
@@ -99,7 +100,7 @@ export function NavBar() {
                         ? "text-yellow-900"
                         : "text-white"
                     }`,
-                    isActive(item?.href as string) && "text-[#E3B503]"
+                    isActive(item?.href as string) && "text-[#3939cf]"
                   )}
                 >
                   {item.title}
@@ -113,9 +114,10 @@ export function NavBar() {
             <SheetTrigger asChild>
               <Button
                 variant="outline"
-                className="border-white sm:block hidden bg-transparent"
+                className="sm:block hidden bg-transparent"
               >
-                <Menu className="h-5 w-6  text-white" />
+                <Menu className="h-5 w-6 font-extrabold text-white" />
+
                 <span className="sr-only">Toggle menu</span>
               </Button>
             </SheetTrigger>
@@ -125,60 +127,60 @@ export function NavBar() {
             >
               <SheetHeader>
                 <SheetTitle>
-                  <Link
-                    href="/"
-                    className="flex items-center space-x-2 font-mono "
-                  >
-                    <Image
+                  <Link href="/" className="flex items-center space-x-2">
+                    {/* <Image
                       src={"/assets/mbayan.png"}
                       width={150}
                       height={150}
                       alt="brand logo"
                       className="size-12"
-                    />
+                    /> */}
+                    <p className="text-white font-bold text-xl">LUKMAN</p>
                   </Link>
                 </SheetTitle>
-                <SheetDescription className="text-left">
+                <SheetDescription className="text-left text-white text-lg">
                   Explore our available classes to increase your understanding
                   of the religion
                 </SheetDescription>
               </SheetHeader>
-              <ScrollArea className="no-scrollbar mt-6 h-[calc(100vh-8rem)]">
+              <ScrollArea className="no-scrollbar mt-6 text-white">
                 <Accordion type="single" collapsible>
                   {navItems.map((item, index) => (
                     <Link href={item.href || "/"} key={index}>
                       <AccordionItem value={`item-${index}`} key={item.title}>
-                        <AccordionTrigger>{item.title}</AccordionTrigger>
-                        {/* <AccordionContent className="no-scrollbar">
-                        {item.items.map((section) => (
-                          <div key={section.category} className="mb-4">
-                            <Link href={section?.href || "#"}>
-                              <h3 className="mb-2 text-sm font-semibold">
-                                {section.category}
-                              </h3>
-                            </Link>
-                            <p className="mb-2 text-xs text-black opacity-50">
-                              {section.description}
-                            </p>
-                            <div className="space-y-2">
-                              {section?.subitems?.map((subitem) => (
-                                <Link
-                                  key={subitem.title}
-                                  href={subitem.href}
-                                  className="block text-sm hover:text-primary"
-                                >
-                                {subitem.title}
-                                </Link>
-                              ))}
-                            </div>
-                          </div>
-                        ))}
-                      </AccordionContent> */}
+                        <AccordionTrigger className="text-3xl">
+                          {item.title}
+                        </AccordionTrigger>
                       </AccordionItem>
                     </Link>
                   ))}
                 </Accordion>
               </ScrollArea>
+              <SheetFooter className="pt-20 ">
+                <Link href={"https://github.com/Lukman10a/"}>
+                  <Button variant="ghost" className="text-white">
+                    Github
+                  </Button>
+                </Link>
+                <Link
+                  href={
+                    "https://www.linkedin.com/in/abdulrauf-lukman-761095217/"
+                  }
+                >
+                  <Button variant="ghost" className="text-white">
+                    LinkedIn
+                  </Button>
+                </Link>
+                <Link
+                  href={
+                    "https://drive.google.com/file/d/1YUOOKXb9i6ruS3T6yBVAMcvg8UP8xdc8/view?usp=sharing"
+                  }
+                >
+                  <Button variant="ghost" className="text-white">
+                    CV Resume
+                  </Button>
+                </Link>
+              </SheetFooter>
             </SheetContent>
           </Sheet>
         </div>

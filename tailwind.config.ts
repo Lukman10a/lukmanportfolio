@@ -27,6 +27,10 @@ export default {
         max: "639px",
       },
     },
+    fontFamily: {
+      merri: ["var(--font-merri)"],
+      play: ["var(--font-play)"],
+    },
     extend: {
       colors: {
         background: "var(--background)",

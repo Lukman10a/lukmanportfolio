@@ -58,7 +58,7 @@ export default function Hero() {
 
         <div className="grid grid-cols-2 sm:grid-cols-1 pt-10">
           <p className="text-center place-self-center">Explore &gt; </p>
-          <p className="text-3xl sm:text-xl">
+          <p className="text-3xl sm:text-xl font-play">
             <Typewriter
               text="React | Next Js | JavaScript | Tailwind | React Native | NodeJS"
               delay={30}

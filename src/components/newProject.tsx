@@ -13,39 +13,45 @@ import Link from "next/link";
 const projects = [
   {
     title: "At-Taasil Islaamic University",
-    description: "An esteemed university in the Kingdom of Saudi Arabia",
+    description:
+      "A leading Islamic university in Saudi Arabia, offering advanced education and training in Islamic studies.",
     link: "https://ataasil.vercel.app/",
     image: ataasil,
   },
   {
     title: "Teverse",
-    description: "An esteemed university in the Kingdom of Saudi Arabia",
+    description:
+      "A cloud services company providing solutions in the areas of cloud computing and identity access management (IDAM).",
     link: "https://teverse-web.vercel.app/",
     image: teverse,
     isRight: true, // For right-side alignment
   },
   {
     title: "Cloud",
-    description: "An esteemed university in the Kingdom of Saudi Arabia",
+    description:
+      "A cloud-based project for a company based in Saudi Arabia designed to demonstrate the scalability and flexibility of modern cloud infrastructure.",
     link: "https://cloud-test-project.vercel.app/",
     image: cloud,
   },
   {
     title: "Markazul Bayaan",
-    description: "An esteemed university in the Kingdom of Saudi Arabia",
+    description:
+      "An online Islamic school offering courses in Islamic studies to students globally, with a focus on teaching authentic knowledge.",
     link: "https://www.markazulbayaan.com.ng/",
     image: bayaan,
     isRight: true, // For right-side alignment
   },
   {
     title: "Sunnah Hive",
-    description: "An esteemed university in the Kingdom of Saudi Arabia",
+    description:
+      "A digital platform dedicated to providing access to authentic Islamic content, including books, lectures, and more.",
     link: "https://sunnah-hive.vercel.app/",
     image: sunnahhive,
   },
   {
     title: "Consology",
-    description: "An esteemed university in the Kingdom of Saudi Arabia",
+    description:
+      "A web development tech startup focused on building innovative solutions for businesses in the digital era.",
     link: "https://consology.vercel.app/",
     image: consology,
     isRight: true, // For right-side alignment
@@ -68,32 +74,33 @@ export default function NewProject() {
       </h1>
       <div className="grid grid-cols-1 gap-10 sm:grid-cols-1">
         {projects.map((project, index) => (
-          <Link href={project.link} key={index}>
-            <div
-              className={`py-16 sm:py-8 overflow-hidden ${
-                project.isRight ? "ml-40 sm:ml-8 sm:mt-0" : "mr-40 sm:mr-8"
-              }`}
-              data-aos="fade-up"
-              data-aos-anchor-placement="bottom-center"
+          <div
+            key={index}
+            className={`py-16 sm:py-8 overflow-hidden ${
+              project.isRight ? "ml-40 sm:ml-8 sm:mt-0" : "mr-40 sm:mr-8"
+            }`}
+            data-aos="fade-up"
+            data-aos-anchor-placement="bottom-center"
+          >
+            <Parallax
+              offset={100}
+              direction="horizontal"
+              // className="h-96"
+              reverse={project.isRight}
             >
-              <Parallax
-                offset={100}
-                direction="horizontal"
-                // className="h-96"
-                reverse={project.isRight}
-              >
-                <div className="space-y-4">
-                  <h2 className="text-5xl font-bold sm:text-xl">
-                    {project.title}
-                  </h2>
-                  <p className="text-xl sm:text-xs">{project.description}</p>
+              <div className="space-y-4">
+                <h2 className="text-5xl font-bold sm:text-xl">
+                  {project.title}
+                </h2>
+                <p className="text-xl sm:text-xs">{project.description}</p>
+                <Link href={project.link}>
                   <div className="">
                     <Image src={project.image} alt={project.title} />
                   </div>
-                </div>
-              </Parallax>
-            </div>
-          </Link>
+                </Link>
+              </div>
+            </Parallax>
+          </div>
         ))}
       </div>
     </div>

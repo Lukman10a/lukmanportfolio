@@ -23,7 +23,7 @@ export default function Footer() {
                 height: "120px",
                 width: "120px",
               }}
-              onClick={() => router.push(`/projects`)}
+              onClick={() => router.push(`abdulrauflukman9@gmail.com`)}
             >
               <Magnetic>
                 <ArrowUpRightIcon className="z-10" />

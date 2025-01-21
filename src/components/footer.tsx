@@ -3,6 +3,18 @@ import React from "react";
 import ContactForm from "./form";
 
 export default function Footer() {
+  const links = [
+    { href: "https://github.com/Lukman10a/", label: "Github" },
+    {
+      href: "https://www.linkedin.com/in/abdulrauf-lukman-761095217/",
+      label: "LinkedIn",
+    },
+    {
+      href: "https://drive.google.com/file/d/1YUOOKXb9i6ruS3T6yBVAMcvg8UP8xdc8/view?usp=sharing",
+      label: "CV",
+    },
+  ];
+
   return (
     <div className="bg-black p-20 sm:p-8 text-white grid grid-cols-2 gap-6 sm:grid-cols-1">
       <div className="space-y-7">
@@ -13,25 +25,17 @@ export default function Footer() {
           abdulrauflukman9@gmail.com
         </p>
         <div className="flex gap-10">
-          <Link href={"https://github.com/Lukman10a/"}>
-            <p>Github</p>
-          </Link>
-          <Link
-            href={"https://www.linkedin.com/in/abdulrauf-lukman-761095217/"}
-          >
-            <p>LinkedIn</p>
-          </Link>
-          <Link
-            href={
-              "https://drive.google.com/file/d/1YUOOKXb9i6ruS3T6yBVAMcvg8UP8xdc8/view?usp=sharing"
-            }
-          >
-            <p>CV Resume</p>
-          </Link>
+          {links.map((link, index) => (
+            <Link href={link.href} key={index}>
+              <div className="group flex items-center justify-center w-24 h-24 rounded-full border-2 border-white hover:scale-110 hover:rotate-12 transition-all ease-in-out">
+                <p className="text-white group-hover:text-white transition-colors">
+                  {link.label}
+                </p>
+              </div>
+            </Link>
+          ))}
         </div>
       </div>
-
-      {/* Form Section */}
       <ContactForm />
     </div>
   );

@@ -1,6 +1,18 @@
+import Link from "next/link";
 import React from "react";
 
 export default function ContactForm() {
+  const links = [
+    { href: "https://github.com/Lukman10a/", label: "Github" },
+    {
+      href: "https://www.linkedin.com/in/abdulrauf-lukman-761095217/",
+      label: "LinkedIn",
+    },
+    {
+      href: "https://drive.google.com/file/d/1YUOOKXb9i6ruS3T6yBVAMcvg8UP8xdc8/view?usp=sharing",
+      label: "CV",
+    },
+  ];
   return (
     <div className="space-y-5">
       <form className="space-y-4">
@@ -30,6 +42,17 @@ export default function ContactForm() {
           </button>
         </div>
       </form>
+      <div className="flex justify-between">
+        {links.map((link, index) => (
+          <Link href={link.href} key={index}>
+            {/* <div className="group flex items-center justify-center w-24 h-24 rounded-full border-2 border-white hover:scale-110 hover:rotate-12 transition-all ease-in-out"> */}
+            <p className="text-white group-hover:text-white transition-colors">
+              {link.label}
+            </p>
+            {/* </div> */}
+          </Link>
+        ))}
+      </div>
     </div>
   );
 }

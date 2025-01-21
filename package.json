@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.2",
+    "@heroicons/react": "^2.2.0",
     "@next/font": "^14.2.15",
     "@radix-ui/react-accordion": "^1.2.2",
     "@radix-ui/react-dialog": "^1.1.4",
@@ -19,6 +21,7 @@
     "clsx": "^2.1.1",
     "framer-motion": "^11.18.0",
     "google-fonts": "^1.0.0",
+    "gsap": "^3.12.7",
     "lucide-react": "^0.471.1",
     "next": "^15.1.4",
     "react": "^19.0.0",

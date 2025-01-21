@@ -20,16 +20,15 @@ export default function About() {
     <div className="p-20 text-center sm:p-8 bg-black text-white">
       {/* Intro Section */}
       <p className="text-5xl sm:text-[24px]">
-        A{" "}
+        My{" "}
         <HighlightedText
           highlightColor="#0000FF"
           highlightHeight="100%"
           className="p-2"
           highlightClassName="z-[-1] rounded-lg"
         >
-          beautiful
+          Services
         </HighlightedText>{" "}
-        journey
       </p>
 
       {/* Typewriter Section */}

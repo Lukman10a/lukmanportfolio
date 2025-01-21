@@ -54,7 +54,7 @@ const projects = [
 
 export default function NewProject() {
   return (
-    <div className="p-20 bg-black text-white sm:p-8">
+    <div className="p-20 bg-black text-white sm:p-2">
       <h1 className="text-7xl sm:text-3xl text-center pb-20">
         My Latest{" "}
         <HighlightedText

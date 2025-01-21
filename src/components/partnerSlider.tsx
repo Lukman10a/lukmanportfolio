@@ -33,7 +33,7 @@ export function PartnersSlider({
           key={index}
           src={image}
           alt={`Brand ${index}`}
-          className={cn("size-20 object-contain", imageClassName)}
+          className={cn("size-20 sm:size-14 object-contain", imageClassName)}
         />
       ))}
     </Marquee>

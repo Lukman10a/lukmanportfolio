@@ -6,12 +6,12 @@ import React, { useRef } from "react";
 interface ButtonProps {
   children: React.ReactNode;
   backgroundColor?: string;
-  [x: string]: any; // for other props which can be spread into the div element
+  [x: string]: unknown;
 }
 
 export const ButtonComponent: React.FC<ButtonProps> = ({
   children,
-  backgroundColor = "#1916df",
+  // backgroundColor = "#1916df",
   ...attributes
 }) => {
   const circleRef = useRef<HTMLDivElement>(null);

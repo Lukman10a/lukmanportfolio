@@ -9,6 +9,8 @@ import sunnahhive from "../../public/assets/images/sunnahhive.png";
 import { HighlightedText } from "./ui/animated/highlightText";
 import { Parallax } from "./ui/animated/parallax";
 import Link from "next/link";
+import { useMouseCircle } from "@/hooks/useMouseCircle";
+import { MouseCircle } from "./ui/animated/movingButton";
 
 const projects = [
   {
@@ -59,8 +61,14 @@ const projects = [
 ];
 
 export default function NewProject() {
+  const { circleRef, handleMouseOver, handleMouseOut, customClass } =
+    useMouseCircle();
+
   return (
     <div className="p-20 bg-black text-white sm:p-2">
+      {/* Global Mouse Circle */}
+      <MouseCircle className={customClass} ref={circleRef} />
+
       <h1 className="text-7xl sm:text-3xl text-center pb-20">
         My Latest{" "}
         <HighlightedText
@@ -81,6 +89,8 @@ export default function NewProject() {
             }`}
             data-aos="fade-up"
             data-aos-anchor-placement="bottom-center"
+            onMouseOver={() => handleMouseOver("bg-red-500 scale-150")}
+            onMouseOut={handleMouseOut}
           >
             <Parallax
               offset={100}

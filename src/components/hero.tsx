@@ -32,7 +32,7 @@ export default function Hero() {
           </h1>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-1 pt-10">
+        <div className="grid grid-cols-2 sm:grid-cols-1 sm:gap-10 pt-10">
           <Link href={""}>
             <Button />
           </Link>

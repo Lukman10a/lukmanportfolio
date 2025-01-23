@@ -33,6 +33,9 @@ export const useMouseCircle = () => {
           duration: 0.25,
           scale: 1,
           autoAlpha: 1,
+          borderColor: "white",
+          borderWidth: 6,
+          borderStyle: "solid",
         });
       }
     }

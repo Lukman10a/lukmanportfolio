@@ -22,7 +22,7 @@ export const MouseCircle = forwardRef<HTMLDivElement, MouseCircleProps>(
     return (
       <div
         ref={ref}
-        className={`fixed w-10 h-10 bg-blue-500 rounded-full pointer-events-none z-50 opacity-0 scale-0 transition-all duration-300 ${className}`}
+        className={`fixed w-10 h-10 bg-blue-500 rounded-full pointer-events-none z-50 transform transition-transform duration-300 ease-in-out ${className}`}
       />
     );
   }

@@ -2,12 +2,27 @@ import React, { useState } from "react";
 import Typewriter from "./ui/animated/typewriter";
 import { TextLoop } from "./ui/animated/textLoop";
 import TechStack from "./techStack";
+import { MouseCircle } from "./ui/animated/movingButton";
+import { useMouseCircle } from "@/hooks/useMouseCircle";
+import { fadeAndGrow } from "@/lib/utils";
 
 export default function Hero() {
   const [text, setText] = useState(false);
+
+  const { circleRef, handleMouseOver, customClass } = useMouseCircle();
+
   return (
     <>
-      <div className="bg-black text-white h-[600px] w-full p-20 sm:px-8 py-44 overflow-hidden">
+      <div
+        className="bg-black text-white h-[600px] w-full p-20 sm:px-8 py-44 overflow-hidden"
+        onMouseOver={() =>
+          handleMouseOver("bg-blue-500 rounded-full", (circle) =>
+            fadeAndGrow(circle)
+          )
+        }
+      >
+        {/* Global Mouse Circle */}
+        <MouseCircle className={customClass} ref={circleRef} />
         <div className="h-full ">
           <h1 className="text-7xl sm:text-4xl overflow-hidden">
             <Typewriter

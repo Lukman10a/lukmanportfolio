@@ -89,8 +89,6 @@ export default function NewProject() {
             }`}
             data-aos="fade-up"
             data-aos-anchor-placement="bottom-center"
-            onMouseOver={() => handleMouseOver("bg-red-500 scale-150")}
-            onMouseOut={handleMouseOut}
           >
             <Parallax
               offset={100}
@@ -105,7 +103,16 @@ export default function NewProject() {
                 <p className="text-xl sm:text-xs">{project.description}</p>
                 <Link href={project.link}>
                   <div className="">
-                    <Image src={project.image} alt={project.title} />
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      onMouseOver={() =>
+                        handleMouseOver(
+                          "border-2 border-black scale-300 h-20 w-20 "
+                        )
+                      }
+                      onMouseOut={handleMouseOut}
+                    />
                   </div>
                 </Link>
               </div>

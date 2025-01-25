@@ -79,7 +79,7 @@ export default function Preloader() {
             </motion.span>
           </motion.div>
           <motion.div
-            className="w-full h-4 rounded-full overflow-hidden"
+            className="w-full h-4 overflow-hidden"
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
             transition={{ duration: 3.5, ease: "easeInOut" }}

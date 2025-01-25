@@ -32,7 +32,7 @@ export default function TechStack() {
   ];
 
   return (
-    <div className="mx-auto overflow-hidden space-y-6">
+    <div className="mx-auto overflow-hidden">
       {/* <p className="text-center text-5xl ">Tech Stacks</p> */}
       <PartnersSlider images={partners} grayscale />
     </div>

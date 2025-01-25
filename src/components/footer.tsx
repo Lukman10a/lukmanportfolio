@@ -2,7 +2,6 @@ import React from "react";
 import { ButtonComponent } from "./ui/animated/buttonComponent";
 import { Magnetic } from "./ui/animated/magnetic";
 import { ArrowUpRightIcon } from "@heroicons/react/24/outline";
-import router from "next/router";
 import Link from "next/link";
 
 export default function Footer() {
@@ -25,7 +24,6 @@ export default function Footer() {
                     height: "120px",
                     width: "120px",
                   }}
-                  onClick={() => router.push(`abdulrauflukman9@gmail.com`)}
                 >
                   <Magnetic>
                     <ArrowUpRightIcon className="z-10" />

@@ -36,7 +36,7 @@ export default function Hero() {
           <Link href={""}>
             <Button />
           </Link>
-          <p className="text-3xl sm:text-xl font-play">
+          <p className="text-3xl sm:text-xl font-play sm:hidden">
             <Typewriter
               text="React | Next Js | JavaScript | Tailwind | React Native | NodeJS"
               delay={30}

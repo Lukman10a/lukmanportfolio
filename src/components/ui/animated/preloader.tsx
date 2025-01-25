@@ -44,9 +44,9 @@ export default function Preloader() {
               width={100}
               height={100}
             /> */}
-            <p className="text-white text-xl font-semibold">
+            {/* <p className="text-white text-xl font-semibold">
               Loading Your Experience...
-            </p>
+            </p> */}
           </div>
           <motion.div
             initial={{ x: "-100vw" }}
@@ -79,13 +79,13 @@ export default function Preloader() {
             </motion.span>
           </motion.div>
           <motion.div
-            className="w-[80%] h-4 bg-gray-700 rounded-full overflow-hidden mt-8"
+            className="w-full h-4 rounded-full overflow-hidden"
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
             transition={{ duration: 3.5, ease: "easeInOut" }}
             style={{ transformOrigin: "left center" }}
           >
-            <div className="w-full h-full bg-gradient-to-r from-blue-900 to-black" />
+            <div className="w-full h-full bg-black" />
           </motion.div>
         </motion.div>
       )}

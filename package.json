@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@gsap/react": "^2.1.2",
     "@heroicons/react": "^2.2.0",
     "@next/font": "^14.2.15",
@@ -26,6 +27,7 @@
     "next": "^15.1.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-toastify": "^11.0.3",
     "styled-components": "^6.1.14",
     "tailwind-merge": "^2.6.0"
   },

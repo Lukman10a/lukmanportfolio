@@ -30,4 +30,8 @@ export const navItems: NavItem[] = [
     title: "Reviews",
     href: "/reviews",
   },
+  {
+    title: "Contact",
+    href: "/contact",
+  },
 ];

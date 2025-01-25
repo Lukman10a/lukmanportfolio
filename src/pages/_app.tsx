@@ -1,8 +1,10 @@
 import Footer from "@/components/footer";
 import { NavBar } from "@/components/navBar";
+import Preloader from "@/components/ui/animated/preloader";
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
-import { Merriweather, Smooch_Sans } from "next/font/google";
+import { Merriweather, Smooch_Sans, Poppins } from "next/font/google";
+import { useEffect, useState } from "react";
 
 const merri = Merriweather({
   subsets: ["latin"],
@@ -17,12 +19,31 @@ export const play = Smooch_Sans({
   weight: "600",
 });
 
+export const poppins = Poppins({
+  display: "swap",
+  variable: "--font-pop",
+  subsets: ["latin"],
+  weight: "600",
+});
+
 export default function App({ Component, pageProps }: AppProps) {
+  const [preloader, setPreloader] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => setPreloader(false), 5000);
+  }, [preloader]);
+
   return (
-    <main className={`${merri.className} ${play.variable}`}>
-      <NavBar />
-      <Component {...pageProps} />
-      <Footer />
-    </main>
+    <>
+      {preloader ? (
+        <Preloader />
+      ) : (
+        <main className={`${merri.className} ${play.variable}`}>
+          <NavBar />
+          <Component {...pageProps} />
+          <Footer />
+        </main>
+      )}
+    </>
   );
 }

@@ -30,8 +30,13 @@ export default {
     fontFamily: {
       merri: ["var(--font-merri)"],
       play: ["var(--font-play)"],
+      pop: ["var(--font-pop)"],
     },
     extend: {
+      backgroundImage: {
+        "preloader-gradient": "linear-gradient(135deg, #1d1d1d, #444);",
+      },
+
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",

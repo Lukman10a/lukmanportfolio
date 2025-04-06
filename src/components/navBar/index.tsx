@@ -2,19 +2,16 @@
 
 import * as React from "react";
 
-// import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useRouter } from "next/router";
 
-// import { AnimatePresence, motion } from "framer-motion";
 import { Menu } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
 import {
   Accordion,
-  //   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
@@ -29,10 +26,11 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 
-// import logo from "../../../public/assets/mbayan.png";
+import logo from "../../../public/assets/svg/logo.svg";
 import { useScrollLock } from "@/hooks/useScrollLock";
 import { ScrollArea } from "../ui/scrollArea";
 import { navItems } from "./data";
+import Image from "next/image";
 
 export function NavBar() {
   const pathname = usePathname();
@@ -74,19 +72,16 @@ export function NavBar() {
       <nav className="fixed top-0 w-full p-7 sm:p-4 backdrop-blur-sm">
         <div className="container flex h-16 sm:h-12 items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center gap-6">
-            <Link href="/" className="flex items-center space-x-2">
-              {/* <Image
-                src={logo}
-                width={160}
-                height={160}
-                priority
-                alt="brand logo"
-                className="size-12 object-contain"
-              /> */}
-              <p className="text-white font-bold text-2xl">LUKMAN</p>
-            </Link>
-          </div>
+          <Link href="/" className="flex items-center space-x-2">
+            <Image
+              src={logo}
+              width={200}
+              height={200}
+              priority
+              alt="brand logo"
+              className=" object-contain"
+            />
+          </Link>
 
           {/* Desktop Links */}
           <div className="sm:hidden flex gap-6">
@@ -98,9 +93,9 @@ export function NavBar() {
                     `text-lg font-medium transition-colors hover:text-primary ${
                       activeItem === item.title
                         ? "text-yellow-900"
-                        : "text-white"
+                        : "text-black"
                     }`,
-                    isActive(item?.href as string) && "text-[#3939cf]"
+                    isActive(item?.href as string) && "text-[#ff914d]"
                   )}
                 >
                   {item.title}

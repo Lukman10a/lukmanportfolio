@@ -95,7 +95,7 @@ export default function ContactForm() {
             value={formData.fullName}
             onChange={handleChange}
             placeholder="Full Name"
-            className="w-full p-4 text-white bg-transparent border border-gray-500 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full p-4 bg-transparent border border-gray-500 rounded-md focus:outline-none focus:ring-2 focus:ring-[#ff914d]"
             required
           />
         </div>
@@ -106,7 +106,7 @@ export default function ContactForm() {
             value={formData.email}
             onChange={handleChange}
             placeholder="Your Email"
-            className="w-full p-4 text-white bg-transparent border border-gray-500 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full p-4 bg-transparent border border-gray-500 rounded-md focus:outline-none focus:ring-2 focus:ring-[#ff914d]"
             required
           />
         </div>
@@ -116,7 +116,7 @@ export default function ContactForm() {
             value={formData.message}
             onChange={handleChange}
             placeholder="How can I help?"
-            className="w-full p-4 text-white bg-transparent border border-gray-500 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 h-32"
+            className="w-full p-4  bg-transparent border border-gray-500 rounded-md focus:outline-none focus:ring-2 focus:ring-[#ff914d] h-32"
             required
           ></textarea>
         </div>
@@ -126,7 +126,7 @@ export default function ContactForm() {
             disabled={!isFormValid}
             className={`w-full p-4 rounded-md transition-colors ${
               isFormValid
-                ? "text-black bg-white hover:bg-blue-600"
+                ? "text-black bg-white hover:bg-[#ff914d]"
                 : "text-gray-500 bg-gray-300 cursor-not-allowed"
             }`}
           >
@@ -137,7 +137,7 @@ export default function ContactForm() {
       <div className="flex justify-between">
         {links.map((link, index) => (
           <Link href={link.href} key={index} passHref>
-            <p className="text-white hover:underline">{link.label}</p>
+            <p className="hover:underline">{link.label}</p>
           </Link>
         ))}
       </div>

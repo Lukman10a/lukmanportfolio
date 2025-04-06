@@ -1,17 +1,18 @@
 import React, { useState } from "react";
 import Typewriter from "./ui/animated/typewriter";
 import { TextLoop } from "./ui/animated/textLoop";
-import TechStack from "./techStack";
+// import TechStack from "./techStack";
 
 import Button from "./ui/customButton";
 import Link from "next/link";
+import { HeroScrollDemo } from "./ui/containerScroll";
 
 export default function Hero() {
   const [text, setText] = useState(false);
 
   return (
     <>
-      <div className="bg-black text-white h-[600px] w-full p-20 sm:px-8 py-44 overflow-hidden">
+      <div className="bg-[#f8f4ec] h-[600px] w-full p-20 sm:px-8 py-44 overflow-hidden text-black">
         <div className="h-full ">
           <h1 className="text-7xl sm:text-4xl overflow-hidden">
             <Typewriter
@@ -44,7 +45,10 @@ export default function Hero() {
           </p>
         </div>
       </div>
-      <TechStack />
+      <HeroScrollDemo />
+
+      {/* <MacbookScroll /> */}
+      {/* <TechStack /> */}
     </>
   );
 }

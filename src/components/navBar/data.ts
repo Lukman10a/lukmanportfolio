@@ -14,22 +14,22 @@ export interface NavItem {
 }
 
 export const navItems: NavItem[] = [
-  {
-    title: "About",
-    href: "/about",
-  },
+  // {
+  //   title: "About",
+  //   href: "/about",
+  // },
   {
     title: "Projects",
     href: "/projects",
   },
-  {
-    title: "Blog",
-    href: "/blog",
-  },
-  {
-    title: "Reviews",
-    href: "/reviews",
-  },
+  // {
+  //   title: "Blog",
+  //   href: "/blog",
+  // },
+  // {
+  //   title: "Reviews",
+  //   href: "/reviews",
+  // },
   {
     title: "Contact",
     href: "/contact",

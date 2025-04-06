@@ -65,14 +65,14 @@ export default function NewProject() {
     useMouseCircle();
 
   return (
-    <div className="p-20 bg-black text-white sm:p-2">
+    <div className="p-20 bg-[#f8f4ec] text-black sm:p-2">
       {/* Global Mouse Circle */}
       <MouseCircle className={customClass} ref={circleRef} />
 
       <h1 className="text-7xl sm:text-3xl text-center pb-20">
         My Latest{" "}
         <HighlightedText
-          highlightColor="#0000FF"
+          highlightColor="#ff914d"
           highlightHeight="100%"
           className="p-2"
           highlightClassName="z-[-1] rounded-lg"

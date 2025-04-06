@@ -1,5 +1,5 @@
-import Footer from "@/components/footer";
-import { NavBar } from "@/components/navBar";
+// import Footer from "@/components/footer";
+import { NavbarDemo } from "@/components/navBar/newNav";
 import Preloader from "@/components/ui/animated/preloader";
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
@@ -39,9 +39,10 @@ export default function App({ Component, pageProps }: AppProps) {
         <Preloader />
       ) : (
         <main className={`${merri.className} ${play.variable}`}>
-          <NavBar />
+          {/* <NavBar /> */}
+          <NavbarDemo />
           <Component {...pageProps} />
-          <Footer />
+          {/* <Footer /> */}
         </main>
       )}
     </>

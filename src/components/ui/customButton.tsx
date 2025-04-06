@@ -22,7 +22,7 @@ const StyledWrapper = styled.div`
     border-radius: 2px;
     position: relative;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.1);
-    color: #ffff;
+    color: #000000;
     text-decoration: none;
     transition: 0.3s ease all;
     z-index: 1;
@@ -45,7 +45,7 @@ const StyledWrapper = styled.div`
   button:focus {
     color: white;
     background-color: white;
-    border-color: #f6dea9;
+    border-color: #ff914d;
   }
 
   button:hover:before,

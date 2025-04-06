@@ -17,12 +17,12 @@ export default function About() {
   ];
 
   return (
-    <div className="p-20 text-center sm:p-8 bg-black text-white">
+    <div className="p-20 text-center sm:p-8 bg-[#f8f4ec] text-black">
       {/* Intro Section */}
       <p className="text-5xl sm:text-[24px]">
         My{" "}
         <HighlightedText
-          highlightColor="#0000FF"
+          highlightColor="#ff914d"
           highlightHeight="100%"
           className="p-2"
           highlightClassName="z-[-1] rounded-lg"
@@ -35,7 +35,7 @@ export default function About() {
       <div className="space-y-10 h-full w-full" style={{ minHeight: "250px" }}>
         <p className="text-2xl sm:text-lg pt-6 px-32 sm:px-0">
           <Typewriter
-            text="Experienced Frontend Developer (4+ years) specializing in React.js, Next.js, TypeScript, and Tailwind CSS."
+            text="Frontend Developer (4+ years) specializing in React.js, Next.js, TypeScript, and Tailwind CSS."
             delay={10}
             onTypingComplete={() => setText(true)}
           />

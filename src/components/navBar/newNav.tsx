@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { HoveredLink, Menu, MenuItem, ProductItem } from "../ui/navbar-menu";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 export function NavbarDemo() {
   return (
@@ -15,10 +16,13 @@ function Navbar({ className }: { className?: string }) {
   const [active, setActive] = useState<string | null>(null);
   return (
     <div
-      className={cn("fixed top-10 inset-x-0 max-w-2xl mx-auto z-50", className)}
+      className={cn(
+        "fixed top-10 inset-x-0 max-w-2xl sm:max-w-72 mx-auto z-50",
+        className
+      )}
     >
       <Menu setActive={setActive}>
-        <div className="flex gap-10">
+        <div className="flex gap-10 sm:gap-4">
           <MenuItem setActive={setActive} active={active} item="Services">
             <div className="flex flex-col space-y-4 text-sm">
               <HoveredLink href="/web-dev">Web Development</HoveredLink>
@@ -30,7 +34,9 @@ function Navbar({ className }: { className?: string }) {
             </div>
           </MenuItem>
           {/* <Image src={logo} alt="logo" width={50} height={50} /> */}
-          <p className="font-bold text-2xl">LUKMAN</p>
+          <Link href={"/"}>
+            <p className="font-bold text-2xl sm:text-xl">LUKMAN</p>
+          </Link>
           <MenuItem setActive={setActive} active={active} item="Products">
             <div className="text-sm grid grid-cols-2 gap-10 p-4">
               <ProductItem

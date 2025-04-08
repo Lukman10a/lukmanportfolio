@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import Typewriter from "./ui/animated/typewriter";
 import { TextLoop } from "./ui/animated/textLoop";
-// import TechStack from "./techStack";
 
 import Button from "./ui/customButton";
 import Link from "next/link";
-import { HeroScrollDemo } from "./ui/containerScroll";
 
 export default function Hero() {
   const [text, setText] = useState(false);
@@ -45,10 +43,6 @@ export default function Hero() {
           </p>
         </div>
       </div>
-      <HeroScrollDemo />
-
-      {/* <MacbookScroll /> */}
-      {/* <TechStack /> */}
     </>
   );
 }

@@ -1,12 +1,12 @@
-import AboutMe from "@/components/aboutMe";
 import Hero from "@/components/hero";
 import { Geist, Geist_Mono } from "next/font/google";
 import Scene from "@/components/projects/scene";
-import Projects from "@/components/projects/projects";
 import { useEffect, useState } from "react";
 import Lenis from "lenis";
 import { HighlightedText } from "@/components/ui/animated/highlightText";
 import Footer from "@/components/footer";
+import Projects from "@/components/projects/projects";
+import { HeroScrollDemo } from "@/components/ui/containerScroll";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -47,7 +47,7 @@ export default function Home() {
   return (
     <div className={`${geistSans.variable} ${geistMono.variable}`}>
       <Hero />
-      <AboutMe />
+      <HeroScrollDemo />
 
       {/* Project Section with ID for navigation */}
       <section

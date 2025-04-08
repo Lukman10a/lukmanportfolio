@@ -16,7 +16,7 @@ export default function Footer() {
             abdulrauflukman9@gmail.com
           </p>
           <div className="self-center">
-            <Link href={"/about"}>
+            <Link href={"/contact"}>
               <Magnetic>
                 <ButtonComponent
                   className="bg-accent-light w-[120px] h-[120px]"

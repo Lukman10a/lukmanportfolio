@@ -36,7 +36,7 @@ export const ContainerScroll = ({
 
   return (
     <div
-      className="h-[60rem] bg-[#f8f4ec] md:h-[80rem] flex items-center justify-center relative p-2 md:p-20"
+      className="h-[60rem] bg-[#f8f4ec] md:h-[50rem] flex items-center justify-center relative p-2"
       ref={containerRef}
     >
       <div
@@ -54,6 +54,7 @@ export const ContainerScroll = ({
   );
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const Header = ({ translate, titleComponent }: any) => {
   return (
     <motion.div

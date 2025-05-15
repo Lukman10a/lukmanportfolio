@@ -1,0 +1,43 @@
+# Cursor Rules for Lukman's Portfolio Website
+
+## Project Patterns
+
+### Styling Patterns
+- Use Tailwind utility classes for styling instead of custom CSS
+- Follow mobile-first approach with sm:, md:, lg: breakpoints
+- Use the Geist font family (Sans and Mono variants) for typography
+- Primary background color: #f8f4ec (light beige)
+- Highlight color: #ff914d (orange)
+
+### Component Patterns
+- Reuse existing UI components from src/components/ui when possible
+- New animations should follow existing patterns using Framer Motion or GSAP
+- Interactive elements should include hover states and smooth transitions
+- 3D elements use React Three Fiber and follow existing scene/model patterns
+
+### File Structure
+- Page components in src/pages directory
+- Reusable components in src/components
+- UI components in src/components/ui
+- Project components in src/components/projects
+- Utility functions in src/utils
+- Custom hooks in src/hooks
+
+### Naming Conventions
+- React components use PascalCase (e.g., Hero.tsx)
+- Utility functions use camelCase (e.g., generateSlug.ts)
+- Files use lowercase with hyphens for multi-word names (e.g., custom-button.tsx)
+
+### Animation Techniques
+- Use Lenis for smooth scrolling
+- Use Framer Motion for UI animations
+- Use GSAP for complex animation sequences
+- Use React Three Fiber for 3D animations
+- Text animations use custom components like Typewriter and TextLoop
+
+## Development Preferences
+- Use TypeScript for type safety
+- Follow a component-based architecture
+- Maintain responsive design for all screen sizes
+- Optimize images and animations for performance
+- Keep dependencies minimal and up-to-date 

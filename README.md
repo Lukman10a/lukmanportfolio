@@ -38,3 +38,14 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+
+## Markazul Bayaan Project Images
+
+For the Markazul Bayaan project, save the following images to the `/public/markazul/` directory:
+
+1. `key-features.jpg` - The Key Features section showing curriculum, instructors, community, and sessions
+2. `testimonials.jpg` - Student testimonials section
+3. `courses.jpg` - Course offerings including Arabic and Quranic studies
+4. `what-we-offer.jpg` - The "What we offer" section with Arabic, Quran, Hadith, and Fiqh
+
+These images will be used in the image carousel on the Markazul Bayaan project detail page.

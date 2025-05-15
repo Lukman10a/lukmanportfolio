@@ -1,10 +1,14 @@
 // import Footer from "@/components/footer";
-import { NavbarDemo } from "@/components/navBar/newNav";
+// import { NavbarDemo } from "@/components/navBar/newNav";
+// import { MinimalNav } from "@/components/navBar/MinimalNav";
+import { AnimatedNav } from "@/components/navBar/AnimatedNav";
 // import Preloader from "@/components/ui/animated/preloader";
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
-import { Merriweather, Smooch_Sans, Poppins } from "next/font/google";
+import { Merriweather, Smooch_Sans, Poppins, Geist, Geist_Mono } from "next/font/google";
 import { useEffect, useState } from "react";
+import Footer from "@/components/footer";
+import ThemeToggle from "@/components/ui/theme-toggle";
 
 const merri = Merriweather({
   subsets: ["latin"],
@@ -26,25 +30,51 @@ export const poppins = Poppins({
   weight: "600",
 });
 
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
 export default function App({ Component, pageProps }: AppProps) {
   const [preloader, setPreloader] = useState(true);
 
   useEffect(() => {
-    setTimeout(() => setPreloader(false), 5000);
+    setTimeout(() => setPreloader(false), 3000);
   }, [preloader]);
+
+  // Add theme initialization
+  useEffect(() => {
+    // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark')
+    } else {
+      document.documentElement.classList.remove('dark')
+    }
+  }, []);
 
   return (
     <>
-      {/* {preloader ? (
-        <Preloader />
-      ) : ( */}
-      <main className={`${merri.className} ${play.variable}`}>
-        {/* <NavBar /> */}
-        <NavbarDemo />
-        <Component {...pageProps} />
-        {/* <Footer /> */}
-      </main>
-      {/* )} */}
+      {preloader ? (
+        <div className="fixed inset-0 bg-[#f8f4ec] dark:bg-[#121212] flex items-center justify-center z-50">
+          <div className="text-3xl font-bold relative">
+            <span className="text-black dark:text-white">LUK</span>
+            <span className="text-brand">MAN</span>
+            <div className="absolute bottom-0 left-0 h-0.5 bg-brand w-0 animate-loading"></div>
+          </div>
+        </div>
+      ) : (
+        <main className={`${merri.className} ${play.variable} ${geistSans.variable} ${geistMono.variable}`}>
+          <AnimatedNav />
+          <Component {...pageProps} />
+          <Footer />
+          <ThemeToggle />
+        </main>
+      )}
     </>
   );
 }

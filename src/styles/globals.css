@@ -3,15 +3,15 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
+  --background: #f8f4ec;
   --foreground: #171717;
+  --brand: #ff914d;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.dark {
+  --background: #121212;
+  --foreground: #f8f4ec;
+  --brand: #ff914d;
 }
 
 body {
@@ -96,13 +96,47 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-gray-100;
+  @apply bg-gray-100 dark:bg-gray-800;
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-gray-400 rounded-full;
+  @apply bg-gray-400 dark:bg-gray-600 rounded-full;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-gray-500;
+  @apply bg-gray-500 dark:bg-gray-500;
+}
+
+/* Loading animation */
+@keyframes loading {
+  0% {
+    width: 0;
+  }
+  50% {
+    width: 100%;
+  }
+  100% {
+    width: 0;
+  }
+}
+
+/* Subtle background grain */
+.bg-grain {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.1'/%3E%3C/svg%3E");
+}
+
+/* Smooth transitions for all interactive elements */
+a, button, input, textarea, select {
+  transition: all 0.3s ease;
+}
+
+/* Highlight text selection */
+::selection {
+  background-color: #ff914d;
+  color: white;
+}
+
+/* Dark mode transition */
+body, html {
+  transition: background-color 0.5s ease, color 0.5s ease;
 }

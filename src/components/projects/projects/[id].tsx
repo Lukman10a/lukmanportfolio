@@ -48,7 +48,7 @@ const ProjectDetail = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="min-h-screen bg-gray-50 py-12"
+      className="min-h-screen bg-gray-50 py-12  mt-6"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.button

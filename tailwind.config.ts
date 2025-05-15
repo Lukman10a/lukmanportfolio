@@ -37,13 +37,25 @@ export default {
   		],
   		pop: [
   			'var(--font-pop)'
-  		]
+  		],
+      sans: [
+        'var(--font-geist-sans)',
+        'system-ui',
+        'sans-serif'
+      ],
+      mono: [
+        'var(--font-geist-mono)',
+        'monospace'
+      ]
   	},
   	extend: {
   		backgroundImage: {
-  			'preloader-gradient': 'linear-gradient(135deg, #1d1d1d, #444);'
+  			'preloader-gradient': 'linear-gradient(135deg, #1d1d1d, #444);',
+        'grain': "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.1'/%3E%3C/svg%3E\")",
+        'grid-pattern': "url(\"data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.15' fill-rule='evenodd'%3E%3Ccircle cx='40' cy='0' r='0.5'/%3E%3Ccircle cx='0' cy='40' r='0.5'/%3E%3Ccircle cx='40' cy='40' r='0.5'/%3E%3Ccircle cx='20' cy='20' r='0.5'/%3E%3C/g%3E%3C/svg%3E\")",
   		},
   		colors: {
+        brand: "#ff914d",
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {
@@ -148,6 +160,17 @@ export default {
   					transform: 'translateY(0)'
   				}
   			},
+        loading: {
+          '0%': {
+            width: '0%'
+          },
+          '50%': {
+            width: '100%'
+          },
+          '100%': {
+            width: '0%'
+          }
+        },
   			trail: {
   				'0%': {
   					'--angle': '0deg'
@@ -179,7 +202,8 @@ export default {
   			'fade-in-up': 'fadeInUp 0.7s ease-in-out forwards',
   			trail: 'trail var(--duration) linear infinite',
   			'accordion-down': 'accordion-down 0.2s ease-out',
-  			'accordion-up': 'accordion-up 0.2s ease-out'
+  			'accordion-up': 'accordion-up 0.2s ease-out',
+        'loading': 'loading 1.5s ease-in-out infinite'
   		},
   		borderRadius: {
   			lg: 'var(--radius)',

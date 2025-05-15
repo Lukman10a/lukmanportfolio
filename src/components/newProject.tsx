@@ -11,6 +11,7 @@ import { Parallax } from "./ui/animated/parallax";
 import Link from "next/link";
 import { useMouseCircle } from "@/hooks/useMouseCircle";
 import { MouseCircle } from "./ui/animated/movingButton";
+import { generateSlug } from "@/utils/slug";
 
 const projects = [
   {
@@ -42,6 +43,7 @@ const projects = [
     link: "https://www.markazulbayaan.com.ng/",
     image: bayaan,
     isRight: true, // For right-side alignment
+    hasDetails: true, // Flag to indicate if it should link to project details
   },
   {
     title: "Sunnah Hive",
@@ -101,7 +103,7 @@ export default function NewProject() {
                   {project.title}
                 </h2>
                 <p className="text-xl sm:text-xs">{project.description}</p>
-                <Link href={project.link}>
+                <Link href={project.hasDetails ? `/projects/${generateSlug(project.title)}` : project.link}>
                   <div className="">
                     <Image
                       src={project.image}

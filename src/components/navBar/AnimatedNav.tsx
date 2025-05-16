@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
 import { useRouter } from "next/router";
-import { Menu, X } from "lucide-react";
+import { X } from "lucide-react";
 import { FiGithub, FiTwitter, FiLinkedin, FiMail, FiMenu } from "react-icons/fi";
 
 // Define navigation items
@@ -251,23 +251,16 @@ export function AnimatedNav() {
                 ))}
               </motion.div>
               
-              {/* Contact button */}
-              <motion.div
+              {/* Contact info */}
+              <motion.div 
+                className="mt-auto text-sm text-black/60 dark:text-white/60"
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 exit={{ y: 20, opacity: 0 }}
                 transition={{ delay: 0.6, duration: 0.5 }}
-                className="mt-4"
               >
-                <div className="text-sm uppercase tracking-wider mb-3 text-black/60 dark:text-white/60">
-                  Let's Connect
-                </div>
-                <a href="mailto:abdukareem92@gmail.com" className="flex items-center text-lg font-medium">
-                  abdukareem92@gmail.com
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="ml-2">
-                    <path d="M7 17l9.2-9.2M17 17V7H7" />
-                  </svg>
-                </a>
+                <p>Let&apos;s collaborate on your next project</p>
+                <p className="mt-1">abdulrauflukman9@gmail.com</p>
               </motion.div>
             </motion.div>
           </motion.div>
@@ -275,13 +268,4 @@ export function AnimatedNav() {
       </AnimatePresence>
     </header>
   );
-}
-
-// Helper components (not used anymore)
-function NavLink({ href, children, pathname }: { href: string; children: React.ReactNode; pathname?: string }) {
-  return null;
-}
-
-function SocialIcon({ name }: { name: React.ComponentType<{ className?: string }> }) {
-  return null;
 } 

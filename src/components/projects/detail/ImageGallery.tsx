@@ -101,12 +101,10 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
   }
 
   return (
-    <motion.div
-      variants={itemVariants}
-      className="relative"
-    >
+    <motion.div variants={itemVariants} className="space-y-8">
+      {/* Main current image with navigation */}
       <div 
-        className="relative h-96 md:h-80 sm:h-60 rounded-xl overflow-hidden shadow-lg"
+        className="relative h-[70vh] sm:h-[50vh] rounded-xl overflow-hidden shadow-lg"
         onTouchStart={onTouchStart}
         onTouchMove={onTouchMove}
         onTouchEnd={onTouchEnd}
@@ -173,8 +171,41 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
           </>
         )}
       </div>
+      
+      {/* Thumbnail Gallery */}
       {images.length > 1 && (
-        <div className="flex justify-center mt-4 space-x-2">
+        <div className="grid grid-cols-4 sm:grid-cols-3 gap-3 mt-4">
+          {images.map((img, index) => (
+            <motion.div
+              key={index}
+              onClick={() => {
+                setDirection(index > currentImageIndex ? 1 : -1);
+                setCurrentImageIndex(index);
+              }}
+              className={`relative h-24 sm:h-20 rounded-lg overflow-hidden cursor-pointer ${
+                index === currentImageIndex 
+                  ? "ring-2 ring-[#ff914d] ring-offset-2 dark:ring-offset-gray-900" 
+                  : "hover:opacity-80 transition-opacity"
+              }`}
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.2 }}
+            >
+              <Image
+                src={img}
+                alt={`Thumbnail ${index + 1}`}
+                fill
+                className="object-cover"
+                sizes="(max-width: 639px) 33vw, 25vw"
+                onError={(e) => { e.currentTarget.src = '/placeholder.jpg'; }}
+              />
+            </motion.div>
+          ))}
+        </div>
+      )}
+      
+      {/* Dot Indicators (optional, can show for mobile only) */}
+      {images.length > 1 && (
+        <div className="flex justify-center mt-4 space-x-2 sm:hidden">
           {images.map((_, index) => (
             <button
               key={index}
@@ -182,7 +213,7 @@ const ImageGallery: React.FC<ImageGalleryProps> = ({
                 setDirection(index > currentImageIndex ? 1 : -1);
                 setCurrentImageIndex(index);
               }}
-              className={`w-3 h-3 sm:w-2 sm:h-2 rounded-full transition-all duration-300 ${
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${
                 index === currentImageIndex 
                   ? "bg-[#ff914d] scale-110" 
                   : "bg-gray-300 dark:bg-gray-600 hover:bg-gray-400 dark:hover:bg-gray-500"

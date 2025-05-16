@@ -1,5 +1,5 @@
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import ataasil from "../../public/assets/images/ataasil.png";
 import teverse from "../../public/assets/images/teverse.png";
 import cloud from "../../public/assets/images/cloud.png";
@@ -65,6 +65,14 @@ const projects = [
 export default function NewProject() {
   const { circleRef, handleMouseOver, handleMouseOut, customClass } =
     useMouseCircle();
+  const [imageErrors, setImageErrors] = useState<Record<number, boolean>>({});
+  
+  const handleImageError = (index: number) => {
+    setImageErrors(prev => ({
+      ...prev,
+      [index]: true
+    }));
+  };
 
   return (
     <div className="p-20 bg-[#f8f4ec] text-black sm:p-2">
@@ -106,8 +114,11 @@ export default function NewProject() {
                 <Link href={project.hasDetails ? `/projects/${generateSlug(project.title)}` : project.link}>
                   <div className="">
                     <Image
-                      src={project.image}
+                      src={imageErrors[index] ? '/placeholder.jpg' : project.image}
                       alt={project.title}
+                      width={500}
+                      height={300}
+                      onError={() => handleImageError(index)}
                       onMouseOver={() =>
                         handleMouseOver(
                           "border-2 border-black scale-300 h-20 w-20 "

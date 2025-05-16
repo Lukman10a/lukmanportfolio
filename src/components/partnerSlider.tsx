@@ -1,5 +1,6 @@
 // import Image from "next/image";
 // import Marquee from "../ui/animated/marquee";
+import { useState } from "react";
 import Image from "next/image";
 
 import { ClassValue } from "clsx";
@@ -21,6 +22,15 @@ export function PartnersSlider({
   reverse = false,
   grayscale,
 }: PartnerSliderProps) {
+  const [imageErrors, setImageErrors] = useState<Record<number, boolean>>({});
+  
+  const handleImageError = (index: number) => {
+    setImageErrors(prev => ({
+      ...prev,
+      [index]: true
+    }));
+  };
+  
   return (
     <Marquee
       className={cn("my-4 overflow-hidden", grayscale && "grayscale")}
@@ -31,9 +41,12 @@ export function PartnersSlider({
       {images.map((image, index) => (
         <Image
           key={index}
-          src={image}
+          src={imageErrors[index] ? '/placeholder.jpg' : image}
           alt={`Brand ${index}`}
+          width={80}
+          height={80}
           className={cn("size-20 sm:size-14 object-contain", imageClassName)}
+          onError={() => handleImageError(index)}
         />
       ))}
     </Marquee>

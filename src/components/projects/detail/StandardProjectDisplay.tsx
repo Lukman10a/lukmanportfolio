@@ -38,7 +38,7 @@ const StandardProjectDisplay: React.FC<StandardProjectDisplayProps> = ({
         variants={itemVariants}
         className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-8 sm:mb-12"
       >
-        {project.images &&
+        {project.images && project.images.length > 0 ? (
           project.images.map((img: string, index: number) => (
             <motion.div
               key={index}
@@ -55,7 +55,12 @@ const StandardProjectDisplay: React.FC<StandardProjectDisplayProps> = ({
                 onError={handleImageError}
               />
             </motion.div>
-          ))}
+          ))
+        ) : (
+          <div className="col-span-full text-center p-6 bg-gray-100 dark:bg-gray-800 rounded-xl">
+            <p>No images available</p>
+          </div>
+        )}
       </motion.div>
 
       {/* Project Details */}

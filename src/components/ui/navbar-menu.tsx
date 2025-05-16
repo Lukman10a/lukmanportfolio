@@ -109,9 +109,17 @@ export const ProductItem = ({
   );
 };
 
-export const HoveredLink = ({ children, ...rest }: any) => {
+export const HoveredLink = ({ 
+  children, 
+  href,
+  ...rest 
+}: Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'href'> & { 
+  children: React.ReactNode;
+  href: string;
+}) => {
   return (
     <Link
+      href={href}
       {...rest}
       className="text-neutral-700 dark:text-neutral-200 hover:text-black "
     >

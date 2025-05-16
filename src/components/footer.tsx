@@ -1,8 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import Link from "next/link";
-import { Mail, Github, Linkedin, ArrowUpRight } from "lucide-react";
-import EnhancedButton from "./ui/EnhancedButton";
+import { Mail, Github, Linkedin } from "lucide-react";
 
 export default function Footer() {
   const socialLinks = [
@@ -47,7 +45,7 @@ export default function Footer() {
             className="text-xl md:text-2xl text-black/70 dark:text-white/70 text-center max-w-lg"
             variants={item}
           >
-            Interested in working together? I'm always open to discussing new projects and opportunities.
+            Interested in working together? I&apos;m always open to discussing new projects and opportunities.
           </motion.p>
           
           <motion.div variants={item} className="pt-4">

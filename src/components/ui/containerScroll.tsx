@@ -1,9 +1,15 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { ContainerScroll } from "../ui/container-scroll-animation";
 import Image from "next/image";
 
 export function HeroScrollDemo() {
+  const [imageError, setImageError] = useState(false);
+
+  const handleImageError = () => {
+    setImageError(true);
+  };
+
   return (
     <div className="flex flex-col overflow-hidden">
       <ContainerScroll
@@ -19,12 +25,13 @@ export function HeroScrollDemo() {
         }
       >
         <Image
-          src={`/assets/images/img.png`}
+          src={imageError ? "/placeholder.jpg" : `/assets/images/img.png`}
           alt="hero"
           height={720}
           width={1400}
           className="mx-auto rounded-2xl object-cover h-full object-left-top"
           draggable={false}
+          onError={handleImageError}
         />
       </ContainerScroll>
     </div>

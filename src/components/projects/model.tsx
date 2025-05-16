@@ -6,7 +6,7 @@ import useDimension from "./useDimension";
 import useMouse from "./useMouse";
 import { useFrame, useThree } from "@react-three/fiber";
 import { fragment, vertex } from "./shader";
-import { useAspect, useTexture, useVideoTexture } from "@react-three/drei";
+import { useAspect, useTexture } from "@react-three/drei";
 import { projects, Project } from "../../../data";
 
 interface ModelProps {

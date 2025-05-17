@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { projectDetails, Projects } from "../../../data";
 import MarkazulBayaanProject from "@/components/projects/detail/MarkazulBayaanProject";
 import StandardProjectDisplay from "@/components/projects/detail/StandardProjectDisplay";
+import MobileAppDisplay from "@/components/projects/detail/MobileAppDisplay";
 import useSmoothScroll from "@/hooks/useSmoothScroll";
 
 // Using the Projects interface from data.ts
@@ -16,6 +17,7 @@ const ProjectDetail = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [project, setProject] = useState<Project | null>(null);
   const [isMarkazul, setIsMarkazul] = useState(false);
+  const [isMobileApp, setIsMobileApp] = useState(false);
   
   // Enable smooth scrolling
   useSmoothScroll({ duration: 800 });
@@ -27,13 +29,10 @@ const ProjectDetail = () => {
         (p) => generateSlug(p.title) === id
       );
 
-      if (foundProject && foundProject.title === "Markazul Bayaan") {
-        // Use the actual images provided in the data
-        setProject(foundProject);
-        setIsMarkazul(true);
-      } else if (foundProject) {
+      if (foundProject) {
         setProject(foundProject);
         setIsMarkazul(foundProject.title === "Markazul Bayaan");
+        setIsMobileApp(foundProject.title === "LearnSmart");
       }
     }
   }, [id]);
@@ -123,6 +122,12 @@ const ProjectDetail = () => {
             handleNextImage={handleNextImage}
             handlePreviousImage={handlePreviousImage}
             setCurrentImageIndex={setCurrentImageIndex}
+          />
+        ) : isMobileApp ? (
+          <MobileAppDisplay 
+            project={project}
+            containerVariants={containerVariants}
+            itemVariants={itemVariants}
           />
         ) : (
           <StandardProjectDisplay 

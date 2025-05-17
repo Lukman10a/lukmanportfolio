@@ -101,5 +101,62 @@ export const projectDetails: Projects[] = [
     link: "https://www.markazulbayaan.com.ng/",
     coursesLink: "https://www.markazulbayaan.com.ng/newCourse"
   },
+  {
+    id: "5",
+    title: "Cloude Code",
+    images: [
+      "/assets/images/cloud.png",
+      "/assets/images/cloud_1.png",
+      "/assets/images/cloud_2.png"
+    ],
+    description: "CloudCode is a powerful cloud-based integrated development environment (IDE) designed for collaborative coding and seamless project management. The platform enables developers to write, test, and deploy code directly from the browser, eliminating the need for local setup. With real-time collaboration features, version control integration, and support for multiple programming languages, CloudCode streamlines the development workflow for teams of all sizes.",
+    techStack: ["React", "Node.js", "WebSockets", "Monaco Editor", "Docker", "Kubernetes", "TypeScript", "Material UI"],
+    client: "CloudCode Technologies",
+    year: "2023",
+    link: "https://cloudcode.dev",
+  },
+  {
+    id: "6",
+    title: "SunnahHive",
+    images: [
+      "/assets/images/sunnahhive.png",
+      "/assets/images/sunnahhive_1.png",
+      "/assets/images/sunnahhive_2.png"
+    ],
+    description: "SunnahHive is a comprehensive digital platform dedicated to authentic Islamic knowledge and practice. The platform features a vast collection of verified Hadiths (Prophetic traditions), Quranic interpretations, and scholarly articles. Users can access daily Islamic reminders, a prayer time calculator, Qibla direction finder, and community forums. SunnahHive serves as a one-stop resource for Muslims seeking reliable information and guidance in their spiritual journey.",
+    techStack: ["Next.js", "React", "Node.js", "MongoDB", "Express", "Tailwind CSS", "Redux", "Authentication"],
+    client: "SunnahHive Foundation",
+    year: "2022",
+    link: "https://sunnahhive.org",
+  },
+  {
+    id: "7",
+    title: "Consology",
+    images: [
+      "/assets/images/consology.png",
+      "/assets/images/consology_1.png",
+      "/assets/images/consology_2.png"
+    ],
+    description: "Consology is an innovative construction management platform that digitizes and streamlines the entire construction process. The system includes project planning tools, resource allocation, budget tracking, and progress monitoring features. With interactive dashboards and real-time reporting, Consology provides construction managers with complete visibility and control over their projects, enhancing efficiency and reducing costs through optimized workflow management.",
+    techStack: ["React", "Redux", "Node.js", "PostgreSQL", "Express", "Chart.js", "Mapbox", "PWA", "Responsive Design"],
+    client: "Consology Solutions",
+    year: "2023",
+    link: "https://consology.com",
+  },
+  {
+    id: "8",
+    title: "LearnSmart",
+    images: [
+      "/assets/images/learnsmart.png",
+      "/assets/images/learnsmart_1.png",
+      "/assets/images/learnsmart_2.png",
+      "/assets/images/learnsmart_3.png"
+    ],
+    description: "LearnSmart is a mobile-first educational application designed to make learning accessible, engaging, and personalized. The app features adaptive learning paths that adjust to individual progress, interactive quizzes, video lessons, and flashcards covering various subjects. With gamification elements, progress tracking, and offline learning capabilities, LearnSmart caters to students of all ages looking to enhance their knowledge on-the-go through a mobile-optimized learning experience.",
+    techStack: ["React Native", "TypeScript", "Redux", "Firebase", "Node.js", "Express", "MongoDB", "Push Notifications", "Offline Support"],
+    client: "LearnSmart Educational Tech",
+    year: "2023",
+    link: "https://learnsmart-app.com",
+  },
   // Add more projects as needed
 ];

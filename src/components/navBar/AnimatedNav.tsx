@@ -18,20 +18,28 @@ const navigationItems = [
 
 // Social links
 const socialLinks = [
-  { name: "GitHub", icon: FiGithub, url: "https://github.com/lukmandev" },
+  { name: "GitHub", icon: FiGithub, url: "https://github.com/Lukman10a/" },
   { name: "Twitter", icon: FiTwitter, url: "https://twitter.com/lukmandev" },
-  { name: "LinkedIn", icon: FiLinkedin, url: "https://linkedin.com/in/lukmandev" },
+  { name: "LinkedIn", icon: FiLinkedin, url: "https://linkedin.com/in/abdulrauf-lukman-761095217/" },
   { name: "Email", icon: FiMail, url: "mailto:abdukareem92@gmail.com" },
 ];
 
 export function AnimatedNav() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
 
+  // Handle mounting
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   // Handle scroll effect for navbar background
   useEffect(() => {
+    if (!mounted || typeof window === "undefined") return;
+    
     const handleScroll = () => {
       const isScrolled = window.scrollY > 10;
       if (isScrolled !== scrolled) {
@@ -41,10 +49,12 @@ export function AnimatedNav() {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [scrolled]);
+  }, [scrolled, mounted]);
 
   // Close mobile menu on route change
   useEffect(() => {
+    if (!mounted) return;
+    
     const handleRouteChange = () => {
       setIsOpen(false);
     };
@@ -53,10 +63,12 @@ export function AnimatedNav() {
     return () => {
       router.events.off("routeChangeStart", handleRouteChange);
     };
-  }, [router.events]);
+  }, [router.events, mounted]);
 
   // Lock body scroll when menu is open
   useEffect(() => {
+    if (!mounted || typeof document === "undefined") return;
+    
     if (isOpen) {
       document.body.style.overflow = "hidden";
       document.body.style.touchAction = "none";
@@ -74,9 +86,33 @@ export function AnimatedNav() {
       document.body.style.position = "";
       document.body.style.width = "";
     };
-  }, [isOpen]);
+  }, [isOpen, mounted]);
 
   const toggleMenu = () => setIsOpen(!isOpen);
+
+  // Don't render until mounted to avoid hydration mismatch
+  if (!mounted) {
+    return (
+      <header className="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent">
+        <div className="container mx-auto px-6 py-4">
+          <div className="flex items-center justify-between">
+            <div className="relative z-10">
+              <div className="flex flex-col">
+                <Link href="/" className="text-3xl font-bold tracking-tight">
+                  LUKMAN
+                </Link>
+              </div>
+            </div>
+            <div className="relative z-50 w-12 h-12 flex items-center justify-center">
+              <div className="text-black dark:text-white">
+                <FiMenu className="h-6 w-6" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+    );
+  }
 
   return (
     <header
@@ -199,40 +235,29 @@ export function AnimatedNav() {
                 {navigationItems.map((item, index) => (
                   <motion.div
                     key={item.name}
-                    initial={{ x: 50, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    exit={{ x: 50, opacity: 0 }}
-                    transition={{ 
-                      delay: 0.1 + index * 0.1,
-                      duration: 0.5
-                    }}
+                    initial={{ opacity: 0, x: 50 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.1 + index * 0.1, duration: 0.5 }}
                   >
                     <Link
                       href={item.href}
                       className={cn(
-                        "block py-2 px-4 transition-colors hover:text-brand relative group",
-                        item.href === pathname ? "text-brand" : "text-black dark:text-white"
+                        "block hover:text-brand transition-colors duration-300",
+                        pathname === item.href ? "text-brand" : "text-black dark:text-white"
                       )}
                       onClick={() => setIsOpen(false)}
                     >
                       {item.name}
-                      <motion.span 
-                        className="absolute -bottom-2 left-4 h-1 bg-brand transform origin-left"
-                        initial={{ scaleX: item.href === pathname ? 1 : 0 }}
-                        whileHover={{ scaleX: 1 }}
-                        transition={{ duration: 0.3 }}
-                      />
                     </Link>
                   </motion.div>
                 ))}
               </nav>
-              
-              {/* Social links */}
+
+              {/* Social Links */}
               <motion.div 
-                className="flex space-x-8 mt-auto mb-8"
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                exit={{ y: 20, opacity: 0 }}
+                className="flex space-x-6 mt-auto"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5, duration: 0.5 }}
               >
                 {socialLinks.map((link) => (
@@ -241,26 +266,14 @@ export function AnimatedNav() {
                     href={link.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-black dark:text-white hover:text-brand transition-colors p-2"
-                    whileHover={{ scale: 1.2 }}
+                    className="text-black dark:text-white hover:text-brand transition-colors duration-300"
+                    whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
                   >
+                    <link.icon className="w-6 h-6" />
                     <span className="sr-only">{link.name}</span>
-                    {React.createElement(link.icon, { className: "w-7 h-7" })}
                   </motion.a>
                 ))}
-              </motion.div>
-              
-              {/* Contact info */}
-              <motion.div 
-                className="mt-auto text-sm text-black/60 dark:text-white/60"
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                exit={{ y: 20, opacity: 0 }}
-                transition={{ delay: 0.6, duration: 0.5 }}
-              >
-                <p>Let&apos;s collaborate on your next project</p>
-                <p className="mt-1">abdulrauflukman9@gmail.com</p>
               </motion.div>
             </motion.div>
           </motion.div>

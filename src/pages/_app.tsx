@@ -42,20 +42,25 @@ const geistMono = Geist_Mono({
 
 export default function App({ Component, pageProps }: AppProps) {
   const [preloader, setPreloader] = useState(true);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setTimeout(() => setPreloader(false), 3000);
-  }, [preloader]);
+    setMounted(true);
+    const timer = setTimeout(() => setPreloader(false), 3000);
+    return () => clearTimeout(timer);
+  }, []);
 
   // Add theme initialization
   useEffect(() => {
+    if (!mounted || typeof window === "undefined") return;
+    
     // On page load or when changing themes, best to add inline in `head` to avoid FOUC
     if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
       document.documentElement.classList.add('dark')
     } else {
       document.documentElement.classList.remove('dark')
     }
-  }, []);
+  }, [mounted]);
 
   return (
     <>

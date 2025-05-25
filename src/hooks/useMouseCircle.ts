@@ -1,12 +1,19 @@
 // hooks/useMouseCircle.ts
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import gsap from "gsap";
 
 export const useMouseCircle = () => {
   const circleRef = useRef<HTMLDivElement>(null);
   const [customClass, setCustomClass] = useState<string>("");
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const handleMouseMove = (e: MouseEvent) => {
+    if (!mounted || typeof window === "undefined") return;
+    
     gsap.to(circleRef.current, {
       duration: 0.25,
       css: {
@@ -21,9 +28,10 @@ export const useMouseCircle = () => {
     customClassName: string,
     customAnimation?: (circle: HTMLDivElement) => void
   ) => {
+    if (!mounted || typeof document === "undefined") return;
+    
     setCustomClass(customClassName);
     const circle = circleRef.current;
-    console.log(circle);
 
     if (circle) {
       if (customAnimation) {
@@ -43,6 +51,8 @@ export const useMouseCircle = () => {
   };
 
   const handleMouseOut = () => {
+    if (!mounted || typeof document === "undefined") return;
+    
     setCustomClass("");
     gsap.to(circleRef.current, {
       duration: 0.25,

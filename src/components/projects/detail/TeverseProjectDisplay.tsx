@@ -52,7 +52,7 @@ const TeverseProjectDisplay: React.FC<TeverseProjectDisplayProps> = ({
             Cloud Infrastructure Solutions
           </motion.p>
         </div>
-        <div className="relative h-[50vh] lg:h-[40vh] w-full overflow-hidden">
+        <div className="relative w-full overflow-hidden">
           <Image
             src={imageError ? '/placeholder.jpg' : project.images[0]} 
             alt={project.title}

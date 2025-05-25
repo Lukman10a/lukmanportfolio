@@ -68,7 +68,7 @@ export function NavBar() {
   }, [router.events]);
 
   return (
-    <nav className="relative z-50 font-inter" id="scrollable">
+    <nav className="relative z-50 font-inter sm:hidden" id="scrollable">
       <nav className="fixed top-0 w-full p-7 sm:p-4 backdrop-blur-sm">
         <div className="container flex h-16 sm:h-12 items-center justify-between">
           {/* Logo */}

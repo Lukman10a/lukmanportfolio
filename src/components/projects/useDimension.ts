@@ -12,14 +12,18 @@ export default function useDimension(): Dimension {
   });
 
   const resize = (): void => {
-    const { innerWidth, innerHeight } = window;
-    setDimension({
-      width: innerWidth,
-      height: innerHeight,
-    });
+    if (typeof window !== "undefined") {
+      const { innerWidth, innerHeight } = window;
+      setDimension({
+        width: innerWidth,
+        height: innerHeight,
+      });
+    }
   };
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
+    
     resize();
     window.addEventListener("resize", resize);
     return () => window.removeEventListener("resize", resize);

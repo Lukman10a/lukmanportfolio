@@ -79,9 +79,9 @@ export default function Model({ activeMenu }: ModelProps) {
   };
 
   const uniforms = useRef<MaterialUniforms>({
-    uTexture: { value: isLoaded ? textures[0] : null },
+    uTexture: { value: null }, // Start with no texture to prevent flash
     uDelta: { value: { x: 0, y: 0 } },
-    uOpacity: { value: 1 },
+    uOpacity: { value: 0 }, // Start with opacity 0 to prevent flash
   });
 
   // Memoize texture transition logic
@@ -104,9 +104,13 @@ export default function Model({ activeMenu }: ModelProps) {
       if (materialRef.current) {
         materialRef.current.uniforms.uOpacity.value = currentOpacity;
         
-        // Update texture only when showing (more performant)
-        if (targetTexture && progress === 1 && targetOpacity === 1) {
+        // Update texture based on target state
+        if (targetOpacity === 1 && targetTexture && progress === 1) {
+          // Show texture when fully visible
           materialRef.current.uniforms.uTexture.value = targetTexture;
+        } else if (targetOpacity === 0 && progress === 1) {
+          // Clear texture when fully hidden to prevent flash
+          materialRef.current.uniforms.uTexture.value = null;
         }
       }
 

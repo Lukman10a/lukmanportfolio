@@ -1,43 +1,123 @@
 # Cursor Rules for Lukman's Portfolio Website
 
-## Project Patterns
+## Project Intelligence & Patterns
 
-### Styling Patterns
-- Use Tailwind utility classes for styling instead of custom CSS
-- Follow mobile-first approach with sm:, md:, lg: breakpoints
-- Use the Geist font family (Sans and Mono variants) for typography
-- Primary background color: #f8f4ec (light beige)
-- Highlight color: #ff914d (orange)
+### Architecture Understanding
+- **Modern Stack**: React 19 + Next.js 15 + TypeScript 5 with Pages Router
+- **3D Integration**: React Three Fiber with adaptive performance monitoring
+- **Animation System**: Framer Motion + GSAP + Lenis smooth scrolling
+- **Styling**: Tailwind CSS with custom design system and theme support
+- **Data Management**: Static TypeScript interfaces in `data.ts` with slug-based routing
 
-### Component Patterns
-- Reuse existing UI components from src/components/ui when possible
-- New animations should follow existing patterns using Framer Motion or GSAP
-- Interactive elements should include hover states and smooth transitions
-- 3D elements use React Three Fiber and follow existing scene/model patterns
+### Critical Implementation Patterns
 
-### File Structure
-- Page components in src/pages directory
-- Reusable components in src/components
-- UI components in src/components/ui
-- Project components in src/components/projects
-- Utility functions in src/utils
-- Custom hooks in src/hooks
+#### Animation Performance
+- **Intersection Observer**: All animations use intersection observer for performance
+- **Adaptive 3D Rendering**: DPR adjusts based on device capabilities
+- **Mobile Optimization**: Lower initial DPR for mobile devices
+- **Animation Triggers**: Animations only fire when elements are visible
 
-### Naming Conventions
-- React components use PascalCase (e.g., Hero.tsx)
-- Utility functions use camelCase (e.g., generateSlug.ts)
-- Files use lowercase with hyphens for multi-word names (e.g., custom-button.tsx)
+#### Component Architecture
+- **Specialized Displays**: Different components for different project types
+  - `MarkazulBayaanProject` for Islamic education projects
+  - `MobileAppDisplay` for mobile applications
+  - `StandardProjectDisplay` for web projects
+- **Reusable Animations**: Typewriter, TextLoop, Magnetic effects
+- **Theme-Aware Components**: All components support light/dark mode
 
-### Animation Techniques
-- Use Lenis for smooth scrolling
-- Use Framer Motion for UI animations
-- Use GSAP for complex animation sequences
-- Use React Three Fiber for 3D animations
-- Text animations use custom components like Typewriter and TextLoop
+#### Styling Patterns
+- **Color Scheme**: #f8f4ec (light), #121212 (dark), #ff914d (brand)
+- **Font System**: Geist Sans/Mono (primary), Merriweather, Smooch Sans, Poppins
+- **Responsive**: Mobile-first with custom breakpoints (2xl, xl, lg, 2md, md, sm)
+- **CSS Custom Properties**: Theme variables for seamless mode switching
 
-## Development Preferences
-- Use TypeScript for type safety
-- Follow a component-based architecture
-- Maintain responsive design for all screen sizes
-- Optimize images and animations for performance
-- Keep dependencies minimal and up-to-date 
+#### Performance Optimizations
+- **3D Scene Management**: Performance monitoring with automatic quality adjustment
+- **Suspense Boundaries**: For 3D content loading
+- **Touch Event Handling**: Mobile-specific optimizations
+- **Lazy Loading**: Components and assets loaded on demand
+
+### Development Preferences
+
+#### Code Organization
+- **Component Structure**: Logical grouping by functionality
+  - `/ui/animated/` for animation components
+  - `/projects/` for project-related components
+  - `/navBar/` for navigation components
+- **Type Safety**: Comprehensive TypeScript coverage with interfaces
+- **Utility Functions**: Centralized in `/utils/` (slug generation, etc.)
+
+#### Animation Implementation
+- **Typewriter Effects**: Use intersection observer with completion callbacks
+- **3D Scenes**: Always include performance monitoring and adaptive DPR
+- **Scroll Animations**: Lenis for smooth scrolling, GSAP for complex sequences
+- **Hover Effects**: Magnetic and enhanced button interactions
+
+#### Data Patterns
+- **Project Structure**: Rich project data with images, tech stack, descriptions
+- **Routing**: Slug-based URLs for SEO (`generateSlug` utility)
+- **Type Definitions**: Well-defined interfaces for all data structures
+
+### Technical Constraints & Requirements
+
+#### Browser Support
+- **Modern Browsers**: Chrome, Firefox, Safari, Edge (latest)
+- **WebGL Required**: For 3D features (graceful degradation needed)
+- **JavaScript Dependency**: Full functionality requires JS
+
+#### Performance Requirements
+- **Mobile Performance**: Adaptive rendering for lower-end devices
+- **Animation Performance**: Intersection observer for optimization
+- **Bundle Size**: Monitor and optimize for fast loading
+
+#### Accessibility Standards
+- **Radix UI**: Use for accessible component primitives
+- **Keyboard Navigation**: Ensure all interactive elements are accessible
+- **Screen Reader Support**: Proper ARIA labels and semantic HTML
+
+### Feature Implementation Guidelines
+
+#### New Animations
+- Always use intersection observer for triggering
+- Include performance considerations for mobile
+- Follow existing animation patterns (Framer Motion + GSAP)
+- Test on various devices for performance impact
+
+#### New Components
+- Follow existing component patterns and naming conventions
+- Include TypeScript interfaces for all props
+- Support light/dark theme modes
+- Ensure mobile responsiveness
+
+#### 3D Content
+- Include performance monitoring and adaptive quality
+- Use Suspense boundaries for loading states
+- Optimize for mobile devices with lower DPR
+- Provide fallbacks for unsupported browsers
+
+### Known Technical Debt & Considerations
+
+#### Areas for Improvement
+- **Image Optimization**: Next.js Image component not fully utilized
+- **Error Boundaries**: Need comprehensive error handling for 3D content
+- **Testing**: No test suite currently implemented
+- **SEO**: Meta tags and structured data need enhancement
+
+#### Performance Monitoring
+- **3D Performance**: Built-in monitoring with automatic adjustment
+- **Animation Performance**: Intersection observer optimization
+- **Bundle Analysis**: Regular monitoring recommended
+
+### Content Management Patterns
+
+#### Project Data
+- **Static Structure**: Works well for current scale
+- **Rich Information**: Images, tech stack, descriptions, links
+- **Type Safety**: Well-defined TypeScript interfaces
+
+#### Routing Strategy
+- **Slug-Based**: SEO-friendly URLs with `generateSlug` utility
+- **Dynamic Routes**: `/projects/[id]` pattern for project details
+- **Type-Safe**: Route parameters validated with TypeScript
+
+This portfolio demonstrates advanced frontend development skills with sophisticated technical implementation. When implementing new features, maintain the high standard of performance optimization, type safety, and user experience that characterizes the existing codebase. 

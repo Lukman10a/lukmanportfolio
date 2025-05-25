@@ -23,6 +23,8 @@ export default function useMouse(): MousePosition {
   ); // Include mouse.x and mouse.y as dependencies
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
+    
     window.addEventListener("mousemove", mouseMove);
     return () => {
       window.removeEventListener("mousemove", mouseMove);

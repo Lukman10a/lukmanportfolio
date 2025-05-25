@@ -15,7 +15,7 @@ const useSmoothScroll = ({
   enabled = true,
 }: SmoothScrollOptions = {}) => {
   useEffect(() => {
-    if (!enabled) return;
+    if (!enabled || typeof window === "undefined") return;
     
     let animationFrame: number;
     let startTime: number;

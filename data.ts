@@ -59,7 +59,7 @@ export const projectDetails: Projects[] = [
     description: "Teverse is a cloud company based in Sydney, Australia, offering innovative cloud computing solutions for businesses. The platform provides scalable infrastructure, enabling companies to deploy, manage, and scale applications efficiently. With a focus on security, performance, and user experience, Teverse helps businesses leverage cloud technology to reduce operational costs and accelerate digital transformation.",
     techStack: ["React", "Node.js", "AWS", "Docker", "Kubernetes", "TypeScript", "Tailwind CSS"],
     client: "Teverse Cloud Technologies",
-    year: "2023",
+    year: "2024",
     link: "https://teverse.com",
   },
   {

@@ -1,7 +1,7 @@
-import React from 'react';
-import Image from 'next/image';
-import { motion, Variants } from 'framer-motion';
-import { Projects } from '../../../../data';
+import React from "react";
+import Image from "next/image";
+import { motion, Variants } from "framer-motion";
+import { Projects } from "../../../../data";
 
 interface StandardProjectDisplayProps {
   project: Projects;
@@ -12,11 +12,11 @@ interface StandardProjectDisplayProps {
 const StandardProjectDisplay: React.FC<StandardProjectDisplayProps> = ({
   project,
   containerVariants,
-  itemVariants
+  itemVariants,
 }) => {
   // Handle image loading errors
   const handleImageError = (e: React.SyntheticEvent<HTMLImageElement>) => {
-    e.currentTarget.src = '/placeholder.jpg';
+    e.currentTarget.src = "/placeholder.jpg";
   };
 
   return (
@@ -66,10 +66,10 @@ const StandardProjectDisplay: React.FC<StandardProjectDisplayProps> = ({
       {/* Project Details */}
       <motion.div
         variants={containerVariants}
-        className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8"
+        className="grid sm:grid-cols-1 grid-cols-2 gap-6 lg:gap-8"
       >
         {/* Main Content */}
-        <div className="lg:col-span-2">
+        <div className="">
           <motion.div
             variants={itemVariants}
             className="prose dark:prose-invert max-w-none mb-6 sm:mb-8"
@@ -94,12 +94,20 @@ const StandardProjectDisplay: React.FC<StandardProjectDisplayProps> = ({
             </h3>
             <dl className="space-y-2 sm:space-y-3 text-sm sm:text-base">
               <div>
-                <dt className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">Client</dt>
-                <dd className="text-gray-700 dark:text-gray-300">{project.client}</dd>
+                <dt className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">
+                  Client
+                </dt>
+                <dd className="text-gray-700 dark:text-gray-300">
+                  {project.client}
+                </dd>
               </div>
               <div>
-                <dt className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">Year</dt>
-                <dd className="text-gray-700 dark:text-gray-300">{project.year}</dd>
+                <dt className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">
+                  Year
+                </dt>
+                <dd className="text-gray-700 dark:text-gray-300">
+                  {project.year}
+                </dd>
               </div>
             </dl>
           </motion.div>
@@ -155,4 +163,4 @@ const StandardProjectDisplay: React.FC<StandardProjectDisplayProps> = ({
   );
 };
 
-export default StandardProjectDisplay; 
+export default StandardProjectDisplay;

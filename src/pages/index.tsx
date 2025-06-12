@@ -41,18 +41,6 @@ export default function Home() {
         className="relative w-full bg-[#f8f4ec] dark:bg-[#121212] overflow-hidden"
       >
         <div className="container mx-auto py-16">
-          {/* <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 text-black dark:text-white">
-            My{" "}
-            <HighlightedText
-              highlightColor="#ff914d"
-              highlightHeight="100%"
-              className="p-2"
-              highlightClassName="z-[-1] rounded-lg"
-            >
-              Projects
-            </HighlightedText>{" "}
-          </h2> */}
-
           <Scene activeMenu={activeMenu} />
           <div className="p-5 md:p-10">
             <Projects setActiveMenu={setActiveMenu} />

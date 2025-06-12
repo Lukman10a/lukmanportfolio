@@ -1,7 +1,7 @@
-import React from 'react';
-import Image from 'next/image';
-import { motion, Variants } from 'framer-motion';
-import { Projects } from '../../../../data';
+import React from "react";
+import Image from "next/image";
+import { motion, Variants } from "framer-motion";
+import { Projects } from "../../../../data";
 
 interface MobileAppDisplayProps {
   project: Projects;
@@ -12,11 +12,11 @@ interface MobileAppDisplayProps {
 const MobileAppDisplay: React.FC<MobileAppDisplayProps> = ({
   project,
   containerVariants,
-  itemVariants
+  itemVariants,
 }) => {
   // Handle image loading errors
   const handleImageError = (e: React.SyntheticEvent<HTMLImageElement>) => {
-    e.currentTarget.src = '/placeholder.jpg';
+    e.currentTarget.src = "/placeholder.jpg";
   };
 
   return (
@@ -47,8 +47,8 @@ const MobileAppDisplay: React.FC<MobileAppDisplayProps> = ({
               key={index}
               whileHover={{ scale: 1.05, rotateZ: 2 }}
               className="relative min-w-[160px] sm:min-w-[200px] md:min-w-[240px] h-[320px] sm:h-[400px] md:h-[480px] rounded-3xl overflow-hidden shadow-lg border-8 border-gray-800 dark:border-gray-700"
-              style={{ 
-                borderRadius: '2rem',
+              style={{
+                borderRadius: "2rem",
               }}
             >
               <Image
@@ -74,20 +74,20 @@ const MobileAppDisplay: React.FC<MobileAppDisplayProps> = ({
       {/* App Store Badge */}
       <motion.div
         variants={itemVariants}
-        className="flex justify-center mb-8 space-x-4"
+        className="flex justify-center mb-16 space-x-4"
       >
         <a href="#" className="w-[135px] h-[40px] relative">
-          <Image 
-            src="/assets/images/app-store-badge.png" 
-            alt="Download on App Store" 
-            width={135} 
+          <Image
+            src="/assets/images/app_store.svg"
+            alt="Download on App Store"
+            width={135}
             height={40}
           />
         </a>
         <a href="#" className="w-[135px] h-[40px] relative">
-          <Image 
-            src="/assets/images/google-play-badge.png" 
-            alt="Get it on Google Play" 
+          <Image
+            src="/assets/images/google_play.svg"
+            alt="Get it on Google Play"
             width={135}
             height={40}
           />
@@ -97,10 +97,10 @@ const MobileAppDisplay: React.FC<MobileAppDisplayProps> = ({
       {/* Project Details */}
       <motion.div
         variants={containerVariants}
-        className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8"
+        className="grid sm:grid-cols-1 grid-cols-2 gap-6 lg:gap-8"
       >
         {/* Main Content */}
-        <div className="lg:col-span-2">
+        <div className="">
           <motion.div
             variants={itemVariants}
             className="prose dark:prose-invert max-w-none mb-6 sm:mb-8"
@@ -123,40 +123,112 @@ const MobileAppDisplay: React.FC<MobileAppDisplayProps> = ({
             </h2>
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 list-none pl-0">
               <li className="flex items-start">
-                <svg className="w-5 h-5 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                <svg
+                  className="w-5 h-5 text-green-500 mr-2 mt-0.5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M5 13l4 4L19 7"
+                  />
                 </svg>
-                <span className="text-gray-700 dark:text-gray-300">Adaptive Learning Paths</span>
+                <span className="text-gray-700 dark:text-gray-300">
+                  Adaptive Learning Paths
+                </span>
               </li>
               <li className="flex items-start">
-                <svg className="w-5 h-5 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                <svg
+                  className="w-5 h-5 text-green-500 mr-2 mt-0.5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M5 13l4 4L19 7"
+                  />
                 </svg>
-                <span className="text-gray-700 dark:text-gray-300">Interactive Quizzes</span>
+                <span className="text-gray-700 dark:text-gray-300">
+                  Interactive Quizzes
+                </span>
               </li>
               <li className="flex items-start">
-                <svg className="w-5 h-5 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                <svg
+                  className="w-5 h-5 text-green-500 mr-2 mt-0.5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M5 13l4 4L19 7"
+                  />
                 </svg>
-                <span className="text-gray-700 dark:text-gray-300">Progress Tracking</span>
+                <span className="text-gray-700 dark:text-gray-300">
+                  Progress Tracking
+                </span>
               </li>
               <li className="flex items-start">
-                <svg className="w-5 h-5 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                <svg
+                  className="w-5 h-5 text-green-500 mr-2 mt-0.5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M5 13l4 4L19 7"
+                  />
                 </svg>
-                <span className="text-gray-700 dark:text-gray-300">Offline Learning</span>
+                <span className="text-gray-700 dark:text-gray-300">
+                  Offline Learning
+                </span>
               </li>
               <li className="flex items-start">
-                <svg className="w-5 h-5 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                <svg
+                  className="w-5 h-5 text-green-500 mr-2 mt-0.5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M5 13l4 4L19 7"
+                  />
                 </svg>
-                <span className="text-gray-700 dark:text-gray-300">Video Lessons</span>
+                <span className="text-gray-700 dark:text-gray-300">
+                  Video Lessons
+                </span>
               </li>
               <li className="flex items-start">
-                <svg className="w-5 h-5 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                <svg
+                  className="w-5 h-5 text-green-500 mr-2 mt-0.5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M5 13l4 4L19 7"
+                  />
                 </svg>
-                <span className="text-gray-700 dark:text-gray-300">Gamification Elements</span>
+                <span className="text-gray-700 dark:text-gray-300">
+                  Gamification Elements
+                </span>
               </li>
             </ul>
           </motion.div>
@@ -173,16 +245,28 @@ const MobileAppDisplay: React.FC<MobileAppDisplayProps> = ({
             </h3>
             <dl className="space-y-2 sm:space-y-3 text-sm sm:text-base">
               <div>
-                <dt className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">Client</dt>
-                <dd className="text-gray-700 dark:text-gray-300">{project.client}</dd>
+                <dt className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">
+                  Client
+                </dt>
+                <dd className="text-gray-700 dark:text-gray-300">
+                  {project.client}
+                </dd>
               </div>
               <div>
-                <dt className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">Year</dt>
-                <dd className="text-gray-700 dark:text-gray-300">{project.year}</dd>
+                <dt className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">
+                  Year
+                </dt>
+                <dd className="text-gray-700 dark:text-gray-300">
+                  {project.year}
+                </dd>
               </div>
               <div>
-                <dt className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">Platforms</dt>
-                <dd className="text-gray-700 dark:text-gray-300">iOS, Android</dd>
+                <dt className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">
+                  Platforms
+                </dt>
+                <dd className="text-gray-700 dark:text-gray-300">
+                  iOS, Android
+                </dd>
               </div>
             </dl>
           </motion.div>
@@ -238,4 +322,4 @@ const MobileAppDisplay: React.FC<MobileAppDisplayProps> = ({
   );
 };
 
-export default MobileAppDisplay; 
+export default MobileAppDisplay;

@@ -36,7 +36,7 @@ const StandardProjectDisplay: React.FC<StandardProjectDisplayProps> = ({
       {/* Image Gallery */}
       <motion.div
         variants={itemVariants}
-        className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-8 sm:mb-12"
+        className="grid grid-cols-2 sm:grid-cols-1 gap-4 sm:gap-6 mb-8 sm:mb-12"
       >
         {project.images && project.images.length > 0 ? (
           project.images.map((img: string, index: number) => (
@@ -49,7 +49,7 @@ const StandardProjectDisplay: React.FC<StandardProjectDisplayProps> = ({
                 src={img}
                 alt={`Project screenshot ${index + 1}`}
                 fill
-                className="object-cover"
+                className="object-cover cursor-pointer"
                 sizes="(max-width: 640px) 100vw, (max-width: 768px) 100vw, 50vw"
                 priority
                 onError={handleImageError}
@@ -66,7 +66,7 @@ const StandardProjectDisplay: React.FC<StandardProjectDisplayProps> = ({
       {/* Project Details */}
       <motion.div
         variants={containerVariants}
-        className="grid sm:grid-cols-1 grid-cols-2 gap-6 lg:gap-8"
+        className="grid sm:grid-cols-1 grid-cols-2 gap-8"
       >
         {/* Main Content */}
         <div className="">

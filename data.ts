@@ -55,18 +55,12 @@ export const projectDetails: Projects[] = [
       "/assets/images/teverse.png",
       "/assets/images/teverse_1.png",
       "/assets/images/teverse_2.png",
+      "/assets/images/teverse_2.png",
+      "/assets/images/teverse_1.png",
     ],
     description:
       "Teverse is a cloud company based in Sydney, Australia, offering innovative cloud computing solutions for businesses. The platform provides scalable infrastructure, enabling companies to deploy, manage, and scale applications efficiently. With a focus on security, performance, and user experience, Teverse helps businesses leverage cloud technology to reduce operational costs and accelerate digital transformation.",
-    techStack: [
-      "React",
-      "Node.js",
-      "AWS",
-      "Docker",
-      "Kubernetes",
-      "TypeScript",
-      "Tailwind CSS",
-    ],
+    techStack: ["React", "Node.js", "AWS", "TypeScript", "Tailwind CSS"],
     client: "Teverse Cloud Technologies",
     year: "2024",
     link: "https://teverse.com",
@@ -74,7 +68,12 @@ export const projectDetails: Projects[] = [
   {
     id: "1",
     title: "Portfolio Website",
-    images: ["/assets/images/portfolio1.png", "/assets/images/portfolio2.png"],
+    images: [
+      "/assets/images/portfolio1.png",
+      "/assets/images/portfolio2.png",
+      "/assets/images/portfolio1.png",
+      "/assets/images/portfolio2.png",
+    ],
     description:
       "A modern portfolio website built with Next.js and Framer Motion",
     techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
@@ -122,11 +121,7 @@ export const projectDetails: Projects[] = [
   {
     id: "5",
     title: "Cloude Code",
-    images: [
-      "/assets/images/cloud.png",
-      "/assets/images/cloud_1.png",
-      "/assets/images/cloud_2.png",
-    ],
+    images: ["/assets/images/cloud.png", "/assets/images/cloud2.png"],
     description:
       "CloudCode is a powerful cloud-based integrated development environment (IDE) designed for collaborative coding and seamless project management. The platform enables developers to write, test, and deploy code directly from the browser, eliminating the need for local setup. With real-time collaboration features, version control integration, and support for multiple programming languages, CloudCode streamlines the development workflow for teams of all sizes.",
     techStack: [
@@ -141,7 +136,7 @@ export const projectDetails: Projects[] = [
     ],
     client: "CloudCode Technologies",
     year: "2023",
-    link: "https://cloudcode.dev",
+    link: "https://cloud-test-project.vercel.app/",
   },
   {
     id: "6",
@@ -165,7 +160,7 @@ export const projectDetails: Projects[] = [
     ],
     client: "SunnahHive Foundation",
     year: "2022",
-    link: "https://sunnahhive.org",
+    link: "https://sunnah-hive.vercel.app/",
   },
   {
     id: "7",
@@ -190,7 +185,7 @@ export const projectDetails: Projects[] = [
     ],
     client: "Consology Solutions",
     year: "2023",
-    link: "https://consology.com",
+    link: "https://consology.vercel.app/",
   },
   {
     id: "8",

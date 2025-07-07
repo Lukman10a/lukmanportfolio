@@ -73,7 +73,9 @@ export default function ContactForm() {
     const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
 
     if (!serviceID || !templateID || !publicKey) {
-      toast.error("Email service is not configured. Please contact the administrator.");
+      toast.error(
+        "Email service is not configured. Please contact the administrator."
+      );
       console.error("EmailJS environment variables are missing");
       return;
     }
@@ -103,10 +105,10 @@ export default function ContactForm() {
               Let&apos;s work together
             </h2>
             <p className="text-lg mb-8 text-white/90">
-              I&apos;m always interested in new opportunities and exciting projects.
-              Let&apos;s discuss how we can bring your ideas to life.
+              I&apos;m always interested in new opportunities and exciting
+              projects. Let&apos;s discuss how we can bring your ideas to life.
             </p>
-            
+
             <div className="space-y-6">
               <div>
                 <h3 className="font-semibold mb-3">Connect with me</h3>
@@ -124,10 +126,10 @@ export default function ContactForm() {
                   ))}
                 </div>
               </div>
-              
+
               <div>
                 <h3 className="font-semibold mb-2">Email</h3>
-                <p className="text-white/90">abdukareem92@gmail.com</p>
+                <p className="text-white/90">abdulrauflukman9@gmail.com</p>
               </div>
             </div>
           </div>
@@ -137,11 +139,11 @@ export default function ContactForm() {
             <h3 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">
               Send me a message
             </h3>
-            
+
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label 
-                  htmlFor="fullName" 
+                <label
+                  htmlFor="fullName"
                   className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
                 >
                   Full Name
@@ -159,8 +161,8 @@ export default function ContactForm() {
               </div>
 
               <div>
-                <label 
-                  htmlFor="email" 
+                <label
+                  htmlFor="email"
                   className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
                 >
                   Email
@@ -178,8 +180,8 @@ export default function ContactForm() {
               </div>
 
               <div>
-                <label 
-                  htmlFor="message" 
+                <label
+                  htmlFor="message"
                   className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
                 >
                   Message
@@ -207,7 +209,7 @@ export default function ContactForm() {
           </div>
         </div>
       </div>
-      
+
       <ToastContainer
         position="bottom-right"
         autoClose={5000}

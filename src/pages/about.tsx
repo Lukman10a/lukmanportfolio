@@ -26,15 +26,15 @@ export default function About() {
 
   // Skills (from CV)
   const skills = [
-    { category: "Frontend Development", items: ["React JS", "Next JS"] },
-    { category: "API Integration", items: ["REST APIs", "Axios"] },
-    { category: "Languages", items: ["JavaScript", "TypeScript"] },
+    { category: "Frontend Development", items: ["React JS", "Next JS", "Framer Motion", "Interactive UI"] },
+    { category: "API Integration", items: ["REST APIs", "Axios", "GraphQL", "React Query", ] },
+    { category: "Languages", items: ["JavaScript", "TypeScript", "Material UI", "Chakra UI"] },
     { category: "CSS Frameworks", items: ["Tailwind CSS", "Styled Component"] },
-    { category: "Version Control", items: ["Git", "GitHub", "GitLab"] },
-    { category: "State Management", items: ["Redux Toolkit", "React Query"] },
-    { category: "Mobile Development", items: ["React Native", "Expo"] },
-    { category: "Performance Optimization", items: ["Profiling", "Debugging"] },
-    { category: "Backend", items: ["Node.js", "MongoDB"] },
+    { category: "Version Control", items: ["Git", "GitHub", "GitLab",] },
+    { category: "State Management", items: ["Redux Toolkit", "React Query", "Zustand"] },
+    { category: "Mobile Development", items: ["React Native", "Expo", "Nativewind", "GlueStack"] },
+    { category: "Performance Optimization", items: ["Profiling", "Debugging", "Code Splitting", "Code Optimization"] },
+    { category: "Backend", items: ["Node.js", "MongoDB", "Express", "Firebase", "Supabase"] },
   ];
 
   // Certificates & Courses (from CV & LinkedIn)
@@ -100,7 +100,7 @@ export default function About() {
             <p className="text-brand font-medium">Frontend Engineer</p>
             <div className="flex flex-wrap justify-center gap-4 text-gray-600 dark:text-gray-300 text-sm mt-2">
               <span className="flex items-center gap-1"><MapPin className="w-4 h-4 text-brand" /> Lagos, Nigeria</span>
-              <span className="flex items-center gap-1"><Mail className="w-4 h-4 text-brand" /> abdukareem92@gmail.com</span>
+              <span className="flex items-center gap-1"><Mail className="w-4 h-4 text-brand" /> abdulrauflukman9@gmail.com</span>
               <span className="flex items-center gap-1"><Calendar className="w-4 h-4 text-brand" /> Available for remote & freelance</span>
             </div>
           </motion.div>

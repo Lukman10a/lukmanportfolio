@@ -52,11 +52,8 @@ export const projectDetails: Projects[] = [
     id: "4",
     title: "Teverse",
     images: [
-      "/assets/images/teverse.png",
       "/assets/images/teverse_1.png",
       "/assets/images/teverse_2.png",
-      "/assets/images/teverse_2.png",
-      "/assets/images/teverse_1.png",
     ],
     description:
       "Teverse is a cloud company based in Sydney, Australia, offering innovative cloud computing solutions for businesses. The platform provides scalable infrastructure, enabling companies to deploy, manage, and scale applications efficiently. With a focus on security, performance, and user experience, Teverse helps businesses leverage cloud technology to reduce operational costs and accelerate digital transformation.",
@@ -65,32 +62,32 @@ export const projectDetails: Projects[] = [
     year: "2024",
     link: "https://teverse.com",
   },
-  {
-    id: "1",
-    title: "Portfolio Website",
-    images: [
-      "/assets/images/portfolio1.png",
-      "/assets/images/portfolio2.png",
-      "/assets/images/portfolio1.png",
-      "/assets/images/portfolio2.png",
-    ],
-    description:
-      "A modern portfolio website built with Next.js and Framer Motion",
-    techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
-    client: "Personal Project",
-    year: "2024",
-    link: "https://example.com/portfolio",
-  },
-  {
-    id: "2",
-    title: "E-Commerce Platform",
-    images: ["/assets/images/ecommerce1.png", "/assets/images/ecommerce2.png"],
-    description: "A full-featured e-commerce platform with admin dashboard",
-    techStack: ["React", "Node.js", "MongoDB", "Express"],
-    client: "Retail Client",
-    year: "2023",
-    link: "https://example.com/ecommerce",
-  },
+  // {
+  //   id: "1",
+  //   title: "Portfolio Website",
+  //   images: [
+  //     "/assets/images/portfolio1.png",
+  //     "/assets/images/portfolio2.png",
+  //     "/assets/images/portfolio1.png",
+  //     "/assets/images/portfolio2.png",
+  //   ],
+  //   description:
+  //     "A modern portfolio website built with Next.js and Framer Motion",
+  //   techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+  //   client: "Personal Project",
+  //   year: "2024",
+  //   link: "https://example.com/portfolio",
+  // },
+  // {
+  //   id: "2",
+  //   title: "E-Commerce Platform",
+  //   images: ["/assets/images/ecommerce1.png", "/assets/images/ecommerce2.png"],
+  //   description: "A full-featured e-commerce platform with admin dashboard",
+  //   techStack: ["React", "Node.js", "MongoDB", "Express"],
+  //   client: "Retail Client",
+  //   year: "2023",
+  //   link: "https://example.com/ecommerce",
+  // },
   {
     id: "3",
     title: "Markazul Bayaan",
@@ -167,8 +164,9 @@ export const projectDetails: Projects[] = [
     title: "Consology",
     images: [
       "/assets/images/consology.png",
-      "/assets/images/consology_1.png",
-      "/assets/images/consology_2.png",
+      "/assets/images/consology2.png",
+      "/assets/images/consology3.png",
+      "/assets/images/consology4.png",
     ],
     description:
       "Consology is an innovative construction management platform that digitizes and streamlines the entire construction process. The system includes project planning tools, resource allocation, budget tracking, and progress monitoring features. With interactive dashboards and real-time reporting, Consology provides construction managers with complete visibility and control over their projects, enhancing efficiency and reducing costs through optimized workflow management.",

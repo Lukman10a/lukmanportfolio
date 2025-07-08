@@ -1,119 +1,322 @@
-# Tech Context: Lukman's Portfolio Website
+# Tech Context - Lukman's Portfolio Website
 
-## Core Technologies
-1. **Next.js (^15.1.4)**: React framework providing server-side rendering, static site generation, and routing
-2. **React (^19.0.0)**: Component-based UI library with latest features
-3. **TypeScript (^5)**: Strongly typed programming language that builds on JavaScript
-4. **Tailwind CSS (^3.4.1)**: Utility-first CSS framework for rapid UI development
-5. **Framer Motion (^12.6.3)**: Animation library for React
-6. **GSAP (^3.12.7)**: Professional-grade animation library with React integration (@gsap/react ^2.1.2)
-7. **Three.js (^0.175.0) / React Three Fiber (^9.1.1)**: 3D graphics libraries for WebGL rendering
-8. **Lenis (^1.2.3)**: Smooth scrolling library
+## Technology Stack
 
-## Frontend Architecture
-- **React 19**: Latest React with concurrent features
-- **Next.js Pages Router**: File-system based routing with dynamic routes
-- **Tailwind CSS**: Utility-first styling with custom design system
-- **TypeScript**: Full type safety across the application
-- **Responsive Design**: Mobile-first approach with custom breakpoints
+### Core Framework
+- **Next.js**: Version 15.1.4 with Pages Router (not App Router)
+- **React**: Version 19.0.0 with latest features and hooks
+- **TypeScript**: Version 5 with comprehensive type coverage
+- **Node.js**: Latest LTS version for development
 
-## Animation & Interaction Technologies
-- **Framer Motion**: UI element animations and page transitions
-- **GSAP with React**: Complex animation sequences and timelines
-- **React Three Fiber**: 3D animations and WebGL rendering
-- **React Three Drei (^10.0.5)**: Useful helpers for Three.js
-- **React Spring Three (^9.7.5)**: Spring-physics based animations for 3D
-- **AOS (^2.3.4)**: Animate On Scroll library
-- **Lenis**: Smooth scrolling implementation
-- **CSS Animations**: Custom keyframes and transitions
+### Styling & Design
+- **Tailwind CSS**: Version 3.4.1 with custom configuration
+- **Custom Design System**: Brand colors, animations, and responsive breakpoints
+- **CSS Variables**: Theme-aware color system for dark/light mode
+- **Custom Animations**: Keyframes and transitions for enhanced UX
 
-## UI Component Libraries
-- **Radix UI**: Accessible component primitives
-  - `@radix-ui/react-accordion (^1.2.2)`
-  - `@radix-ui/react-dialog (^1.1.4)`
-  - `@radix-ui/react-icons (^1.3.2)`
-  - `@radix-ui/react-scroll-area (^1.2.2)`
-- **Lucide React (^0.471.1)**: Modern icon library
-- **React Icons (^5.5.0)**: Popular icon library
-- **Heroicons (^2.2.0)**: Beautiful hand-crafted SVG icons
-- **Tabler Icons (^3.31.0)**: Free SVG icons
+### 3D Graphics & Animation
+- **React Three Fiber**: Version 9.1.1 for 3D graphics
+- **Three.js**: Version 0.175.0 for 3D rendering
+- **@react-three/drei**: Version 10.0.5 for 3D utilities
+- **@react-spring/three**: Version 9.7.5 for 3D animations
+- **Custom Shaders**: Vertex and fragment shaders for visual effects
 
-## Utility Libraries
-- **Class Variance Authority (^0.7.1)**: Component variant management
-- **clsx (^2.1.1)**: Conditional className utility
-- **Tailwind Merge (^2.6.0)**: Merge Tailwind classes intelligently
-- **tailwindcss-animate (^1.0.7)**: Animation utilities for Tailwind
+### Animation Libraries
+- **Framer Motion**: Version 12.6.3 for React animations
+- **GSAP**: Version 3.12.7 for advanced animations
+- **@gsap/react**: Version 2.1.2 for React integration
+- **Lenis**: Version 1.2.3 for smooth scrolling
+- **React Intersection Observer**: Version 9.16.0 for performance optimization
 
-## Form & Communication
-- **EmailJS (^4.4.1)**: Email service for contact forms
-- **React Toastify (^11.0.3)**: Toast notifications
-- **React Intersection Observer (^9.16.0)**: Intersection observer hook
+### UI Components
+- **Radix UI**: Accordion, Dialog, Scroll Area, Icons
+- **Lucide React**: Version 0.471.1 for icons
+- **React Icons**: Version 5.5.0 for additional icons
+- **Tabler Icons**: Version 3.31.0 for specialized icons
+
+### Development Tools
+- **ESLint**: Version 9 with Next.js configuration
+- **PostCSS**: Version 8 for CSS processing
+- **Tailwind CSS Animate**: Version 1.0.7 for animations
+- **Class Variance Authority**: Version 0.7.1 for component variants
+
+### Utility Libraries
+- **Clsx**: Version 2.1.1 for conditional classes
+- **Tailwind Merge**: Version 2.6.0 for class optimization
+- **React Motion**: Version 0.5.2 for physics-based animations
+- **React Toastify**: Version 11.0.3 for notifications
+
+### Additional Dependencies
+- **@emailjs/browser**: Version 4.4.1 for email functionality
+- **@heroicons/react**: Version 2.2.0 for icons
+- **@next/font**: Version 14.2.15 for font optimization
+- **AOS**: Version 2.3.4 for scroll animations
+- **Styled Components**: Version 6.1.14 for styled components
 
 ## Development Environment
-- **Node.js**: JavaScript runtime for development
-- **npm/yarn**: Package managers (yarn.lock present)
-- **ESLint (^9)**: Code linting with Next.js config
-- **PostCSS (^8)**: CSS processing
-- **TypeScript (^5)**: Static type checking
 
-## Font System
-- **Google Fonts Integration**: Multiple font families
-  - Geist Sans & Mono (primary)
-  - Merriweather (serif)
-  - Smooch Sans (display)
-  - Poppins (sans-serif)
-- **Next/Font**: Optimized font loading
+### Build Configuration
+```typescript
+// next.config.ts
+const nextConfig = {
+  // Custom Next.js configuration
+  experimental: {
+    // React 19 features
+  },
+  images: {
+    // Image optimization settings
+  }
+};
+```
 
-## Styling System
-- **Tailwind CSS**: Utility-first framework
-- **CSS Custom Properties**: Theme variables for light/dark mode
-- **CSS Modules**: Component-scoped styles when needed
-- **Styled Components (^6.1.14)**: CSS-in-JS for complex styling
-
-## Performance & Optimization
-- **Next.js Image Optimization**: Automatic image optimization
-- **Code Splitting**: Automatic with Next.js
-- **Adaptive DPR**: Dynamic quality adjustment for 3D scenes
-- **Performance Monitoring**: Built-in performance tracking for 3D
-- **Lazy Loading**: Components and assets loaded on demand
-
-## Browser Compatibility
-- **Modern Browsers**: Chrome, Firefox, Safari, Edge (latest versions)
-- **Mobile Browsers**: iOS Safari, Chrome Mobile, Samsung Internet
-- **WebGL Support**: Required for 3D features
-- **ES6+ Features**: Modern JavaScript features used throughout
-
-## Build & Deployment
-- **Next.js Build System**: Optimized production builds
-- **Static Site Generation**: Pre-rendered pages for performance
-- **Vercel Deployment**: Optimized for Vercel platform
-- **Environment Variables**: Configuration management
-
-## Development Scripts
+### TypeScript Configuration
 ```json
+// tsconfig.json
 {
-  "dev": "next dev",
-  "build": "next build", 
-  "start": "next start",
-  "lint": "next lint"
+  "compilerOptions": {
+    "target": "ES2020",
+    "lib": ["dom", "dom.iterable", "es6"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules"]
 }
 ```
 
-## Type Definitions
-- **@types/node (^20)**: Node.js type definitions
-- **@types/react (^19)**: React type definitions
-- **@types/react-dom (^19)**: React DOM type definitions
-- **@types/three (^0.175.0)**: Three.js type definitions
-- **@types/react-icons (^3.0.0)**: React Icons type definitions
+### Tailwind Configuration
+```typescript
+// tailwind.config.ts
+export default {
+  darkMode: ["class"],
+  content: [
+    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
+  theme: {
+    screens: {
+      '2xl': { max: '1400px' },
+      xl: { max: '1279px' },
+      lg: { max: '1023px' },
+      '2md': { max: '950px' },
+      md: { max: '767px' },
+      sm: { max: '639px' }
+    },
+    extend: {
+      colors: {
+        brand: "#ff914d",
+        // Theme-aware colors
+      },
+      keyframes: {
+        // Custom animations
+      },
+      animation: {
+        // Animation utilities
+      }
+    }
+  },
+  plugins: [require("tailwindcss-animate")]
+};
+```
+
+## Technical Architecture
+
+### File Structure
+```
+src/
+├── components/
+│   ├── ui/
+│   │   ├── animated/
+│   │   │   ├── typewriter.tsx
+│   │   │   ├── textLoop.tsx
+│   │   │   └── ...
+│   │   ├── button.tsx
+│   │   ├── EnhancedButton.tsx
+│   │   └── ...
+│   ├── projects/
+│   │   ├── detail/
+│   │   │   ├── MarkazulBayaanProject.tsx
+│   │   │   ├── MobileAppDisplay.tsx
+│   │   │   └── StandardProjectDisplay.tsx
+│   │   ├── model.tsx
+│   │   ├── scene.tsx
+│   │   ├── shader.ts
+│   │   └── ...
+│   ├── navBar/
+│   │   ├── index.tsx
+│   │   ├── data.ts
+│   │   └── ...
+│   └── ...
+├── hooks/
+│   ├── useSmoothScroll.ts
+│   ├── useScrollLock.ts
+│   ├── useIsomorphic.ts
+│   └── ...
+├── lib/
+│   ├── utils.ts
+│   ├── types.ts
+│   └── ...
+├── pages/
+│   ├── index.tsx
+│   ├── projects/
+│   │   └── [id].tsx
+│   └── ...
+├── styles/
+│   └── globals.css
+└── utils/
+    └── slug.ts
+```
+
+### Key Technical Features
+
+#### 3D Graphics System
+- **React Three Fiber**: 3D scene management
+- **Performance Monitoring**: Adaptive DPR based on device capabilities
+- **Custom Shaders**: Vertex and fragment shaders for visual effects
+- **Texture Management**: Dynamic loading and transition system
+- **Mobile Optimization**: Lower DPR and responsive scaling
+
+#### Animation System
+- **Framer Motion**: React animations with performance optimization
+- **GSAP**: Advanced animations and timeline control
+- **Lenis**: Smooth scrolling with performance monitoring
+- **Intersection Observer**: Performance-optimized animation triggering
+- **Spring Animations**: Physics-based animations for natural movement
+
+#### Responsive Design
+- **Mobile-First**: Progressive enhancement approach
+- **Custom Breakpoints**: Tailored responsive design system
+- **Adaptive Scaling**: Device-specific 3D model scaling
+- **Touch Optimization**: Mobile-specific interactions and gestures
+
+#### Performance Optimization
+- **Adaptive Rendering**: Device capability-based quality adjustment
+- **Throttled Updates**: Performance-optimized frame updates
+- **Memory Management**: Proper resource cleanup and disposal
+- **Bundle Optimization**: Efficient code splitting and loading
+- **SSR Compatibility**: Proper server-side rendering support
+
+#### Type Safety
+- **TypeScript 5**: Latest TypeScript features and improvements
+- **Comprehensive Types**: Full type coverage throughout codebase
+- **Interface Definitions**: Well-defined data structures
+- **Component Props**: Type-safe component interfaces
+- **Utility Types**: Type-safe utility functions
+
+## Development Workflow
+
+### Scripts
+```json
+{
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build", 
+    "start": "next start",
+    "lint": "next lint"
+  }
+}
+```
+
+### Development Process
+1. **Hot Reloading**: Fast development iteration with Next.js
+2. **Type Checking**: Real-time TypeScript error detection
+3. **Linting**: ESLint with Next.js configuration
+4. **Build Optimization**: Efficient production builds
+5. **Performance Monitoring**: Built-in performance analysis
+
+### Code Quality
+- **ESLint**: Code quality and consistency
+- **TypeScript**: Type safety and developer experience
+- **Prettier**: Code formatting (implicit)
+- **Component Architecture**: Clean, reusable component structure
+- **Performance Monitoring**: Built-in performance analysis
+
+## Browser Support
+
+### Modern Browsers
+- **Chrome**: Latest version
+- **Firefox**: Latest version  
+- **Safari**: Latest version
+- **Edge**: Latest version
+
+### Requirements
+- **JavaScript**: Required for full functionality
+- **WebGL**: Required for 3D features (graceful degradation)
+- **CSS Grid/Flexbox**: Required for layout
+- **Intersection Observer**: Required for animations (polyfill available)
+
+### Mobile Support
+- **iOS Safari**: Latest version
+- **Chrome Mobile**: Latest version
+- **Samsung Internet**: Latest version
+- **Touch Events**: Full touch support
+- **Responsive Design**: Mobile-first approach
+
+## Performance Characteristics
+
+### 3D Performance
+- **Adaptive DPR**: 0.8 to 2.0 based on device capabilities
+- **Performance Monitoring**: Automatic quality adjustment
+- **Memory Management**: Proper texture cleanup
+- **Mobile Optimization**: Lower initial DPR for mobile devices
+
+### Animation Performance
+- **Intersection Observer**: Animations only trigger when visible
+- **Throttled Updates**: Reduced frequency for smooth performance
+- **GPU Optimization**: Minimal uniform updates
+- **Spring Optimization**: Balanced tension and friction values
+
+### Loading Performance
+- **Code Splitting**: Automatic route-based splitting
+- **Image Optimization**: Next.js Image component optimization
+- **Font Optimization**: Next.js font optimization
+- **Bundle Analysis**: Built-in bundle analysis tools
 
 ## Security Considerations
-- **No Backend Dependencies**: Static site with minimal attack surface
-- **Form Validation**: Client-side validation with EmailJS
-- **Content Security**: No user-generated content
-- **HTTPS**: Secure communication for all external services
 
-## Performance Metrics
-- **Lighthouse Scores**: Optimized for performance, accessibility, SEO
-- **Core Web Vitals**: Optimized loading, interactivity, and visual stability
-- **Mobile Performance**: Adaptive rendering for mobile devices
-- **3D Performance**: Automatic quality adjustment based on device capabilities 
+### Client-Side Security
+- **Type Safety**: TypeScript prevents runtime errors
+- **Input Validation**: Proper form validation
+- **XSS Prevention**: React's built-in XSS protection
+- **CSP**: Content Security Policy support
+
+### Development Security
+- **Environment Variables**: Proper environment variable handling
+- **API Security**: Secure API endpoint design
+- **Authentication**: Proper authentication patterns
+- **Authorization**: Role-based access control
+
+## Deployment
+
+### Vercel Deployment
+- **Automatic Deployments**: Git-based deployment
+- **Preview Deployments**: Pull request previews
+- **Performance Monitoring**: Built-in analytics
+- **Edge Functions**: Serverless function support
+
+### Build Optimization
+- **Static Generation**: Pre-rendered pages for performance
+- **Image Optimization**: Automatic image optimization
+- **Bundle Analysis**: Built-in bundle analysis
+- **Performance Monitoring**: Real-time performance metrics
+
+This technical stack represents a modern, high-performance web application with advanced 3D graphics, sophisticated animations, and excellent developer experience. 

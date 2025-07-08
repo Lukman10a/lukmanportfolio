@@ -1,132 +1,361 @@
-# System Patterns: Lukman's Portfolio Website
+# System Patterns - Lukman's Portfolio Website
 
 ## Architecture Overview
-The portfolio website follows a component-based architecture using Next.js with the Pages Router. The application is structured to maximize reusability, maintainability, and performance with a focus on modern animations and 3D interactions.
 
-## Directory Structure
-- `/src/pages`: Contains route components for each page
-  - `index.tsx`: Main home page with hero and projects sections
-  - `_app.tsx`: Global app wrapper with theme, fonts, and navigation
-  - `_document.tsx`: Custom document for HTML structure
-  - `about.tsx`, `contact.tsx`, `blog.tsx`, `reviews.tsx`: Individual pages
-  - `/projects/[id].tsx`: Dynamic project detail pages
-  - `/api`: API routes (if needed)
-- `/src/components`: Reusable UI components
-  - `/ui`: Basic UI components and animations
-    - `/animated`: Specialized animation components (typewriter, textLoop, preloader, etc.)
-  - `/projects`: Project-related components (scene, models, project displays)
-  - `/navBar`: Navigation components (AnimatedNav)
-  - Individual components: hero, footer, form, etc.
-- `/public/assets`: Static assets like images and SVGs
-- `/src/utils`: Utility functions (slug generation, etc.)
-- `/src/styles`: Global styles and Tailwind configurations
-- `/src/hooks`: Custom React hooks (useSmoothScroll)
-- `/src/lib`: Generic library code (utils for class merging)
-- `/data.ts`: Project data and interfaces (root level)
-- `/memory-bank`: Documentation and context files
+### Technology Stack
+- **Frontend**: React 19 + Next.js 15 + TypeScript 5
+- **Styling**: Tailwind CSS with custom design system
+- **3D Graphics**: React Three Fiber with adaptive performance
+- **Animations**: Framer Motion + GSAP + Lenis smooth scrolling
+- **State Management**: Local state with React hooks
+- **Build Tool**: Next.js with custom configuration
 
-## Design Patterns
+### Core Architectural Patterns
 
-### 1. Component Composition
-- Building complex UIs from smaller, reusable components
-- Specialized components for different project types (MarkazulBayaanProject, MobileAppDisplay, StandardProjectDisplay)
-- Animated components with consistent API patterns
+#### 1. Component Architecture
 
-### 2. Animation Architecture
-- **Text Animations**: Typewriter effects with intersection observer triggers
-- **Page Transitions**: Framer Motion for smooth page and component transitions
-- **3D Integration**: React Three Fiber with performance monitoring
-- **Scroll Animations**: Lenis for smooth scrolling with GSAP integration
-- **Hover Effects**: Magnetic and enhanced button interactions
+##### Specialized Display Pattern
+```typescript
+// Different components for different project types
+- MarkazulBayaanProject: Islamic education projects
+- MobileAppDisplay: Mobile applications  
+- StandardProjectDisplay: Web applications
+- TeverseProjectDisplay: Cloud platforms
+```
 
-### 3. Theme System
-- CSS custom properties for light/dark mode
-- Tailwind CSS with custom color scheme (#f8f4ec light, #121212 dark)
-- Brand color: #ff914d (orange)
-- Font system: Geist Sans/Mono, Merriweather, Smooch Sans, Poppins
+##### Animation Component Pattern
+```typescript
+// Reusable animation components with intersection observer
+- Typewriter: Intersection observer + completion callbacks
+- TextLoop: Multiple animation presets
+- EnhancedButton: Hover effects with icon support
+- Magnetic: Interactive hover effects
+```
 
-### 4. Responsive Design
-- Mobile-first approach with custom breakpoints
-- Performance optimizations for mobile (adaptive DPR in 3D scenes)
-- Touch event handling for mobile interactions
+#### 2. 3D Graphics Architecture
 
-### 5. Data Management
-- Static data structure in `data.ts` with TypeScript interfaces
-- Project data with detailed information (images, tech stack, descriptions)
-- Slug-based routing for SEO-friendly URLs
+##### Performance Monitoring Pattern
+```typescript
+// Adaptive performance with automatic quality adjustment
+<PerformanceMonitor 
+  onDecline={() => setDpr(0.8)} 
+  onIncline={() => setDpr(Math.min(dpr + 0.2, 2))}
+>
+  <AdaptiveDpr pixelated />
+  <Model activeMenu={activeMenu} />
+</PerformanceMonitor>
+```
 
-## State Management
-- Local component state using React's `useState` and `useEffect`
-- Props for component communication
-- Context for theme management
-- No complex global state management needed
+##### Texture Management Pattern
+```typescript
+// Dynamic texture loading with flash prevention
+const uniforms = useRef<MaterialUniforms>({
+  uTexture: { value: null }, // Start with no texture
+  uOpacity: { value: 0 }, // Start with opacity 0
+});
 
-## Routing & Navigation
-- Next.js Pages Router for file-based routing
-- Dynamic routes for project details (`/projects/[id]`)
-- Animated navigation with full-screen mobile menu
-- Smooth scrolling between sections
+// Smooth texture transitions
+useEffect(() => {
+  const targetTexture = activeMenu !== null ? textures[activeMenu] : null;
+  const targetOpacity = activeMenu !== null ? 1 : 0;
+  // Animated transitions with proper cleanup
+}, [activeMenu, isLoaded, textures]);
+```
 
-## Performance Considerations
+#### 3. Animation System Patterns
 
-### 3D Performance
-- Adaptive DPR (Device Pixel Ratio) based on device capabilities
-- Performance monitoring with automatic quality adjustment
-- Suspense boundaries for 3D model loading
-- Mobile-optimized rendering settings
+##### Intersection Observer Pattern
+```typescript
+// Performance-optimized animation triggering
+const [ref, inView] = useInView({
+  triggerOnce: true,
+  threshold: 0.1,
+});
 
-### Animation Performance
-- Intersection Observer for triggering animations only when visible
-- Framer Motion with optimized animation variants
-- GSAP for complex animation sequences
-- CSS transforms for hardware acceleration
+useEffect(() => {
+  if (inView) {
+    controls.start("visible");
+  }
+}, [inView, controls]);
+```
 
-### Loading & UX
-- Preloader with 3-second delay
-- Lazy loading for components and assets
-- Smooth transitions between pages
-- Touch event optimization for mobile
+##### Spring Animation Pattern
+```typescript
+// Optimized spring animations for 3D movement
+const [springs, api] = useSpring(() => ({
+  position: [0, 0, 0],
+  config: { 
+    mass: 1, 
+    tension: 210,
+    friction: 40,
+    precision: 0.005
+  },
+}));
+```
 
-## Component Relationships
+#### 4. Responsive Design Patterns
 
-### Layout Components
-- `_app.tsx`: Global wrapper with navigation and footer
-- `AnimatedNav`: Responsive navigation with full-screen mobile menu
-- `Footer`: Site footer with links and information
+##### Mobile-First Breakpoint System
+```typescript
+// Custom breakpoints in Tailwind config
+screens: {
+  '2xl': { max: '1400px' },
+  xl: { max: '1279px' },
+  lg: { max: '1023px' },
+  '2md': { max: '950px' },
+  md: { max: '767px' },
+  sm: { max: '639px' }
+}
+```
 
-### Page Components
-- `EnhancedHero`: Main landing section with animated text
-- `Projects`: Project listing with 3D scene integration
-- Dynamic project pages with specialized displays
+##### Adaptive 3D Scaling Pattern
+```typescript
+// Device-specific 3D model scaling
+const getResponsiveScale = useMemo(() => {
+  if (dimension.width < 768) {
+    return 0.15; // Mobile
+  } else if (dimension.width < 1024) {
+    return 0.18; // Tablet
+  } else {
+    return 0.225; // Desktop
+  }
+}, [dimension.width]);
+```
 
-### Animation Components
-- `Typewriter`: Text typing animation with intersection observer
-- `TextLoop`: Cycling text animation
-- `Preloader`: Loading animation
-- `Magnetic`: Magnetic hover effects
-- Various other animated UI elements
+#### 5. Data Management Patterns
 
-### 3D Components
-- `Scene`: Three.js canvas wrapper with performance monitoring
-- `Model`: 3D models for project visualization
-- Adaptive rendering based on device capabilities
+##### Static Data Pattern
+```typescript
+// Type-safe project data structure
+export interface Projects {
+  id: string;
+  title: string;
+  images: string[];
+  description: string;
+  techStack: string[];
+  client: string;
+  year: string;
+  link: string;
+  coursesLink?: string;
+}
+```
 
-## Integration Patterns
+##### Slug Generation Pattern
+```typescript
+// SEO-friendly URL generation
+export const generateSlug = (title: string) => {
+  return title
+    .toLowerCase()
+    .replace(/[^a-z0-9 -]/g, "")
+    .replace(/\s+/g, "-")
+    .replace(/-+/g, "-");
+};
+```
 
-### External Services
-- EmailJS for contact form functionality
-- Google Fonts for typography
-- React Icons for iconography
-- Lucide React for modern icons
+#### 6. Performance Optimization Patterns
 
-### Development Tools
-- TypeScript for type safety
-- ESLint for code quality
-- Tailwind CSS for styling
-- Class Variance Authority for component variants
+##### Throttled Updates Pattern
+```typescript
+// Performance-optimized frame updates
+useFrame(() => {
+  if (!isLoaded || !materialRef.current) return;
+  
+  const { x, y } = mouse;
+  const smoothx = smoothMouse.x.get();
+  const smoothy = smoothMouse.y.get();
+  
+  // Only update if there's meaningful change
+  if (Math.abs(newX - smoothx) > 0.001 || Math.abs(newY - smoothy) > 0.001) {
+    // Update uniforms
+  }
+});
+```
 
-## Error Handling & Fallbacks
-- Suspense boundaries for 3D content
-- Loading states for dynamic content
-- Graceful fallbacks for missing projects
-- Performance degradation handling for 3D scenes 
+##### Memory Management Pattern
+```typescript
+// Proper texture cleanup
+useEffect(() => {
+  return () => {
+    // Cleanup textures to prevent memory leaks
+    textures.forEach(texture => {
+      if (texture && texture.dispose) {
+        texture.dispose();
+      }
+    });
+  };
+}, []);
+```
+
+#### 7. Navigation Patterns
+
+##### Mobile Navigation Pattern
+```typescript
+// Mobile-hidden navigation with sheet menu
+<nav className="relative z-50 font-inter sm:hidden">
+  {/* Desktop navigation */}
+  <div className="sm:hidden flex gap-6">
+    {/* Desktop links */}
+  </div>
+  
+  {/* Mobile sheet menu */}
+  <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
+    {/* Mobile menu content */}
+  </Sheet>
+</nav>
+```
+
+##### Smooth Scrolling Pattern
+```typescript
+// Custom smooth scrolling with Lenis
+useEffect(() => {
+  const lenis = new Lenis();
+  
+  function raf(time: number) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+  requestAnimationFrame(raf);
+}, []);
+```
+
+#### 8. Theme System Patterns
+
+##### CSS Variables Pattern
+```css
+:root {
+  --background: #f8f4ec;
+  --foreground: #171717;
+  --brand: #ff914d;
+}
+
+.dark {
+  --background: #121212;
+  --foreground: #f8f4ec;
+  --brand: #ff914d;
+}
+```
+
+##### Tailwind Integration Pattern
+```typescript
+// Brand color integration
+colors: {
+  brand: "#ff914d",
+  background: 'hsl(var(--background))',
+  foreground: 'hsl(var(--foreground))',
+}
+```
+
+#### 9. Error Handling Patterns
+
+##### Graceful Fallback Pattern
+```typescript
+// Image error handling
+const handleImageError = (e: React.SyntheticEvent<HTMLImageElement>) => {
+  e.currentTarget.src = "/placeholder.jpg";
+};
+
+// Loading states
+if (!isLoaded) {
+  return <div>Loading 3D Scene...</div>;
+}
+```
+
+##### SSR Compatibility Pattern
+```typescript
+// Client-side mounting for 3D components
+const [mounted, setMounted] = useState(false);
+
+useEffect(() => {
+  setMounted(true);
+}, []);
+
+if (!mounted) {
+  return <div>Loading...</div>;
+}
+```
+
+#### 10. Custom Hook Patterns
+
+##### Isomorphic Hook Pattern
+```typescript
+// SSR-compatible layout effects
+export const useIsomorphicLayoutEffect =
+  typeof window !== "undefined" ? useLayoutEffect : useEffect;
+```
+
+##### Scroll Lock Pattern
+```typescript
+// Mobile menu scroll management
+const { lock, unlock } = useScrollLock({
+  autoLock: false,
+  lockTarget: "#scrollable",
+});
+
+useEffect(() => {
+  if (activeItem) {
+    lock();
+  } else {
+    unlock();
+  }
+}, [activeItem, lock, unlock]);
+```
+
+### Design Patterns Summary
+
+#### Component Patterns
+- **Specialized Components**: Different displays for different project types
+- **Reusable Animations**: Modular animation components
+- **Performance Components**: Optimized 3D and animation components
+- **Responsive Components**: Mobile-first component design
+
+#### State Management Patterns
+- **Local State**: React hooks for component state
+- **Performance State**: Adaptive rendering state management
+- **Animation State**: Intersection observer state management
+- **Navigation State**: Mobile menu state management
+
+#### Performance Patterns
+- **Adaptive Rendering**: Device capability-based quality adjustment
+- **Throttled Updates**: Performance-optimized frame updates
+- **Memory Management**: Proper resource cleanup
+- **Intersection Observer**: Performance-optimized animations
+
+#### Responsive Patterns
+- **Mobile-First**: Progressive enhancement approach
+- **Adaptive Scaling**: Device-specific 3D model scaling
+- **Custom Breakpoints**: Tailored responsive design
+- **Touch Optimization**: Mobile-specific interactions
+
+#### Animation Patterns
+- **Intersection Observer**: Performance-optimized triggering
+- **Spring Animations**: Smooth, natural movement
+- **Shader Effects**: Custom 3D visual effects
+- **Smooth Scrolling**: Fluid navigation experience
+
+### Technical Excellence Patterns
+
+#### Type Safety
+- **Comprehensive TypeScript**: Full type coverage
+- **Interface Definitions**: Well-defined data structures
+- **Component Props**: Type-safe component interfaces
+- **Utility Types**: Type-safe utility functions
+
+#### Performance Optimization
+- **Adaptive Quality**: Device capability-based rendering
+- **Memory Management**: Proper resource cleanup
+- **Throttled Updates**: Performance-optimized animations
+- **Bundle Optimization**: Efficient code splitting
+
+#### Accessibility
+- **ARIA Labels**: Proper accessibility markup
+- **Keyboard Navigation**: Full keyboard support
+- **Screen Reader Support**: Semantic HTML structure
+- **Focus Management**: Proper focus handling
+
+#### Modern Development
+- **React 19**: Latest React features and patterns
+- **Next.js 15**: Modern Next.js with Pages Router
+- **TypeScript 5**: Latest TypeScript features
+- **Modern Hooks**: Custom hooks and best practices
+
+This architecture demonstrates sophisticated frontend development with advanced 3D graphics, performance optimization, and modern development practices. 

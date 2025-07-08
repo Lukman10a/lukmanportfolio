@@ -5,10 +5,12 @@ import Link from "next/link";
 import EnhancedButton from "@/components/ui/EnhancedButton";
 import useSmoothScroll from "@/hooks/useSmoothScroll";
 import Image from "next/image";
+import { useState } from "react";
 
 export default function About() {
   // Enable smooth scrolling
   useSmoothScroll({ duration: 800 });
+  const [hoveredCert, setHoveredCert] = useState<string | null>(null);
 
   // Animation variants
   const containerVariants = {
@@ -37,21 +39,24 @@ export default function About() {
     { category: "Backend", items: ["Node.js", "MongoDB", "Express", "Firebase", "Supabase"] },
   ];
 
-  // Certificates & Courses (from CV & LinkedIn)
+  // Certificates & Courses (now with image filenames)
   const certificates = [
-    { name: "Advanced Styling with Responsive Design", org: "Coursera" },
-    { name: "Interactivity with JavaScript", org: "Coursera" },
-    { name: "Modern Javascript", org: "Coursera" },
-    { name: "Frontend Engineering Fellowship", org: "Manara" },
-    { name: "React - The Complete Guide", org: "Udemy" },
-    { name: "TypeScript Bootcamp", org: "Udemy" },
-    // Add more as needed
+    { name: "Advanced Styling with Responsive Design", org: "Coursera (University of Michigan)", image: "advanced_styling_cousera.jpeg" },
+    { name: "Interactivity with JavaScript", org: "Coursera (University of Michigan)", image: "javascript_cousera.jpg" },
+    { name: "CSS3", org: "Coursera (University of Michigan)", image: "css_cousera.jpg" },
+    { name: "Modern Javascript", org: "Manara", image: "modern_javascript_manara.png" },
+    { name: "React - The Complete Guide", org: "Udemy", image: "react_beginner_udemy.jpg" },
+    { name: "Node", org: "Manara", image: "node_manara.png" },
   ];
-  const courses = [
-    { name: "Interactivity with JavaScript", org: "University of Michigan" },
-    { name: "Introduction to CSS3", org: "University of Michigan" },
-    // Add more as needed
+
+  // Badges (add your badge images and names here)
+  const badges = [
+    { name: "Explorer Badge", image: "explorer_badge_manara.png" },
+    { name: "Finisher Badge", image: "finisher_badge_manara.png" },
+    { name: "Getting Started Badge", image: "getting_started_badge_manara.png" },
+    { name: "Warm Up Badge", image: "warmed_badge_manara.png" },
   ];
+
 
   return (
     <div className="min-h-screen bg-[#f8f4ec] dark:bg-[#121212] pt-24">
@@ -190,26 +195,83 @@ export default function About() {
               <motion.div
                 key={cert.name}
                 variants={itemVariants}
-                className="bg-white dark:bg-gray-800 rounded-xl p-5 shadow-md flex items-center gap-4"
+                className="relative bg-white dark:bg-gray-800 rounded-xl p-5 shadow-md flex items-center gap-4 group cursor-pointer"
+                onMouseEnter={() => setHoveredCert(cert.name)}
+                onMouseLeave={() => setHoveredCert(null)}
+                tabIndex={0}
+                onFocus={() => setHoveredCert(cert.name)}
+                onBlur={() => setHoveredCert(null)}
               >
                 <Award className="w-8 h-8 text-brand" />
                 <div>
                   <div className="font-semibold text-black dark:text-white">{cert.name}</div>
                   <div className="text-sm text-gray-500 dark:text-gray-300">{cert.org}</div>
                 </div>
+                {/* Popup with certificate image */}
+                {hoveredCert === cert.name && cert.image && (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.95, y: 10 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.95, y: 10 }}
+                    transition={{ duration: 0.25 }}
+                    className="absolute left-1/2 top-0 z-50 -translate-x-1/2 -translate-y-full w-64 max-w-xs p-2 bg-white dark:bg-gray-900 rounded-xl shadow-2xl border border-gray-200 dark:border-gray-700 flex flex-col items-center"
+                  >
+                    <Image
+                      src={`/assets/images/certificate/${cert.image}`}
+                      alt={cert.name + ' certificate'}
+                      width={240}
+                      height={180}
+                      className="rounded-lg object-contain max-h-48"
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).style.display = 'none';
+                      }}
+                    />
+                    <span className="mt-2 text-xs text-gray-500 dark:text-gray-300 text-center">{cert.name}</span>
+                  </motion.div>
+                )}
               </motion.div>
             ))}
-            {courses.map((course) => (
+       
+          </div>
+        </motion.div>
+
+        {/* Badges Section */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="mb-16"
+        >
+          <motion.h2
+            variants={itemVariants}
+            className="text-2xl font-bold text-black dark:text-white mb-8 text-center"
+          >
+            Badges
+          </motion.h2>
+          <div className="grid grid-cols-4 sm:grid-cols-2 gap-6 justify-items-center">
+            {badges.map((badge) => (
               <motion.div
-                key={course.name}
+                key={badge.name}
                 variants={itemVariants}
-                className="bg-white dark:bg-gray-800 rounded-xl p-5 shadow-md flex items-center gap-4"
+                className="flex flex-col items-center cursor-pointer rounded-xl"
               >
-                <Award className="w-8 h-8 text-brand" />
-                <div>
-                  <div className="font-semibold text-black dark:text-white">{course.name}</div>
-                  <div className="text-sm text-gray-500 dark:text-gray-300">{course.org}</div>
-                </div>
+                <Image
+                  src={`/assets/images/certificate/${badge.image}`}
+                  alt={badge.name}
+                  width={250}
+                  height={250}
+                  className="rounded-full shadow-lg sm:size-40 size-48 border-2 object-cover border-brand bg-white dark:bg-gray-800"
+                />
+                {/* Tooltip/Overlay */}
+                <motion.span
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={"hover"}
+                  whileHover={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="-translate-x-1/2 translate-y-full px-3 py-1 bg-black/80 text-white text-xs rounded shadow-lg mt-2 pointer-events-none group-hover:opacity-100 opacity-0"
+                >
+                  {badge.name}
+                </motion.span>
               </motion.div>
             ))}
           </div>

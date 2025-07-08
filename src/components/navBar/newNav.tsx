@@ -33,7 +33,6 @@ function Navbar({ className }: { className?: string }) {
               <HoveredLink href="/branding">Branding</HoveredLink>
             </div>
           </MenuItem>
-          {/* <Image src={logo} alt="logo" width={50} height={50} /> */}
           <Link href={"/"}>
             <p className="font-bold text-2xl sm:text-xl">LUKMAN</p>
           </Link>
@@ -65,14 +64,6 @@ function Navbar({ className }: { className?: string }) {
               />
             </div>
           </MenuItem>
-          {/* <MenuItem setActive={setActive} active={active} item="Pricing">
-          <div className="flex flex-col space-y-4 text-sm">
-            <HoveredLink href="/hobby">Hobby</HoveredLink>
-            <HoveredLink href="/individual">Individual</HoveredLink>
-            <HoveredLink href="/team">Team</HoveredLink>
-            <HoveredLink href="/enterprise">Enterprise</HoveredLink>
-          </div>
-          </MenuItem> */}
         </div>
       </Menu>
     </div>

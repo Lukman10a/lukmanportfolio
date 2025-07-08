@@ -1,11 +1,13 @@
-// import Footer from "@/components/footer";
-// import { NavbarDemo } from "@/components/navBar/newNav";
-// import { MinimalNav } from "@/components/navBar/MinimalNav";
 import { AnimatedNav } from "@/components/navBar/AnimatedNav";
-// import Preloader from "@/components/ui/animated/preloader";
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
-import { Merriweather, Smooch_Sans, Poppins, Geist, Geist_Mono } from "next/font/google";
+import {
+  Merriweather,
+  Smooch_Sans,
+  Poppins,
+  Geist,
+  Geist_Mono,
+} from "next/font/google";
 import { useEffect, useState } from "react";
 import Footer from "@/components/footer";
 import ThemeToggle from "@/components/ui/theme-toggle";
@@ -53,12 +55,16 @@ export default function App({ Component, pageProps }: AppProps) {
   // Add theme initialization
   useEffect(() => {
     if (!mounted || typeof window === "undefined") return;
-    
+
     // On page load or when changing themes, best to add inline in `head` to avoid FOUC
-    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-      document.documentElement.classList.add('dark')
+    if (
+      localStorage.theme === "dark" ||
+      (!("theme" in localStorage) &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
+      document.documentElement.classList.add("dark");
     } else {
-      document.documentElement.classList.remove('dark')
+      document.documentElement.classList.remove("dark");
     }
   }, [mounted]);
 
@@ -73,7 +79,9 @@ export default function App({ Component, pageProps }: AppProps) {
           </div>
         </div>
       ) : (
-        <main className={`${merri.className} ${play.variable} ${geistSans.variable} ${geistMono.variable}`}>
+        <main
+          className={`${merri.className} ${play.variable} ${geistSans.variable} ${geistMono.variable}`}
+        >
           <AnimatedNav />
           <Component {...pageProps} />
           <Footer />

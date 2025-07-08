@@ -123,13 +123,6 @@ export function NavBar() {
               <SheetHeader>
                 <SheetTitle>
                   <Link href="/" className="flex items-center space-x-2">
-                    {/* <Image
-                      src={"/assets/mbayan.png"}
-                      width={150}
-                      height={150}
-                      alt="brand logo"
-                      className="size-12"
-                    /> */}
                     <p className="text-white font-bold text-xl">LUKMAN</p>
                   </Link>
                 </SheetTitle>

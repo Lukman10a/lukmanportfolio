@@ -6,7 +6,13 @@ import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
 import { useRouter } from "next/router";
 import { X } from "lucide-react";
-import { FiGithub, FiTwitter, FiLinkedin, FiMail, FiMenu } from "react-icons/fi";
+import {
+  FiGithub,
+  FiTwitter,
+  FiLinkedin,
+  FiMail,
+  FiMenu,
+} from "react-icons/fi";
 
 // Define navigation items
 const navigationItems = [
@@ -20,7 +26,11 @@ const navigationItems = [
 const socialLinks = [
   { name: "GitHub", icon: FiGithub, url: "https://github.com/Lukman10a/" },
   { name: "Twitter", icon: FiTwitter, url: "https://twitter.com/lukmandev" },
-  { name: "LinkedIn", icon: FiLinkedin, url: "https://linkedin.com/in/abdulrauf-lukman-761095217/" },
+  {
+    name: "LinkedIn",
+    icon: FiLinkedin,
+    url: "https://linkedin.com/in/abdulrauf-lukman-761095217/",
+  },
   { name: "Email", icon: FiMail, url: "mailto:abdukareem92@gmail.com" },
 ];
 
@@ -39,7 +49,7 @@ export function AnimatedNav() {
   // Handle scroll effect for navbar background
   useEffect(() => {
     if (!mounted || typeof window === "undefined") return;
-    
+
     const handleScroll = () => {
       const isScrolled = window.scrollY > 10;
       if (isScrolled !== scrolled) {
@@ -54,7 +64,7 @@ export function AnimatedNav() {
   // Close mobile menu on route change
   useEffect(() => {
     if (!mounted) return;
-    
+
     const handleRouteChange = () => {
       setIsOpen(false);
     };
@@ -68,7 +78,7 @@ export function AnimatedNav() {
   // Lock body scroll when menu is open
   useEffect(() => {
     if (!mounted || typeof document === "undefined") return;
-    
+
     if (isOpen) {
       document.body.style.overflow = "hidden";
       document.body.style.touchAction = "none";
@@ -118,7 +128,9 @@ export function AnimatedNav() {
     <header
       className={cn(
         "fixed top-0 w-full z-50 transition-all duration-300",
-        scrolled ? "bg-[#f8f4ec]/90 dark:bg-[#121212]/90 shadow-sm backdrop-blur-sm" : "bg-transparent"
+        scrolled
+          ? "bg-[#f8f4ec]/90 dark:bg-[#121212]/90 shadow-sm backdrop-blur-sm"
+          : "bg-transparent"
       )}
     >
       <div className="container mx-auto px-6 py-4">
@@ -162,7 +174,7 @@ export function AnimatedNav() {
             whileHover="hover"
             aria-label={isOpen ? "Close Menu" : "Open Menu"}
           >
-            <motion.div 
+            <motion.div
               className={cn(
                 "absolute w-12 h-12 rounded-full",
                 scrolled ? "bg-[#f8f4ec] dark:bg-[#121212]" : "bg-transparent"
@@ -170,14 +182,14 @@ export function AnimatedNav() {
               variants={{
                 hover: {
                   scale: 1.05,
-                }
+                },
               }}
-              transition={{ 
-                duration: 0.3, 
+              transition={{
+                duration: 0.3,
                 ease: "easeInOut",
               }}
             />
-            
+
             <AnimatePresence mode="wait">
               {isOpen ? (
                 <motion.div
@@ -210,7 +222,7 @@ export function AnimatedNav() {
       {/* Full-screen Menu */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -218,16 +230,16 @@ export function AnimatedNav() {
             className="fixed inset-0 bg-black/90 dark:bg-black/95 backdrop-blur-lg z-40"
             style={{ touchAction: "none" }}
           >
-            <motion.div 
+            <motion.div
               className="absolute top-0 right-0 bottom-0 w-full md:w-[500px] bg-[#f8f4ec] dark:bg-[#121212] p-8 flex flex-col justify-center"
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
-              transition={{ 
-                type: "spring", 
-                damping: 30, 
+              transition={{
+                type: "spring",
+                damping: 30,
                 stiffness: 300,
-                duration: 0.5 
+                duration: 0.5,
               }}
               style={{ touchAction: "none" }}
             >
@@ -243,7 +255,9 @@ export function AnimatedNav() {
                       href={item.href}
                       className={cn(
                         "block hover:text-brand transition-colors duration-300",
-                        pathname === item.href ? "text-brand" : "text-black dark:text-white"
+                        pathname === item.href
+                          ? "text-brand"
+                          : "text-black dark:text-white"
                       )}
                       onClick={() => setIsOpen(false)}
                     >
@@ -254,8 +268,8 @@ export function AnimatedNav() {
               </nav>
 
               {/* Social Links */}
-              <motion.div 
-                className="flex space-x-6 mt-auto"
+              <motion.div
+                className="flex space-x-6 mt-10"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5, duration: 0.5 }}
@@ -281,4 +295,4 @@ export function AnimatedNav() {
       </AnimatePresence>
     </header>
   );
-} 
+}

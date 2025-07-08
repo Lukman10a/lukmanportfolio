@@ -96,11 +96,11 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="bg-[#f8f4ec] dark:bg-[#121212] min-h-screen flex items-center justify-center p-6">
+    <div className="bg-[#f8f4ec] dark:bg-[#121212] flex items-center justify-center p-6">
       <div className="max-w-4xl w-full bg-white dark:bg-gray-900 rounded-2xl shadow-xl overflow-hidden">
-        <div className="grid md:grid-cols-2 gap-0">
+        <div className="grid grid-cols-2 sm:grid-cols-1 gap-0">
           {/* Left side - Contact Info */}
-          <div className="bg-brand p-8 md:p-12 text-white">
+          <div className="bg-brand p-8 md:p-12 sm:p-5 text-white">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Let&apos;s work together
             </h2>
@@ -135,7 +135,7 @@ export default function ContactForm() {
           </div>
 
           {/* Right side - Contact Form */}
-          <div className="p-8 md:p-12">
+          <div className="p-8 md:p-12 sm:p-5 sm:pt-10">
             <h3 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">
               Send me a message
             </h3>

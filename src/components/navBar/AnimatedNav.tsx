@@ -169,7 +169,7 @@ export function AnimatedNav() {
 
           {/* Menu Button */}
           <motion.button
-            className="relative z-50 w-12 h-12 flex items-center justify-center focus:outline-none"
+            className="relative z-50 w-12 h-12 flex items-center justify-center focus:outline-none sm:hidden"
             onClick={toggleMenu}
             whileHover="hover"
             aria-label={isOpen ? "Close Menu" : "Open Menu"}

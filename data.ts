@@ -57,10 +57,10 @@ export const projectDetails: Projects[] = [
     ],
     description:
       "Teverse is a cloud company based in Sydney, Australia, offering innovative cloud computing solutions for businesses. The platform provides scalable infrastructure, enabling companies to deploy, manage, and scale applications efficiently. With a focus on security, performance, and user experience, Teverse helps businesses leverage cloud technology to reduce operational costs and accelerate digital transformation.",
-    techStack: ["React", "Node.js", "AWS", "TypeScript", "Tailwind CSS"],
+    techStack: ["React", "TypeScript", "Tailwind CSS", "Next.js", "Framer Motion", "Responsive Design", "Interactive UI"],
     client: "Teverse Cloud Technologies",
     year: "2024",
-    link: "https://teverse.com",
+    link: "https://teverse.com.au",
   },
   // {
   //   id: "1",
@@ -140,8 +140,8 @@ export const projectDetails: Projects[] = [
     title: "SunnahHive",
     images: [
       "/assets/images/sunnahhive.png",
-      "/assets/images/sunnahhive_1.png",
-      "/assets/images/sunnahhive_2.png",
+      "/assets/images/sunnahive2.png",
+      "/assets/images/sunnahive3.png",
     ],
     description:
       "SunnahHive is a comprehensive digital platform dedicated to authentic Islamic knowledge and practice. The platform features a vast collection of verified Hadiths (Prophetic traditions), Quranic interpretations, and scholarly articles. Users can access daily Islamic reminders, a prayer time calculator, Qibla direction finder, and community forums. SunnahHive serves as a one-stop resource for Muslims seeking reliable information and guidance in their spiritual journey.",
@@ -209,7 +209,7 @@ export const projectDetails: Projects[] = [
     ],
     client: "LearnSmart Educational Tech",
     year: "2023",
-    link: "https://learnsmart-app.com",
+    link: "https://learn-boost-landing-page.vercel.app/",
   },
   // Add more projects as needed
 ];

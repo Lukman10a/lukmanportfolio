@@ -42,7 +42,7 @@ export default function Home() {
       >
         <div className="container mx-auto py-16">
           <Scene activeMenu={activeMenu} />
-          <div className="p-5 md:p-10">
+          <div className="p-5 md:p-10 sm:p-5">
             <Projects setActiveMenu={setActiveMenu} />
           </div>
         </div>

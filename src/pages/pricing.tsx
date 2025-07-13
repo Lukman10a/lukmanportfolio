@@ -4,6 +4,7 @@ import { ArrowLeft, Check, Clock, Zap, Smartphone, Monitor, Database, Globe } fr
 import Link from "next/link";
 import EnhancedButton from "@/components/ui/EnhancedButton";
 import useSmoothScroll from "@/hooks/useSmoothScroll";
+import SEO from "@/components/SEO";
 
 export default function Pricing() {
   // Enable smooth scrolling
@@ -92,7 +93,13 @@ export default function Pricing() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#f8f4ec] dark:bg-[#121212] pt-24">
+    <>
+      <SEO 
+        title="Project Pricing - Frontend Development Services"
+        description="Transparent pricing for custom web and mobile solutions. Professional frontend development services including landing pages, multi-page websites, admin dashboards, and mobile apps."
+        type="website"
+      />
+      <div className="min-h-screen bg-[#f8f4ec] dark:bg-[#121212] pt-24">
       <div className="max-w-7xl mx-auto px-6 py-12">
         {/* Header */}
         <motion.div
@@ -286,5 +293,6 @@ export default function Pricing() {
         </motion.div>
       </div>
     </div>
+    </>
   );
 } 

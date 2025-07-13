@@ -4,6 +4,7 @@ import Scene from "@/components/projects/scene";
 import Projects from "@/components/projects/projects/index";
 import EnhancedHero from "@/components/EnhancedHero";
 import Footer from "@/components/footer";
+import SEO from "@/components/SEO";
 
 export default function Home() {
   // Add the projects section functionality
@@ -32,23 +33,26 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="bg-[#f8f4ec] dark:bg-[#121212]">
-      {/* Enhanced Hero Section */}
-      <EnhancedHero />
+    <>
+      <SEO />
+      <div className="bg-[#f8f4ec] dark:bg-[#121212]">
+        {/* Enhanced Hero Section */}
+        <EnhancedHero />
 
-      {/* Project Section with ID for navigation */}
-      <section
-        id="projects"
-        className="relative w-full bg-[#f8f4ec] dark:bg-[#121212] overflow-hidden"
-      >
-        <div className="container mx-auto py-16">
-          <Scene activeMenu={activeMenu} />
-          <div className="p-5 md:p-10 sm:p-5">
-            <Projects setActiveMenu={setActiveMenu} />
+        {/* Project Section with ID for navigation */}
+        <section
+          id="projects"
+          className="relative w-full bg-[#f8f4ec] dark:bg-[#121212] overflow-hidden"
+        >
+          <div className="container mx-auto py-16">
+            <Scene activeMenu={activeMenu} />
+            <div className="p-5 md:p-10 sm:p-5">
+              <Projects setActiveMenu={setActiveMenu} />
+            </div>
           </div>
-        </div>
-      </section>
-      <Footer />
-    </div>
+        </section>
+        <Footer />
+      </div>
+    </>
   );
 }

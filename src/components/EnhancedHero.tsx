@@ -45,7 +45,7 @@ export default function EnhancedHero() {
           {/* Small subtitle at top */}
           <motion.p
             variants={item}
-            className="text-xs md:text-sm font-medium tracking-wider uppercase text-black/70 dark:text-white/70 mb-6"
+            className="text-xs md:text-sm sm:text-xs font-medium tracking-wider uppercase text-black/70 dark:text-white/70 mb-6"
           >
             Portfolio By Lukman @ Frontend Engineer
           </motion.p>
@@ -56,9 +56,9 @@ export default function EnhancedHero() {
             className="text-6xl md:text-7xl lg:text-8xl font-bold mb-6 tracking-tight leading-[1.1]"
           >
             <div>
-              <span className="text-brand">Frontend</span>
+              <span className="text-brand sm:text-6xl">Frontend</span>
             </div>
-            <div className="text-black dark:text-white">
+            <div className="text-black sm:text-6xl dark:text-white">
               Developer.
             </div>
           </motion.h1>
@@ -66,7 +66,7 @@ export default function EnhancedHero() {
           {/* Paragraph */}
           <motion.div 
             variants={item}
-            className="text-xl md:text-2xl text-black/70 dark:text-white/70 mb-6 max-w-2xl mx-auto"
+            className="text-xl md:text-2xl sm:text-base text-black/70 dark:text-white/70 mb-6 max-w-2xl mx-auto"
           >
             <Typewriter
               text="I build high-performing, responsive interfaces"

@@ -22,6 +22,10 @@ export const navItems: NavItem[] = [
     title: "Projects",
     href: "/projects",
   },
+  {
+    title: "Pricing",
+    href: "/pricing",
+  },
   // {
   //   title: "Blog",
   //   href: "/blog",

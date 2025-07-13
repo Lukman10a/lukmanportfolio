@@ -3,6 +3,7 @@ import Lenis from "lenis";
 import Scene from "@/components/projects/scene";
 import Projects from "@/components/projects/projects/index";
 import EnhancedHero from "@/components/EnhancedHero";
+import Footer from "@/components/footer";
 
 export default function Home() {
   // Add the projects section functionality
@@ -47,6 +48,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <Footer />
     </div>
   );
 }

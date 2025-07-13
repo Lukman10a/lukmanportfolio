@@ -9,7 +9,6 @@ import {
   Geist_Mono,
 } from "next/font/google";
 import { useEffect, useState } from "react";
-import Footer from "@/components/footer";
 import ThemeToggle from "@/components/ui/theme-toggle";
 
 const merri = Merriweather({
@@ -84,7 +83,6 @@ export default function App({ Component, pageProps }: AppProps) {
         >
           <AnimatedNav />
           <Component {...pageProps} />
-          <Footer />
           <ThemeToggle />
         </main>
       )}

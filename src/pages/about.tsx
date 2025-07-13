@@ -6,6 +6,7 @@ import EnhancedButton from "@/components/ui/EnhancedButton";
 import useSmoothScroll from "@/hooks/useSmoothScroll";
 import Image from "next/image";
 import { useState } from "react";
+import Footer from "@/components/footer";
 
 export default function About() {
   // Enable smooth scrolling
@@ -323,6 +324,7 @@ export default function About() {
           </div>
         </motion.div>
       </div>
+      <Footer />
     </div>
   );
 }

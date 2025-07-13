@@ -7,6 +7,7 @@ import MarkazulBayaanProject from "@/components/projects/detail/MarkazulBayaanPr
 import StandardProjectDisplay from "@/components/projects/detail/StandardProjectDisplay";
 import MobileAppDisplay from "@/components/projects/detail/MobileAppDisplay";
 import useSmoothScroll from "@/hooks/useSmoothScroll";
+import Footer from "@/components/footer";
 
 // Using the Projects interface from data.ts
 type Project = Projects;
@@ -137,6 +138,7 @@ const ProjectDetail = () => {
           />
         )}
       </div>
+      <Footer />
     </motion.div>
   );
 };

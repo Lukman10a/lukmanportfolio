@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import Typewriter from "./ui/animated/typewriter";
 import { TextLoop } from "./ui/animated/textLoop";
 import EnhancedButton from "./ui/EnhancedButton";
-import { ArrowRight, Download } from "lucide-react";
+import { ArrowRight, Download, DollarSign } from "lucide-react";
 
 export default function EnhancedHero() {
   const [text, setText] = useState(false);
@@ -101,6 +101,14 @@ export default function EnhancedHero() {
               icon={<ArrowRight className="h-4 w-4" />}
             >
               View Projects
+            </EnhancedButton>
+            
+            <EnhancedButton 
+              href="/pricing" 
+              variant="outline"
+              icon={<DollarSign className="h-4 w-4" />}
+            >
+              View Pricing
             </EnhancedButton>
             
             <EnhancedButton 

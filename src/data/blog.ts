@@ -122,7 +122,7 @@ Interactive 3D elements aren't just eye candy - they're powerful tools for demon
 The implementation I've shared shows how modern web technologies can create experiences that were once only possible in native applications.
     `,
     author: "Abdulrauf Lukman",
-    publishedAt: "2024-12-15",
+    publishedAt: "2025-07-14",
     readTime: "8 min read",
     category: "Web Development",
     tags: ["React Three Fiber", "3D Web", "GLSL", "Performance", "WebGL"],
@@ -237,7 +237,7 @@ Your website's animations aren't decoration - they're communication. Make sure t
 The key is finding the balance between visual impact and performance, ensuring every animation serves a purpose and enhances the user experience.
     `,
     author: "Abdulrauf Lukman",
-    publishedAt: "2024-12-10",
+    publishedAt: "2025-07-14",
     readTime: "6 min read",
     category: "UX Design",
     tags: ["Animation", "Psychology", "UX", "Framer Motion", "Performance"],
@@ -246,10 +246,10 @@ The key is finding the balance between visual impact and performance, ensuring e
   },
   {
     id: "3",
-    title: "Performance-First Development: Why Speed Wins in 2024",
+    title: "Performance-First Development: Why Speed Wins in 2025",
     excerpt: "How I built a portfolio that loads in under 2 seconds while maintaining stunning visuals and complex 3D interactions.",
     content: `
-# Performance-First Development: Why Speed Wins in 2024
+# Performance-First Development: Why Speed Wins in 2025
 
 Everyone wants beautiful, feature-rich websites. But everyone also wants them to load instantly. How do you balance both? In this post, I'll share how I built a portfolio that achieves both goals.
 
@@ -373,12 +373,12 @@ My portfolio proves you can have both: stunning visuals AND blazing speed. The k
 The result is a website that feels like a native app - instant interactions, smooth animations, and zero lag.
     `,
     author: "Abdulrauf Lukman",
-    publishedAt: "2024-12-05",
+    publishedAt: "2025-07-14",
     readTime: "7 min read",
     category: "Performance",
     tags: ["Performance", "Optimization", "Web Development", "Speed", "Lighthouse"],
     featuredImage: "/assets/images/performance.jpg",
-    slug: "performance-first-development-2024"
+    slug: "performance-first-development-2025"
   },
   {
     id: "4",
@@ -585,7 +585,7 @@ The investment in building a robust component system pays dividends in developme
 This approach has transformed how I build web applications, making development faster, more consistent, and more maintainable.
     `,
     author: "Abdulrauf Lukman",
-    publishedAt: "2024-11-30",
+      publishedAt: "2025-07-14",
     readTime: "10 min read",
     category: "Architecture",
     tags: ["Component Library", "TypeScript", "Design System", "React", "Architecture"],

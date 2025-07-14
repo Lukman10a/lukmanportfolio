@@ -223,7 +223,7 @@ export default function BlogPost() {
               <h2 className="text-3xl font-bold text-black dark:text-white mb-8">
                 Related Articles
               </h2>
-              <div className="grid md:grid-cols-3 gap-8">
+              <div className="grid grid-cols-2 sm:grid-cols-1 gap-8">
                 {relatedPosts.map((relatedPost, index) => (
                   <BlogCard key={relatedPost.id} post={relatedPost} index={index} />
                 ))}

@@ -25,7 +25,7 @@ const ProjectDetail = () => {
     description: "A modern web application with cutting-edge features",
     techStack: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
     client: "Tech Corp",
-    year: "2024",
+    year: "2025",
     link: "https://example.com",
   };
 

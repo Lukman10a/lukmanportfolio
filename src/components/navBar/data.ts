@@ -23,13 +23,13 @@ export const navItems: NavItem[] = [
     href: "/projects",
   },
   {
+    title: "Blog",
+    href: "/blog",
+  },
+  {
     title: "Pricing",
     href: "/pricing",
   },
-  // {
-  //   title: "Blog",
-  //   href: "/blog",
-  // },
   // {
   //   title: "Reviews",
   //   href: "/reviews",

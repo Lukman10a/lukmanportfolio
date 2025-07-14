@@ -1,12 +1,13 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Mail, Github, Linkedin } from "lucide-react";
+import { Mail, Github, Linkedin, BookOpen } from "lucide-react";
 
 export default function Footer() {
   const socialLinks = [
     { name: "GitHub", href: "https://github.com/Lukman10a/", icon: <Github className="h-5 w-5" /> },
     { name: "LinkedIn", href: "https://www.linkedin.com/in/abdulrauf-lukman-761095217/", icon: <Linkedin className="h-5 w-5" /> },
     { name: "Email", href: "mailto:abdulrauflukman9@gmail.com", icon: <Mail className="h-5 w-5" /> },
+    { name: "Blog", href: "/blog", icon: <BookOpen className="h-5 w-5" /> },
   ];
 
   const container = {

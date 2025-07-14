@@ -1,15 +1,25 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { BookOpen } from "lucide-react";
 
 export default function FloatingBlogButton() {
+  const pathname = usePathname();
+  
+  // Hide the button if user is on blog pages
+  const isOnBlogPage = pathname?.startsWith('/blog');
+  
+  if (isOnBlogPage) {
+    return null;
+  }
+
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.8 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ delay: 1, duration: 0.5 }}
-      className="fixed bottom-6 right-6 z-50 sm:hidden"
+      className="fixed bottom-24 right-6 z-50 sm:hidden"
     >
       <Link href="/blog">
         <motion.button

@@ -116,7 +116,7 @@
 4. **Markazul Bayaan**: Online Islamic school (specialized display)
 5. **Consology**: Construction management platform (React, Redux, PostgreSQL)
 6. **SunnahHive**: Islamic knowledge platform (Next.js, MongoDB)
-7. **LearnSmart**: Mobile learning app (React Native, Firebase)
+7. **LearnBoost**: Mobile learning app (React Native, Firebase)
 
 #### Blog Content ✅
 1. **Building Interactive 3D Web Experiences**: Technical deep-dive on React Three Fiber

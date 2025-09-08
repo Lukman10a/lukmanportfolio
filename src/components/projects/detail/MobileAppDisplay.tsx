@@ -39,7 +39,7 @@ const MobileAppDisplay: React.FC<MobileAppDisplayProps> = ({
       {/* Mobile App Preview */}
       <motion.div
         variants={itemVariants}
-        className="relative mb-8 sm:mb-12 flex justify-center items-center space-x-4 sm:space-x-8 overflow-x-auto pb-4 hide-scrollbar"
+        className="relative mb-8 sm:mb-12 flex justify-center items-center space-x-4 sm:space-x-4 overflow-x-auto pb-4 hide-scrollbar"
       >
         {project.images && project.images.length > 0 ? (
           project.images.map((img: string, index: number) => (

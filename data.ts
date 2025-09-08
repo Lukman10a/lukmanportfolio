@@ -29,8 +29,8 @@ export const projects: Project[] = [
     img: "/assets/images/sunnahhive.png",
   },
   {
-    title: "LearnSmart",
-    img: "/assets/images/sunnahhive.png",
+    title: "LearnBoost",
+    img: "/assets/images/learnsmart.png",
   },
 ];
 
@@ -191,11 +191,12 @@ export const projectDetails: Projects[] = [
     images: [
       "/assets/images/learnsmart.png",
       "/assets/images/learnsmart_1.png",
-      "/assets/images/learnsmart_2.png",
       "/assets/images/learnsmart_3.png",
+      "/assets/images/learnsmart_2.png",
+      "/assets/images/learnsmart_4.png",
     ],
     description:
-      "LearnSmart is a mobile-first educational application designed to make learning accessible, engaging, and personalized. The app features adaptive learning paths that adjust to individual progress, interactive quizzes, video lessons, and flashcards covering various subjects. With gamification elements, progress tracking, and offline learning capabilities, LearnSmart caters to students of all ages looking to enhance their knowledge on-the-go through a mobile-optimized learning experience.",
+      "LearnBoost is a mobile-first educational application designed to make learning accessible, engaging, and personalized. The app features adaptive learning paths that adjust to individual progress, interactive quizzes, video lessons, and flashcards covering various subjects. With gamification elements, progress tracking, and offline learning capabilities, LearnBoost caters to students of all ages looking to enhance their knowledge on-the-go through a mobile-optimized learning experience.",
     techStack: [
       "React Native",
       "TypeScript",
@@ -207,7 +208,7 @@ export const projectDetails: Projects[] = [
       "Push Notifications",
       "Offline Support",
     ],
-    client: "LearnSmart Educational Tech",
+    client: "LearnBoost Educational Tech",
     year: "2023",
     link: "https://learn-boost-landing-page.vercel.app/",
   },

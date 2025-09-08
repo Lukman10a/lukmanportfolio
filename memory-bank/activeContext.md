@@ -75,7 +75,7 @@
 4. **Markazul Bayaan**: Online Islamic school (specialized display)
 5. **Consology**: Construction management platform
 6. **SunnahHive**: Islamic knowledge platform
-7. **LearnSmart**: Mobile learning app (specialized display)
+7. **LearnBoost**: Mobile learning app (specialized display)
 
 ### Animation System
 

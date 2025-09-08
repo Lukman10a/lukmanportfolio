@@ -6,13 +6,18 @@ import { BookOpen } from "lucide-react";
 
 export default function FloatingBlogButton() {
   const pathname = usePathname();
-  
+
   // Hide the button if user is on blog pages
-  const isOnBlogPage = pathname?.startsWith('/blog');
-  
+  const isOnBlogPage = pathname?.startsWith("/blog");
+
   // Debug log
-  console.log('FloatingBlogButton - pathname:', pathname, 'isOnBlogPage:', isOnBlogPage);
-  
+  console.log(
+    "FloatingBlogButton - pathname:",
+    pathname,
+    "isOnBlogPage:",
+    isOnBlogPage
+  );
+
   if (isOnBlogPage) {
     return null;
   }
@@ -36,13 +41,13 @@ export default function FloatingBlogButton() {
             y: {
               duration: 3,
               repeat: Infinity,
-              ease: "easeInOut"
+              ease: "easeInOut",
             },
             rotate: {
               duration: 4,
               repeat: Infinity,
-              ease: "easeInOut"
-            }
+              ease: "easeInOut",
+            },
           }}
           className="bg-brand text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 flex items-center justify-center relative overflow-hidden"
         >
@@ -56,10 +61,10 @@ export default function FloatingBlogButton() {
             transition={{
               duration: 2,
               repeat: Infinity,
-              ease: "easeInOut"
+              ease: "easeInOut",
             }}
           />
-          
+
           <div className="relative z-10 flex items-center">
             <BookOpen className="w-5 h-5" />
             <span className="ml-2 text-sm font-medium">Blog</span>
@@ -68,4 +73,4 @@ export default function FloatingBlogButton() {
       </Link>
     </motion.div>
   );
-} 
+}

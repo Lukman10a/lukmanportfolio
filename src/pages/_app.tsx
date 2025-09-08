@@ -10,7 +10,7 @@ import {
 } from "next/font/google";
 import { useEffect, useState } from "react";
 import ThemeToggle from "@/components/ui/theme-toggle";
-import FloatingBlogButton from "@/components/FloatingBlogButton";
+// import FloatingBlogButton from "@/components/FloatingBlogButton";
 
 const merri = Merriweather({
   subsets: ["latin"],
@@ -85,7 +85,7 @@ export default function App({ Component, pageProps }: AppProps) {
           <AnimatedNav />
           <Component {...pageProps} />
           <ThemeToggle />
-          <FloatingBlogButton />
+          {/* <FloatingBlogButton /> */}
         </main>
       )}
     </>

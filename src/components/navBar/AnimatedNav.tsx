@@ -20,6 +20,7 @@ const navigationItems = [
   { name: "About", href: "/about" },
   { name: "Work", href: "/projects" },
   { name: "Blog", href: "/blog" },
+  { name: "Pricing", href: "/pricing" }, // Added pricing to nav
 ];
 
 // Social links
@@ -127,69 +128,69 @@ export function AnimatedNav() {
   return (
     <header
       className={cn(
-        "fixed top-0 w-full z-50 transition-all duration-300",
+        "fixed w-full z-50 transition-all duration-300 px-4 sm:px-6 lg:px-8",
         scrolled
-          ? "bg-[#f8f4ec]/90 dark:bg-[#121212]/90 shadow-sm backdrop-blur-sm"
-          : "bg-transparent"
+          ? "bg-[#f8f4ec]/90 dark:bg-[#121212]/90 shadow-sm backdrop-blur-sm top-0"
+          : "bg-transparent top-6"
       )}
     >
-      <div className="container mx-auto px-6 py-4">
-        <div className="flex items-center justify-between">
-          {/* Logo and info section */}
+      <div className="max-w-7xl mx-auto">
+        <div className="flex items-center justify-between py-4">
+          {/* Logo - Left */}
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             className="relative z-10"
           >
-            <div className="flex flex-col">
-              <Link href="/" className="text-3xl font-bold tracking-tight">
-                LUKMAN
-              </Link>
-              {!scrolled && (
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2, duration: 0.5 }}
-                  className="flex flex-col mt-1"
-                >
-                  <span className="text-xs font-mono tracking-wider text-black/70 dark:text-white/70">
-                    BUILDING DIGITAL
-                  </span>
-                  <span className="text-xs font-mono tracking-wider text-black/70 dark:text-white/70">
-                    EXPERIENCES AT LUXA
-                  </span>
-                  <span className="text-xs font-mono tracking-wider text-black/70 dark:text-white/70">
-                    (2018 - PRESENT)
-                  </span>
-                </motion.div>
-              )}
-            </div>
+            <Link href="/" className="text-3xl font-bold tracking-tight">
+              LUKMAN
+            </Link>
           </motion.div>
 
-          {/* Menu Button */}
+          {/* Navigation Items - Center */}
+          <nav className="sm:hidden md:flex items-center justify-center space-x-8">
+            {navigationItems.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                className={cn(
+                  "text-sm font-medium transition-colors duration-300 hover:text-brand",
+                  pathname === item.href
+                    ? "text-brand"
+                    : "text-black dark:text-white"
+                )}
+              >
+                {item.name}
+              </Link>
+            ))}
+          </nav>
+
+          {/* Social Links - Right */}
+          <div className="sm:hidden flex items-center space-x-4">
+            {socialLinks.map((link) => (
+              <motion.a
+                key={link.name}
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-black dark:text-white hover:text-brand transition-colors duration-300"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <link.icon className="w-5 h-5" />
+                <span className="sr-only">{link.name}</span>
+              </motion.a>
+            ))}
+          </div>
+
+          {/* Mobile Menu Button - Only visible on mobile */}
           <motion.button
-            className="relative z-50 w-12 h-12 flex items-center justify-center focus:outline-none sm:hidden"
+            className="relative z-50 sm:block hidden w-12 h-12 items-center justify-center focus:outline-none"
             onClick={toggleMenu}
             whileHover="hover"
             aria-label={isOpen ? "Close Menu" : "Open Menu"}
           >
-            <motion.div
-              className={cn(
-                "absolute w-12 h-12 rounded-full",
-                scrolled ? "bg-[#f8f4ec] dark:bg-[#121212]" : "bg-transparent"
-              )}
-              variants={{
-                hover: {
-                  scale: 1.05,
-                },
-              }}
-              transition={{
-                duration: 0.3,
-                ease: "easeInOut",
-              }}
-            />
-
             <AnimatePresence mode="wait">
               {isOpen ? (
                 <motion.div
@@ -219,7 +220,7 @@ export function AnimatedNav() {
         </div>
       </div>
 
-      {/* Full-screen Menu */}
+      {/* Mobile Menu - Only visible on mobile */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -227,11 +228,11 @@ export function AnimatedNav() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 bg-black/90 dark:bg-black/95 backdrop-blur-lg z-40"
+            className="fixed inset-0 bg-black/90 dark:bg-black/95 backdrop-blur-lg z-40 sm:block"
             style={{ touchAction: "none" }}
           >
             <motion.div
-              className="absolute top-0 right-0 bottom-0 w-full md:w-[500px] bg-[#f8f4ec] dark:bg-[#121212] p-8 flex flex-col justify-center"
+              className="absolute top-0 right-0 left-0 bottom-0 w-full md:w-[500px] bg-[#f8f4ec] dark:bg-[#121212] p-8 flex flex-col justify-center"
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
@@ -243,7 +244,7 @@ export function AnimatedNav() {
               }}
               style={{ touchAction: "none" }}
             >
-              <nav className="flex flex-col space-y-12 text-7xl font-bold mb-auto mt-20">
+              <nav className="flex flex-col space-y-12 text-2xl font-bold mb-auto mt-20">
                 {navigationItems.map((item, index) => (
                   <motion.div
                     key={item.name}

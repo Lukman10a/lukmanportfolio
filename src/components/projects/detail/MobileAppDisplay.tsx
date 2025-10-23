@@ -7,12 +7,20 @@ interface MobileAppDisplayProps {
   project: Projects;
   containerVariants: Variants;
   itemVariants: Variants;
+  currentImageIndex: number;
+  handleNextImage: () => void;
+  handlePreviousImage: () => void;
+  setCurrentImageIndex: (index: number) => void;
 }
 
 const MobileAppDisplay: React.FC<MobileAppDisplayProps> = ({
   project,
   containerVariants,
   itemVariants,
+  currentImageIndex,
+  handleNextImage,
+  handlePreviousImage,
+  setCurrentImageIndex,
 }) => {
   // Handle image loading errors
   const handleImageError = (e: React.SyntheticEvent<HTMLImageElement>) => {
@@ -42,9 +50,19 @@ const MobileAppDisplay: React.FC<MobileAppDisplayProps> = ({
         className="relative mb-8 sm:mb-12 flex justify-center items-center space-x-4 sm:space-x-4 overflow-x-auto pb-4 hide-scrollbar"
       >
         {project.images && project.images.length > 0 ? (
-          project.images.map((img: string, index: number) => (
+          <>
+            <button
+              onClick={handlePreviousImage}
+              className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-black/50 p-2 rounded-r-lg text-white z-10 hover:bg-black/70"
+              aria-label="Previous image"
+            >
+              ←
+            </button>
             <motion.div
-              key={index}
+              key={currentImageIndex}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
               whileHover={{ scale: 1.05, rotateZ: 2 }}
               className="relative min-w-[160px] sm:min-w-[200px] md:min-w-[240px] h-[320px] sm:h-[400px] md:h-[480px] rounded-3xl overflow-hidden shadow-lg border-8 border-gray-800 dark:border-gray-700"
               style={{
@@ -52,8 +70,8 @@ const MobileAppDisplay: React.FC<MobileAppDisplayProps> = ({
               }}
             >
               <Image
-                src={img}
-                alt={`App screenshot ${index + 1}`}
+                src={project.images[currentImageIndex]}
+                alt={`App screenshot ${currentImageIndex + 1}`}
                 fill
                 className="object-cover"
                 sizes="(max-width: 640px) 160px, (max-width: 768px) 200px, 240px"
@@ -63,7 +81,29 @@ const MobileAppDisplay: React.FC<MobileAppDisplayProps> = ({
               {/* Phone notch design */}
               <div className="absolute top-0 w-1/3 h-5 bg-gray-800 dark:bg-gray-700 left-1/3 rounded-b-lg"></div>
             </motion.div>
-          ))
+            <button
+              onClick={handleNextImage}
+              className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-black/50 p-2 rounded-l-lg text-white z-10 hover:bg-black/70"
+              aria-label="Next image"
+            >
+              →
+            </button>
+            {/* Image indicators */}
+            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+              {project.images.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentImageIndex(index)}
+                  className={`w-2 h-2 rounded-full transition-all ${
+                    index === currentImageIndex
+                      ? "bg-white scale-125"
+                      : "bg-white/50 hover:bg-white/75"
+                  }`}
+                  aria-label={`Go to image ${index + 1}`}
+                />
+              ))}
+            </div>
+          </>
         ) : (
           <div className="col-span-full text-center p-6 bg-gray-100 dark:bg-gray-800 rounded-xl">
             <p>No images available</p>

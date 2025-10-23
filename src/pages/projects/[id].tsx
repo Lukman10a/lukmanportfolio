@@ -12,14 +12,14 @@ import Footer from "@/components/footer";
 // Using the Projects interface from data.ts
 type Project = Projects;
 
-const ProjectDetail = () => {
+function ProjectDetail() {
   const router = useRouter();
   const { id } = router.query;
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [project, setProject] = useState<Project | null>(null);
   const [isMarkazul, setIsMarkazul] = useState(false);
   const [isMobileApp, setIsMobileApp] = useState(false);
-  
+
   // Enable smooth scrolling
   useSmoothScroll({ duration: 800 });
 
@@ -78,7 +78,7 @@ const ProjectDetail = () => {
 
   const handlePreviousImage = () => {
     if (project.images.length > 1) {
-      setCurrentImageIndex((prev) => 
+      setCurrentImageIndex((prev) =>
         prev === 0 ? project.images.length - 1 : prev - 1
       );
     }
@@ -89,13 +89,17 @@ const ProjectDetail = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className={`min-h-screen pt-24 ${isMarkazul ? 'bg-[#f8f4ec] dark:bg-gray-900' : 'bg-gray-50 dark:bg-gray-900'}`}
+      className={`min-h-screen pt-24 ${
+        isMarkazul
+          ? "bg-[#f8f4ec] dark:bg-gray-900"
+          : "bg-gray-50 dark:bg-gray-900"
+      }`}
     >
       <div className="max-w-7xl mx-auto px-8 lg:px-6 md:px-4">
         <motion.button
+          onClick={() => router.push("/projects")}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          onClick={() => router.back()}
           className="mb-8 md:mb-6 flex items-center mt-10 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white text-base md:text-sm"
         >
           <svg
@@ -115,9 +119,9 @@ const ProjectDetail = () => {
         </motion.button>
 
         {isMarkazul ? (
-          <MarkazulBayaanProject 
-            project={project} 
-            containerVariants={containerVariants} 
+          <MarkazulBayaanProject
+            project={project}
+            containerVariants={containerVariants}
             itemVariants={itemVariants}
             currentImageIndex={currentImageIndex}
             handleNextImage={handleNextImage}
@@ -125,22 +129,30 @@ const ProjectDetail = () => {
             setCurrentImageIndex={setCurrentImageIndex}
           />
         ) : isMobileApp ? (
-          <MobileAppDisplay 
+          <MobileAppDisplay
             project={project}
             containerVariants={containerVariants}
             itemVariants={itemVariants}
+            currentImageIndex={currentImageIndex}
+            handleNextImage={handleNextImage}
+            handlePreviousImage={handlePreviousImage}
+            setCurrentImageIndex={setCurrentImageIndex}
           />
         ) : (
-          <StandardProjectDisplay 
+          <StandardProjectDisplay
             project={project}
             containerVariants={containerVariants}
             itemVariants={itemVariants}
+            currentImageIndex={currentImageIndex}
+            handleNextImage={handleNextImage}
+            handlePreviousImage={handlePreviousImage}
+            setCurrentImageIndex={setCurrentImageIndex}
           />
         )}
       </div>
       <Footer />
     </motion.div>
   );
-};
+}
 
 export default ProjectDetail;

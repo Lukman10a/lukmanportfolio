@@ -7,12 +7,20 @@ interface StandardProjectDisplayProps {
   project: Projects;
   containerVariants: Variants;
   itemVariants: Variants;
+  currentImageIndex: number;
+  handleNextImage: () => void;
+  handlePreviousImage: () => void;
+  setCurrentImageIndex: (index: number) => void;
 }
 
 const StandardProjectDisplay: React.FC<StandardProjectDisplayProps> = ({
   project,
   containerVariants,
   itemVariants,
+  currentImageIndex,
+  handleNextImage,
+  handlePreviousImage,
+  setCurrentImageIndex,
 }) => {
   // Handle image loading errors
   const handleImageError = (e: React.SyntheticEvent<HTMLImageElement>) => {
@@ -34,30 +42,75 @@ const StandardProjectDisplay: React.FC<StandardProjectDisplayProps> = ({
       </motion.h1>
 
       {/* Image Gallery */}
-      <motion.div
-        variants={itemVariants}
-        className="grid grid-cols-2 sm:grid-cols-1 gap-4 sm:gap-6 mb-8 sm:mb-12"
-      >
+      <motion.div variants={itemVariants} className="relative mb-8 sm:mb-12">
         {project.images && project.images.length > 0 ? (
-          project.images.map((img: string, index: number) => (
-            <motion.div
-              key={index}
-              whileHover={{ scale: 1.02 }}
-              className="relative h-60 sm:h-72 md:h-80 rounded-xl overflow-hidden shadow-lg"
+          <div className="relative h-60 sm:h-72 md:h-80 rounded-xl overflow-hidden shadow-lg">
+            <button
+              onClick={handlePreviousImage}
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full"
+              aria-label="Previous image"
             >
-              <Image
-                src={img}
-                alt={`Project screenshot ${index + 1}`}
-                fill
-                className="object-cover cursor-pointer"
-                sizes="(max-width: 640px) 100vw, (max-width: 768px) 100vw, 50vw"
-                priority
-                onError={handleImageError}
-              />
-            </motion.div>
-          ))
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M15 19l-7-7 7-7"
+                />
+              </svg>
+            </button>
+
+            <Image
+              src={project.images[currentImageIndex]}
+              alt={`Project screenshot ${currentImageIndex + 1}`}
+              fill
+              className="object-cover"
+              sizes="(max-width: 640px) 100vw, (max-width: 768px) 100vw, 50vw"
+              priority
+              onError={handleImageError}
+            />
+
+            <button
+              onClick={handleNextImage}
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full"
+              aria-label="Next image"
+            >
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </button>
+
+            {/* Image indicators */}
+            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+              {project.images.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentImageIndex(index)}
+                  className={`w-2 h-2 rounded-full ${
+                    index === currentImageIndex ? "bg-white" : "bg-white/50"
+                  }`}
+                  aria-label={`Go to image ${index + 1}`}
+                />
+              ))}
+            </div>
+          </div>
         ) : (
-          <div className="col-span-full text-center p-6 bg-gray-100 dark:bg-gray-800 rounded-xl">
+          <div className="text-center p-6 bg-gray-100 dark:bg-gray-800 rounded-xl">
             <p>No images available</p>
           </div>
         )}

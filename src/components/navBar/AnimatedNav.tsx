@@ -26,13 +26,13 @@ const navigationItems = [
 // Social links
 const socialLinks = [
   { name: "GitHub", icon: FiGithub, url: "https://github.com/Lukman10a/" },
-  { name: "Twitter", icon: FiTwitter, url: "https://twitter.com/lukmandev" },
+  { name: "Twitter", icon: FiTwitter, url: "https://x.com/dashboard_exp" },
   {
     name: "LinkedIn",
     icon: FiLinkedin,
     url: "https://linkedin.com/in/abdulrauf-lukman-761095217/",
   },
-  { name: "Email", icon: FiMail, url: "mailto:abdukareem92@gmail.com" },
+  { name: "Email", icon: FiMail, url: "mailto:abdulrauflukman9@gmail.com" },
 ];
 
 export function AnimatedNav() {

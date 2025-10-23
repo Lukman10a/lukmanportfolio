@@ -1,6 +1,5 @@
 import React from "react";
 import { motion } from "framer-motion";
-import Typewriter from "./ui/animated/typewriter";
 // import { TextLoop } from "./ui/animated/textLoop";
 import EnhancedButton from "./ui/EnhancedButton";
 import { ArrowRight, Download } from "lucide-react";
@@ -68,29 +67,10 @@ export default function EnhancedHero() {
             variants={item}
             className="text-xl md:text-2xl sm:text-base text-black/70 dark:text-white/70 mb-6 max-w-2xl mx-auto"
           >
-            <Typewriter
-              text="I build landing pages & dashboards for SaaS, startups, and growing
-            businesses."
-              delay={40}
-              // onTypingComplete={() => setText(true)}
-            />
-            {/* {text && (
-              <span className="flex items-center justify-center mt-2">
-                <span className="mr-3">specializing in</span>
-                <TextLoop preset="slide-up">
-                  <span className="text-brand sm:text-sm">
-                    Project Management{" "}
-                  </span>
-                  <span className="text-brand sm:text-sm">User Experience</span>
-                  <span className="text-brand sm:text-sm">
-                    Modern Frameworks
-                  </span>
-                  <span className="text-brand sm:text-sm">
-                    Responsive Design
-                  </span>
-                </TextLoop>
-              </span>
-            )} */}
+            <p>
+              I build and design landing pages & dashboards for SaaS, startups,
+              and growing businesses.
+            </p>
           </motion.div>
 
           {/* Buttons */}

@@ -19,7 +19,7 @@ const ProjectDetail = () => {
   const [project, setProject] = useState<Project | null>(null);
   const [isMarkazul, setIsMarkazul] = useState(false);
   const [isMobileApp, setIsMobileApp] = useState(false);
-  
+
   // Enable smooth scrolling
   useSmoothScroll({ duration: 800 });
 
@@ -78,7 +78,7 @@ const ProjectDetail = () => {
 
   const handlePreviousImage = () => {
     if (project.images.length > 1) {
-      setCurrentImageIndex((prev) => 
+      setCurrentImageIndex((prev) =>
         prev === 0 ? project.images.length - 1 : prev - 1
       );
     }
@@ -89,7 +89,11 @@ const ProjectDetail = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className={`min-h-screen pt-24 ${isMarkazul ? 'bg-[#f8f4ec] dark:bg-gray-900' : 'bg-gray-50 dark:bg-gray-900'}`}
+      className={`min-h-screen pt-24 ${
+        isMarkazul
+          ? "bg-[#f8f4ec] dark:bg-gray-900"
+          : "bg-gray-50 dark:bg-gray-900"
+      }`}
     >
       <div className="max-w-7xl mx-auto px-8 lg:px-6 md:px-4">
         <motion.button
@@ -115,9 +119,9 @@ const ProjectDetail = () => {
         </motion.button>
 
         {isMarkazul ? (
-          <MarkazulBayaanProject 
-            project={project} 
-            containerVariants={containerVariants} 
+          <MarkazulBayaanProject
+            project={project}
+            containerVariants={containerVariants}
             itemVariants={itemVariants}
             currentImageIndex={currentImageIndex}
             handleNextImage={handleNextImage}
@@ -125,16 +129,24 @@ const ProjectDetail = () => {
             setCurrentImageIndex={setCurrentImageIndex}
           />
         ) : isMobileApp ? (
-          <MobileAppDisplay 
+          <MobileAppDisplay
             project={project}
             containerVariants={containerVariants}
             itemVariants={itemVariants}
+            currentImageIndex={currentImageIndex}
+            handleNextImage={handleNextImage}
+            handlePreviousImage={handlePreviousImage}
+            setCurrentImageIndex={setCurrentImageIndex}
           />
         ) : (
-          <StandardProjectDisplay 
+          <StandardProjectDisplay
             project={project}
             containerVariants={containerVariants}
             itemVariants={itemVariants}
+            currentImageIndex={currentImageIndex}
+            handleNextImage={handleNextImage}
+            handlePreviousImage={handlePreviousImage}
+            setCurrentImageIndex={setCurrentImageIndex}
           />
         )}
       </div>

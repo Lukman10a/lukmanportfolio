@@ -16,13 +16,13 @@ export default function ProjectsPage() {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: { staggerChildren: 0.1 }
-    }
+      transition: { staggerChildren: 0.1 },
+    },
   };
 
   const itemVariants = {
     hidden: { y: 20, opacity: 0 },
-    visible: { y: 0, opacity: 1, transition: { duration: 0.5 } }
+    visible: { y: 0, opacity: 1, transition: { duration: 0.5 } },
   };
 
   return (
@@ -42,12 +42,13 @@ export default function ProjectsPage() {
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back to Home
           </Link>
-          
+
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-black dark:text-white mb-4">
             My <span className="text-brand">Projects</span>
           </h1>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl">
-            A collection of my work showcasing modern web development, user experience design, and innovative solutions.
+            A collection of my work showcasing modern web development, user
+            experience design, and innovative solutions.
           </p>
         </motion.div>
 
@@ -56,11 +57,11 @@ export default function ProjectsPage() {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="grid sm:grid-cols-1 md:grid-cols-2 grid-cols-3 gap-6 md:gap-8"
+          className="grid sm:grid-cols-1 md:grid-cols-2 grid-cols-2 gap-6 md:gap-8"
         >
           {projectDetails.map((project: Projects) => {
             const slug = `/projects/${generateSlug(project.title)}`;
-            
+
             return (
               <motion.div
                 key={project.id}
@@ -93,21 +94,30 @@ export default function ProjectsPage() {
                         </h3>
                         <ExternalLink className="w-4 h-4 text-gray-400 group-hover:text-brand transition-colors duration-200" />
                       </div>
-                      
-                      <p className="text-gray-600 dark:text-gray-300 text-sm mb-4 overflow-hidden" style={{ display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical' }}>
+
+                      <p
+                        className="text-gray-600 dark:text-gray-300 text-sm mb-4 overflow-hidden"
+                        style={{
+                          display: "-webkit-box",
+                          WebkitLineClamp: 2,
+                          WebkitBoxOrient: "vertical",
+                        }}
+                      >
                         {project.description}
                       </p>
 
                       {/* Tech Stack */}
                       <div className="flex flex-wrap gap-2 mb-4">
-                        {project.techStack.slice(0, 3).map((tech, techIndex) => (
-                          <span
-                            key={techIndex}
-                            className="px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-md"
-                          >
-                            {tech}
-                          </span>
-                        ))}
+                        {project.techStack
+                          .slice(0, 3)
+                          .map((tech, techIndex) => (
+                            <span
+                              key={techIndex}
+                              className="px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-md"
+                            >
+                              {tech}
+                            </span>
+                          ))}
                         {project.techStack.length > 3 && (
                           <span className="px-2 py-1 text-xs font-medium bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-md">
                             +{project.techStack.length - 3} more
@@ -148,4 +158,4 @@ export default function ProjectsPage() {
       </div>
     </div>
   );
-} 
+}

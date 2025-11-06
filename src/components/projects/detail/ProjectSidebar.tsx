@@ -79,20 +79,20 @@ const ProjectSidebar: React.FC<ProjectSidebarProps> = ({
         </div>
       </div>
 
-      {/* Contact Section */}
-      <div className="bg-[#ff914d] bg-opacity-10 dark:bg-opacity-5 p-6 sm:p-4 rounded-xl shadow-sm border border-[#ff914d] border-opacity-20">
-        <h3 className="text-xl sm:text-lg font-semibold text-gray-900 dark:text-white mb-4 sm:mb-3">
-          Have Questions?
+      {/* Hire Me Section */}
+      <div className="bg-gradient-to-br from-[#ff914d] to-[#e67e3a] p-6 sm:p-4 rounded-xl shadow-lg text-white">
+        <h3 className="text-xl sm:text-lg font-semibold mb-3 sm:mb-2">
+          Need a Similar Project?
         </h3>
-        <p className="text-gray-700 dark:text-gray-300 mb-4 sm:mb-3 text-base sm:text-sm">
-          Interested in learning more about our Islamic courses or how to
-          enroll? Get in touch with us today.
+        <p className="text-white/90 mb-4 sm:mb-3 text-base sm:text-sm">
+          I can build custom solutions tailored to your needs. Let's discuss
+          your project!
         </p>
         <a
-          href="mailto:markazulbayaan9@gmail.com"
-          className="inline-flex w-full items-center justify-center px-4 py-2 sm:px-3 sm:py-2 border border-transparent shadow-sm text-sm sm:text-xs font-medium rounded-md text-white bg-[#ff914d] hover:bg-[#e67e3a] transition-colors duration-200"
+          href={`mailto:abdulrauflukman9@gmail.com?subject=Project Inquiry - ${project.title}`}
+          className="inline-flex w-full items-center justify-center px-4 py-2.5 sm:px-3 sm:py-2 border-2 border-white shadow-sm text-sm sm:text-xs font-medium rounded-md text-white bg-transparent hover:bg-white hover:text-[#ff914d] transition-all duration-200"
         >
-          Contact Us
+          Hire Me
           <svg
             className="w-4 h-4 sm:w-3 sm:h-3 ml-2"
             fill="none"

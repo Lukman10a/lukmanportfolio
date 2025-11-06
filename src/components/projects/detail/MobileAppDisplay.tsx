@@ -106,29 +106,32 @@ const MobileAppDisplay: React.FC<MobileAppDisplayProps> = ({
         animate={statsControls}
         variants={scrollVariants}
       >
-        <ProjectStats itemVariants={itemVariants} />
+        <ProjectStats itemVariants={itemVariants} project={project} />
       </motion.div>
 
       {/* Main Content Section */}
       <div className="p-8 md:p-6 sm:p-4">
         <div className="grid grid-cols-3 gap-12 lg:grid-cols-1">
-          {/* Left Column */}
+          {/* Left Column - Narrower for mobile portrait images */}
           <div className="col-span-2 space-y-12 lg:space-y-8">
-            {/* Image Gallery */}
+            {/* Image Gallery - Mobile Portrait Style */}
             <motion.div
               ref={galleryRef}
               initial="hidden"
               animate={galleryControls}
               variants={scrollVariants}
+              className="flex justify-center"
             >
-              <ImageGallery
-                images={project.images}
-                currentImageIndex={currentImageIndex}
-                setCurrentImageIndex={setCurrentImageIndex}
-                handleNextImage={handleNextImage}
-                handlePreviousImage={handlePreviousImage}
-                itemVariants={itemVariants}
-              />
+              <div className="max-w-md w-full">
+                <ImageGallery
+                  images={project.images}
+                  currentImageIndex={currentImageIndex}
+                  setCurrentImageIndex={setCurrentImageIndex}
+                  handleNextImage={handleNextImage}
+                  handlePreviousImage={handlePreviousImage}
+                  itemVariants={itemVariants}
+                />
+              </div>
             </motion.div>
 
             {/* Project Overview */}

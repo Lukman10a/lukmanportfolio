@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import Image from 'next/image';
-import { motion } from 'framer-motion';
-import { Projects } from '../../../../data';
+import React, { useState } from "react";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { Projects } from "../../../../data";
 
 interface ProjectHeroProps {
   project: Projects;
@@ -11,10 +11,31 @@ interface ProjectHeroProps {
 
 const ProjectHero: React.FC<ProjectHeroProps> = ({ project, itemVariants }) => {
   const [imageError, setImageError] = useState(false);
-  
+
   // Handle image loading errors
   const handleImageError = () => {
     setImageError(true);
+  };
+
+  // Get project-specific subtitle
+  const getProjectSubtitle = () => {
+    switch (project.title) {
+      case "Markazul Bayaan":
+        return "An online Islamic school offering authentic knowledge to students globally";
+      case "Teverse":
+        return "Innovative cloud computing solutions empowering businesses in Sydney and beyond";
+      case "Cloude Code":
+        return "Cloud-based IDE enabling seamless collaboration and development from anywhere";
+      case "SunnahHive":
+        return "Your comprehensive digital platform for authentic Islamic knowledge and practice";
+      case "Consology":
+        return "Digital construction management platform streamlining projects from planning to completion";
+      case "LearnSmart":
+      case "LearnBoost":
+        return "Mobile-first educational app making personalized learning accessible on-the-go";
+      default:
+        return "A modern digital solution built with cutting-edge technology";
+    }
   };
 
   return (
@@ -28,14 +49,14 @@ const ProjectHero: React.FC<ProjectHeroProps> = ({ project, itemVariants }) => {
           {project.title}
         </h1>
         <p className="text-xl md:text-lg text-gray-700 dark:text-gray-300 max-w-3xl">
-          An online Islamic school offering authentic knowledge to students globally
+          {getProjectSubtitle()}
         </p>
       </motion.div>
 
       {/* Hero Image Section */}
       <div className="relative h-[50vh] lg:h-[40vh] w-full overflow-hidden">
         <Image
-          src={imageError ? '/placeholder.jpg' : project.images[0]}
+          src={imageError ? "/placeholder.jpg" : project.images[0]}
           alt={project.title}
           fill
           className="object-cover"
@@ -47,4 +68,4 @@ const ProjectHero: React.FC<ProjectHeroProps> = ({ project, itemVariants }) => {
   );
 };
 
-export default ProjectHero; 
+export default ProjectHero;

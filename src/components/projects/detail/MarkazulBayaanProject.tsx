@@ -106,7 +106,7 @@ const MarkazulBayaanProject: React.FC<MarkazulProjectProps> = ({
         animate={statsControls}
         variants={scrollVariants}
       >
-        <ProjectStats itemVariants={itemVariants} />
+        <ProjectStats itemVariants={itemVariants} project={project} />
       </motion.div>
 
       {/* Main Content Section */}

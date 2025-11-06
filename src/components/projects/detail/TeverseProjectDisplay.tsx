@@ -106,7 +106,7 @@ const TeverseProjectDisplay: React.FC<TeverseProjectDisplayProps> = ({
         animate={statsControls}
         variants={scrollVariants}
       >
-        <ProjectStats itemVariants={itemVariants} />
+        <ProjectStats itemVariants={itemVariants} project={project} />
       </motion.div>
 
       {/* Main Content Section */}
